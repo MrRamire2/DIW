@@ -1,0 +1,50 @@
+la página en catalan
+Texto del wireframe en ingles
+
+Pagina principal
+historia de la ballena
+porfolio (fotos de montaje)
+noticias
+alumnos
+
+USUARIO
+Un usuario principal que haga de admin para nuevos usuarios
+Los otros usuarios solo podrán iniciar sesión
+obligar al nuevo usuario a cambiar su contraseña
+
+Museo del prado
+Museo rayo
+
+Home page
+login -> admin page -> user settings
+history
+portfolio -> assembly
+news -> dentro de la noticia
+al voltant de la balena -> fitxes, oltres activitets
+
+
+HOME
+ordenador
+https://wireframe.cc/seh8cC
+
+movil
+https://wireframe.cc/8UFw2M
+
+
+MENU
+movil
+https://wireframe.cc/4UQfRE
+
+
+LOGIN
+ordenador
+https://wireframe.cc/p2ab2d
+
+movil
+https://wireframe.cc/qci0sd
+
+
+HISTORY
+PORTFOLIO
+NEWS 
+AL VOLANT DE LA BELENA 
