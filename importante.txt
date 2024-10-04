@@ -49,12 +49,20 @@ movil
 https://wireframe.cc/qci0sd
 
 
+CHANGE PASSWORD
+ordenador
+https://wireframe.cc/TGu6Sd
+
+movil
+https://wireframe.cc/NUV7Or
+
 HISTORY
 ordenador
 https://wireframe.cc/5Pn0yq
 
 movil
 https://wireframe.cc/iNxWpU
+
 
 PORTFOLIO
 ordenador
@@ -63,30 +71,35 @@ https://wireframe.cc/Fr42Pa
 movil
 https://wireframe.cc/DUVosI
 
+
 NEWS 
 ordenador
-
+https://wireframe.cc/xsnEwz
 
 movil
+https://wireframe.cc/pMn22e
 
 
-NEWS INSIDE
+NEWS-INSIDE
 ordenador
+https://wireframe.cc/nTU9EU
 
 
 movil
-
+https://wireframe.cc/jD37uf
 
 
 AL VOLANT DE LA BALENA 
-odenador
-
-
-movil
-
-
-ADMIN LOGIN
 ordenador
-
+https://wireframe.cc/AF4JUz
 
 movil
+https://wireframe.cc/DUVosI
+
+
+SUPER-USER
+ordenador
+https://wireframe.cc/TKldQl
+
+movil
+https://wireframe.cc/bISm7c
