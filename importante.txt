@@ -1,3 +1,8 @@
+marron = #8F6B47
+marron claro = #DF9D5D o #F4D493
+beige = #CEB593 (reducir un poco maybe)
+
+
 la página en catalan
 Texto del wireframe en ingles
 
@@ -45,6 +50,43 @@ https://wireframe.cc/qci0sd
 
 
 HISTORY
+ordenador
+https://wireframe.cc/5Pn0yq
+
+movil
+https://wireframe.cc/iNxWpU
+
 PORTFOLIO
+ordenador
+https://wireframe.cc/Fr42Pa
+
+movil
+https://wireframe.cc/DUVosI
+
 NEWS 
-AL VOLANT DE LA BELENA 
+ordenador
+
+
+movil
+
+
+NEWS INSIDE
+ordenador
+
+
+movil
+
+
+
+AL VOLANT DE LA BALENA 
+odenador
+
+
+movil
+
+
+ADMIN LOGIN
+ordenador
+
+
+movil
