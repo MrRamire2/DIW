@@ -1,6 +1,8 @@
-marron = #8F6B47
-marron claro = #DF9D5D o #F4D493
-beige = #CEB593 (reducir un poco maybe)
+MARRON = #8F6B47
+MARRON CLARO = #DF9D5D
+CREMA = #F4D493
+BEIGE = #ffecd3
+AZUL = #001a57
 
 
 la página en catalan
