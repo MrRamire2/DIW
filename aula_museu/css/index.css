@@ -38,8 +38,13 @@ width: 50px;
   text-align: end;
 }
 
-.login img {
+.login img, .nav-mobile img{
   width: 40px;
+  transition: all 100ms;
+}
+
+.login img:hover, .nav-mobile img:hover {
+  transform: scale(1.1);
 }
 
 .nav-mobile {
@@ -47,17 +52,19 @@ width: 50px;
   display: flex;
 }
 
-.nav-mobile img {
-  width: 40px;
-}
-
 .nav-mobile li {
   display: none;
 }
 
+
+
 main {
   background-color: #ffecd3;
+  height: 80vh;
 }
+
+
+
 
 footer {
   background-color: #8F6B47;
@@ -90,6 +97,10 @@ footer img {
   margin-bottom: 20px;
 }
 
+footer img:hover {
+  transform: scale(1.1);
+}
+
 footer h3, footer a {
   display: inline-block;
   color: #FCFAF9;
@@ -109,4 +120,39 @@ footer h3, footer a {
   border: none;
   background-color: #8F6B47;
   color: #ffecd3;
+}
+
+
+
+@media screen and (min-width: 600px) {
+  header {
+    grid-template-columns: [row1-start] 25% [row1-end row2-start] auto [row2-end]25%;
+    grid-template-areas: "logo desktop login";
+  }
+
+  .header-logo {
+    text-align: left;
+  }
+  
+  .nav-mobile {
+    display: none;
+  }
+  
+  .login img, .nav-mobile img{
+    width: 40px;
+    transition: all 100ms;
+  }
+  
+  .login img:hover, .nav-mobile img:hover {
+    transform: scale(1.1);
+  }
+  
+  .nav-desktop {
+    grid-area: desktop;
+    display: flex;
+  }
+  
+  .nav-desktop > div > a {
+    
+  }
 }
