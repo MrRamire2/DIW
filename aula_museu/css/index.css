@@ -1,0 +1,112 @@
+/* 
+MARRON = #8F6B47
+MARRON CLARO = #DF9D5D
+CREMA = #F4D493
+BEIGE = #ffecd3
+AZUL = #001a57
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding: 5px 20px 2px;
+  background-color: #8F6B47;
+  display: grid;
+  grid-template-columns: [row1-start] 25% [row1-end row2-start] auto [row2-end]25%;
+  grid-template-areas: "mobile logo login";
+  align-items: center;
+}
+
+.nav-desktop {
+  display: none;
+}
+
+.header-logo {
+  grid-area: logo;
+  text-align: center;
+}
+
+.header-logo img {
+width: 50px;
+}
+
+.login {
+  grid-area: login;
+  text-align: end;
+}
+
+.login img {
+  width: 40px;
+}
+
+.nav-mobile {
+  grid-area: mobile;
+  display: flex;
+}
+
+.nav-mobile img {
+  width: 40px;
+}
+
+.nav-mobile li {
+  display: none;
+}
+
+main {
+  background-color: #ffecd3;
+}
+
+footer {
+  background-color: #8F6B47;
+  padding: 10px 20px;
+}
+
+footer > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
+footer > div:nth-child(2) {
+  justify-content:space-between;
+}
+
+footer > div > ul {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+footer li {
+  display: inline-block;
+}
+
+footer img {
+  width: 30px;
+  margin: 5px;
+  margin-bottom: 20px;
+}
+
+footer h3, footer a {
+  display: inline-block;
+  color: #FCFAF9;
+  font-family: 'Raleway';
+  font-weight: lighter;
+  font-size: 15px;
+}
+
+.btn {
+  padding: 50px;
+
+}
+
+.btn input {
+  padding: 5px 20px;
+  border-radius: 2px;
+  border: none;
+  background-color: #8F6B47;
+  color: #ffecd3;
+}
