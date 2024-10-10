@@ -103,7 +103,7 @@ footer img:hover {
 
 footer h3, footer a {
   display: inline-block;
-  color: #FCFAF9;
+  color: #ffecd3;
   font-family: 'Raleway';
   font-weight: lighter;
   font-size: 15px;
@@ -124,7 +124,7 @@ footer h3, footer a {
 
 
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 650px) {
   header {
     grid-template-columns: [row1-start] 25% [row1-end row2-start] auto [row2-end]25%;
     grid-template-areas: "logo desktop login";
@@ -132,14 +132,28 @@ footer h3, footer a {
 
   .header-logo {
     text-align: left;
+
   }
+
+  .header-logo img{
+    width: 40px;
+    transition: all 100ms;
+  }
+
+  .header-logo img:hover {
+    transform: scale(1.1);
+  }
+
+  .header-logo img {
+    width: 60px;
+    }
   
   .nav-mobile {
     display: none;
   }
   
   .login img, .nav-mobile img{
-    width: 40px;
+    width: 50px;
     transition: all 100ms;
   }
   
@@ -150,9 +164,31 @@ footer h3, footer a {
   .nav-desktop {
     grid-area: desktop;
     display: flex;
+    justify-content: space-between;
   }
   
   .nav-desktop > div > a {
-    
+    color: #ffecd3;
+    font-family: 'Raleway';
+    font-weight: lighter;
+    font-size: 20px;
+    text-decoration: none;
+
+    padding: .75em;
+    background: linear-gradient(to right, #836242, #836242);
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    transition: background-size 0.2s 0s;
+  }
+
+  .nav-desktop > div > a:hover {
+    background-size: 100% 100%;
+  }
+
+
+
+
+  footer h3, footer a {
+    font-size: 20px;
   }
 }
