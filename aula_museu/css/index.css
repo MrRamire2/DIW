@@ -63,6 +63,10 @@ main {
   height: 80vh;
 }
 
+main > div {
+  height: 100%;
+}
+
 
 
 
@@ -124,7 +128,7 @@ footer h3, footer a {
 
 
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 950px) {
   header {
     grid-template-columns: [row1-start] 25% [row1-end row2-start] auto [row2-end]25%;
     grid-template-areas: "logo desktop login";
@@ -172,17 +176,22 @@ footer h3, footer a {
     font-family: 'Raleway';
     font-weight: lighter;
     font-size: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     text-decoration: none;
+    padding: 10px 15px 27px;
 
-    padding: .75em;
-    background: linear-gradient(to right, #836242, #836242);
-    background-repeat: no-repeat;
-    background-size: 0 100%;
-    transition: background-size 0.2s 0s;
+    background: linear-gradient(0deg, #76533a50 50%, transparent 50%);
+    background-size: 200% 200%;
+    background-position: 100% 0%;
+    transition: background-position 0.3s ease, color 0.5s ease;
+    cursor: pointer;
   }
 
   .nav-desktop > div > a:hover {
-    background-size: 100% 100%;
+    background-position: 100% 100%;
+    color: #ffecd3;
+    transform: scale(1.2) translateY(-5px);
   }
 
 
@@ -192,3 +201,5 @@ footer h3, footer a {
     font-size: 20px;
   }
 }
+
+/*#76513a*/
