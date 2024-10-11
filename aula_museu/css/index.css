@@ -15,7 +15,7 @@ header {
   padding: 5px 20px 2px;
   background-color: #8F6B47;
   display: grid;
-  grid-template-columns: [row1-start] 25% [row1-end row2-start] auto [row2-end]25%;
+  grid-template-columns: 1fr  4fr 1fr;
   grid-template-areas: "mobile logo login";
   align-items: center;
 }
@@ -39,12 +39,12 @@ width: 50px;
 }
 
 .login img, .nav-mobile img{
-  width: 40px;
+  width: 50px;
   transition: all 100ms;
 }
 
 .login img:hover, .nav-mobile img:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .nav-mobile {
@@ -102,7 +102,7 @@ footer img {
 }
 
 footer img:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 footer h3, footer a {
@@ -128,9 +128,9 @@ footer h3, footer a {
 
 
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 900px) {
   header {
-    grid-template-columns: [row1-start] 25% [row1-end row2-start] auto [row2-end]25%;
+    grid-template-columns: 1fr  4fr 1fr;
     grid-template-areas: "logo desktop login";
   }
 
@@ -140,17 +140,13 @@ footer h3, footer a {
   }
 
   .header-logo img{
-    width: 40px;
+    width: 50px;
     transition: all 100ms;
   }
 
   .header-logo img:hover {
     transform: scale(1.1);
   }
-
-  .header-logo img {
-    width: 60px;
-    }
   
   .nav-mobile {
     display: none;
@@ -162,13 +158,13 @@ footer h3, footer a {
   }
   
   .login img:hover, .nav-mobile img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
   
   .nav-desktop {
     grid-area: desktop;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
   
   .nav-desktop > div > a {
@@ -179,7 +175,7 @@ footer h3, footer a {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     text-decoration: none;
-    padding: 10px 15px 27px;
+    padding: 15px 15px 22px;
 
     background: linear-gradient(0deg, #76533a50 50%, transparent 50%);
     background-size: 200% 200%;
@@ -201,5 +197,3 @@ footer h3, footer a {
     font-size: 20px;
   }
 }
-
-/*#76513a*/
