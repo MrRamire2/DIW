@@ -61,7 +61,8 @@ width: 50px;
 main {
   background-image: url(../images/Fondo.gif);
   background-size: 500px;
-  padding: 20px 0;
+  background-attachment: fixed;
+  padding: 20px 5px;
   margin: 0;
   display: flex;
   flex-direction: row;
@@ -71,13 +72,19 @@ main {
 
 main > div {
   position: relative;
-  filter: drop-shadow(0 2px 5px #876343);
+  filter: drop-shadow(0 0 0);
   flex-grow: 4;
+  transition: all 300ms;
 }
 
 main > div > img {
   width: 100%;
   height: 100%;
+  border-radius: 3px;
+}
+
+main > div:hover {
+  filter: drop-shadow(0 2px 5px #876343);
 }
 
 main > div > h2 {
