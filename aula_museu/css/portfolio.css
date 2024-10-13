@@ -11,6 +11,12 @@ AZUL = #001a57
   padding: 0;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 header {
   padding: 5px 20px 2px;
   background-color: #8F6B47;
@@ -59,6 +65,7 @@ width: 50px;
 
 
 main {
+  flex-grow: 1;
   background-image: url(../images/Fondo.gif);
   background-size: 500px;
   background-attachment: fixed;
