@@ -59,8 +59,10 @@ width: 50px;
 
 
 main {
-  background-color: #ffecd3;
   height: 80vh;
+  background-image: url(../images/Fondo.gif);
+  background-size: 500px;
+  background-attachment: fixed;
 }
 
 main > div {
@@ -72,7 +74,7 @@ main > div {
 
 footer {
   background-color: #8F6B47;
-  padding: 10px 20px;
+  padding: 15px 20px 20px;
 }
 
 footer > div {
@@ -111,19 +113,6 @@ footer h3, footer a {
   font-family: 'Raleway';
   font-weight: lighter;
   font-size: 15px;
-}
-
-.btn {
-  padding: 50px;
-
-}
-
-.btn input {
-  padding: 5px 20px;
-  border-radius: 2px;
-  border: none;
-  background-color: #8F6B47;
-  color: #ffecd3;
 }
 
 
@@ -175,19 +164,21 @@ footer h3, footer a {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     text-decoration: none;
-    padding: 15px 15px 22px;
+    padding: 15px 15px 21px;
 
-    background: linear-gradient(0deg, #76533a50 50%, transparent 50%);
+    background: linear-gradient(0deg, #876343 50%, transparent 50%);
     background-size: 200% 200%;
     background-position: 100% 0%;
     transition: background-position 0.3s ease, color 0.5s ease;
     cursor: pointer;
   }
 
+  .home > a:nth-child(1){
+    background-color: #876343;
+  }
+
   .nav-desktop > div > a:hover {
     background-position: 100% 100%;
-    color: #ffecd3;
-    transform: scale(1.2) translateY(-5px);
   }
 
 

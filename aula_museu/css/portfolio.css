@@ -6,7 +6,7 @@ BEIGE = #ffecd3
 AZUL = #001a57
  */
 
-* {
+ * {
   margin: 0;
   padding: 0;
 }
@@ -38,11 +38,7 @@ width: 50px;
   text-align: end;
 }
 
-.login img {
-  display: none;
-}
-
-.nav-mobile img{
+.login img, .nav-mobile img{
   width: 50px;
   transition: all 100ms;
 }
@@ -65,86 +61,35 @@ width: 50px;
 main {
   background-image: url(../images/Fondo.gif);
   background-size: 500px;
-  background-attachment: fixed;
-  padding: 100px 10%;
-}
-
-main > form {
+  padding: 20px 0;
+  margin: 0;
   display: flex;
-  justify-content: left;
-  flex-direction: column;
-  background-color: #8F6B47;
-  padding: 20px 50px;
-  border-radius: 3px;
-  text-align: center;
-  max-width: 500px;
-  margin: auto;
-}
-
-main > form > label {
-  color: #ffecd3;
-  font-family: 'Raleway';
-  font-weight: normal;
-  text-align: left;
-}
-
-main > form > input {
-  padding: 5px;
-  border-radius: 2px;
-  margin: 15px 0;
-  width: 100%;
-  border: 0px;
-  background-color: #ffecd3;
-  border: 1px solid #8F6B47;
-
-  font-family: 'Raleway';
-  font-weight: bold;
-  text-decoration: none;
-  color: #8F6B47;
-}
-
-main > form > input:focus {
-  outline: none;
-  box-shadow: 5px 5px 3px #856142;
-  transform: scaleY(1.05);
-}
-
-main > form > button {
-  margin: 50px auto 20px;
-  padding: 5px 20px;
-  border-radius: 2px;
-  width: 90px;
-  border: none;
-  background-color: #ffecd3;
-  color: #8F6B47;
-  transition: all 100ms;
-}
-
-main > form > button:hover {
-  transform: scale(1.05);
-  box-shadow: 5px 5px 3px #856142;
-}
-
-main > form > button:focus {
-  outline: none;
-  box-shadow: 5px 5px 3px #856142;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 main > div {
-  padding: 50px;
+  position: relative;
+  filter: drop-shadow(0 2px 5px #876343);
+  flex-grow: 4;
 }
 
-main > div > a {
+main > div > img {
+  width: 100%;
+  height: 100%;
+}
+
+main > div > h2 {
+  color: #ffecd3;
   font-family: 'Raleway';
-  font-weight: bold;
-  text-decoration: none;
-  color: #8F6B47;
+  font-weight: normal;
+  text-shadow: 1px 1px 2px #8F6B47, 0 0 1em #876343, 0 0 0.2em #876343;
+  font-size: 15px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
-
-main > div > a:nth-child(2) {
-  display: none;
-}
-
 
 
 
@@ -191,10 +136,6 @@ footer h3, footer a {
   font-size: 15px;
 }
 
-footer a {
-  color: #ffecd3;
-}
-
 
 
 @media screen and (min-width: 900px) {
@@ -221,7 +162,7 @@ footer a {
     display: none;
   }
   
-  .nav-mobile img{
+  .login img, .nav-mobile img{
     width: 50px;
     transition: all 100ms;
   }
@@ -246,11 +187,15 @@ footer a {
     text-decoration: none;
     padding: 15px 15px 21px;
 
-    background: linear-gradient(0deg, #76533a50 50%, transparent 50%);
+    background: linear-gradient(0deg, #876343 50%, transparent 50%);
     background-size: 200% 200%;
     background-position: 100% 0%;
     transition: background-position 0.3s ease, color 0.5s ease;
     cursor: pointer;
+  }
+
+  .portfolio > a:nth-child(1){
+    background-color: #876343;
   }
 
   .nav-desktop > div > a:hover {
@@ -258,8 +203,7 @@ footer a {
   }
 
 
-
-
+  
   footer h3, footer a {
     font-size: 20px;
   }
