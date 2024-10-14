@@ -1,18 +1,16 @@
 /* 
-MARRON = #8F6B47
-MARRON CLARO = #DF9D5D
-CREMA = #F4D493
-BEIGE = #ffecd3
-AZUL = #001a57
+ https://coolors.co/041a1f-20333d-294b52-bfa473-f2ede4-fdfefa
+ Rich black = #041A1F
+ Ecru = #BFA473
+ Dun = #DED1B7
+ Baby powder = #FDFEFA
  */
 
- /* 
- segunda paleta
- marron = #502419
- azul = #3C7C80
- azul oscuro = #031926
- blanco = #F1F7ED 
- */
+
+ 
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
 
 * {
   margin: 0;
@@ -27,7 +25,7 @@ body {
 
 header {
   padding: 5px 20px 2px;
-  background-color: #502419;
+  background-color: #041A1F;
   display: grid;
   grid-template-columns: 1fr  4fr 1fr;
   grid-template-areas: "mobile logo login";
@@ -83,7 +81,7 @@ header {
 
 main {
   flex-grow: 1;
-  background-image: url(../images/Fondo.gif);
+  background-image: url(../images/Fondo2.gif);
   background-size: 500px;
   background-attachment: fixed;
   padding: 100px 10%;
@@ -93,20 +91,20 @@ main > form {
   display: flex;
   justify-content: left;
   flex-direction: column;
-  background-color: #502419;
+  background-color: #041A1F;
   padding: 20px 50px;
   border-radius: 3px;
   text-align: center;
   max-width: 500px;
   margin: auto;
-  box-shadow: 0px 0px 30px 0px #856142;
+  box-shadow: 0px 0px 30px 0px #BFA473;
 
 }
 
 main > form > label {
-  color: #F1F7ED ;
-  font-family: 'Raleway';
-  font-weight: normal;
+  color: #BFA473;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
   text-align: left;
 }
 
@@ -116,19 +114,19 @@ main > form > input {
   margin: 15px 0;
   width: 100%;
   border: 0px;
-  background-color: #ffecd3;
-  border: 1px solid #502419;
+  background-color: #FDFEFA;
+  border: 2px solid #BFA473;
 
-  font-family: 'Raleway';
-  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
   text-decoration: none;
   color: #502419;
 }
 
 main > form > input:focus {
   outline: none;
-  box-shadow: 5px 5px 3px #502419;
-  transform: scaleY(1.05);
+  border: 2px solid #DED1B7;
+  box-shadow: 0px 0px 10px 0px #BFA473;
 }
 
 main > form > button {
@@ -136,20 +134,22 @@ main > form > button {
   padding: 5px 20px;
   border-radius: 2px;
   width: 90px;
-  border: none;
-  background-color: #3c7c80;
-  color: #F1F7ED ;
+  background-color: #BFA473;
+  color: #041A1F;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
   transition: all 100ms;
 }
 
 main > form > button:hover {
-  transform: scale(1.03);
-  box-shadow: 5px 5px 3px #502419;
+  border: 2px solid #DED1B7;
+  box-shadow: 0px 0px 10px 0px #BFA473;
 }
 
 main > form > button:focus {
   outline: none;
-  box-shadow: 5px 5px 3px #502419;
+  border: 2px solid #DED1B7;
+  box-shadow: 0px 0px 10px 0px #BFA473;
 }
 
 main > div {
@@ -157,8 +157,8 @@ main > div {
 }
 
 main > div > a {
-  font-family: 'Raleway';
-  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
   text-decoration: none;
   color: #502419;
 }
@@ -171,7 +171,7 @@ main > div > a:nth-child(2) {
 
 
 footer {
-  background-color: #502419;
+  background-color: #041A1F;
   padding: 15px 20px 20px;
 }
 
@@ -207,14 +207,14 @@ footer img:hover {
 
 footer h3, footer a {
   display: inline-block;
-  color: #F1F7ED ;
-  font-family: 'Raleway';
+  color: #FDFEFA;
+  font-family: "Roboto", sans-serif;
   font-weight: lighter;
   font-size: 15px;
 }
 
 footer a {
-  color: #F1F7ED ;
+  color: #FDFEFA;
 }
 
 
@@ -250,16 +250,16 @@ footer a {
   }
   
   .nav-desktop > div > a {
-    color: #F1F7ED ;
-    font-family: 'Raleway';
-    font-weight: lighter;
+    color: #BFA473;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
     font-size: 20px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     text-decoration: none;
-    padding: 15px 15px 21px;
+    padding: 15px 15px 22px;
 
-    background: linear-gradient(0deg, #76533a50 50%, transparent 50%);
+    background: linear-gradient(0deg, #BFA473 50%, transparent 50%);
     background-size: 200% 200%;
     background-position: 100% 0%;
     transition: background-position 0.3s ease, color 0.5s ease;
@@ -268,6 +268,7 @@ footer a {
 
   .nav-desktop > div > a:hover {
     background-position: 100% 100%;
+    color: #041A1F;
   }
 
 
