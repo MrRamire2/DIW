@@ -6,6 +6,14 @@ BEIGE = #ffecd3
 AZUL = #001a57
  */
 
+ /* 
+ segunda paleta
+ marron = #502419
+ azul = #3C7C80
+ azul oscuro = #031926
+ blanco = #F1F7ED 
+ */
+
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +27,7 @@ body {
 
 header {
   padding: 5px 20px 2px;
-  background-color: #8F6B47;
+  background-color: #502419;
   display: grid;
   grid-template-columns: 1fr  4fr 1fr;
   grid-template-areas: "mobile logo login";
@@ -36,7 +44,12 @@ header {
 }
 
 .header-logo img {
-width: 50px;
+  width: 50px;
+  transition: all 100ms;
+}
+
+.header-logo img:hover {
+  transform: scale(1.03);
 }
 
 .login {
@@ -54,7 +67,7 @@ width: 50px;
 }
 
 .login img:hover, .nav-mobile img:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .nav-mobile {
@@ -80,16 +93,18 @@ main > form {
   display: flex;
   justify-content: left;
   flex-direction: column;
-  background-color: #8F6B47;
+  background-color: #502419;
   padding: 20px 50px;
   border-radius: 3px;
   text-align: center;
   max-width: 500px;
   margin: auto;
+  box-shadow: 0px 0px 30px 0px #856142;
+
 }
 
 main > form > label {
-  color: #ffecd3;
+  color: #F1F7ED ;
   font-family: 'Raleway';
   font-weight: normal;
   text-align: left;
@@ -102,17 +117,17 @@ main > form > input {
   width: 100%;
   border: 0px;
   background-color: #ffecd3;
-  border: 1px solid #8F6B47;
+  border: 1px solid #502419;
 
   font-family: 'Raleway';
   font-weight: bold;
   text-decoration: none;
-  color: #8F6B47;
+  color: #502419;
 }
 
 main > form > input:focus {
   outline: none;
-  box-shadow: 5px 5px 3px #856142;
+  box-shadow: 5px 5px 3px #502419;
   transform: scaleY(1.05);
 }
 
@@ -122,19 +137,19 @@ main > form > button {
   border-radius: 2px;
   width: 90px;
   border: none;
-  background-color: #ffecd3;
-  color: #8F6B47;
+  background-color: #3c7c80;
+  color: #F1F7ED ;
   transition: all 100ms;
 }
 
 main > form > button:hover {
-  transform: scale(1.05);
-  box-shadow: 5px 5px 3px #856142;
+  transform: scale(1.03);
+  box-shadow: 5px 5px 3px #502419;
 }
 
 main > form > button:focus {
   outline: none;
-  box-shadow: 5px 5px 3px #856142;
+  box-shadow: 5px 5px 3px #502419;
 }
 
 main > div {
@@ -145,7 +160,7 @@ main > div > a {
   font-family: 'Raleway';
   font-weight: bold;
   text-decoration: none;
-  color: #8F6B47;
+  color: #502419;
 }
 
 main > div > a:nth-child(2) {
@@ -156,7 +171,7 @@ main > div > a:nth-child(2) {
 
 
 footer {
-  background-color: #8F6B47;
+  background-color: #502419;
   padding: 15px 20px 20px;
 }
 
@@ -192,14 +207,14 @@ footer img:hover {
 
 footer h3, footer a {
   display: inline-block;
-  color: #ffecd3;
+  color: #F1F7ED ;
   font-family: 'Raleway';
   font-weight: lighter;
   font-size: 15px;
 }
 
 footer a {
-  color: #ffecd3;
+  color: #F1F7ED ;
 }
 
 
@@ -213,15 +228,6 @@ footer a {
   .header-logo {
     text-align: left;
 
-  }
-
-  .header-logo img{
-    width: 50px;
-    transition: all 100ms;
-  }
-
-  .header-logo img:hover {
-    transform: scale(1.1);
   }
   
   .nav-mobile {
@@ -244,7 +250,7 @@ footer a {
   }
   
   .nav-desktop > div > a {
-    color: #ffecd3;
+    color: #F1F7ED ;
     font-family: 'Raleway';
     font-weight: lighter;
     font-size: 20px;

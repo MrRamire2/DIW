@@ -36,7 +36,12 @@ header {
 }
 
 .header-logo img {
-width: 50px;
+  width: 50px;
+  transition: all 100ms;
+}
+
+.header-logo img:hover {
+  transform: scale(1.03);
 }
 
 .login {
@@ -133,15 +138,6 @@ footer h3, footer a {
   .header-logo {
     text-align: left;
 
-  }
-
-  .header-logo img{
-    width: 50px;
-    transition: all 100ms;
-  }
-
-  .header-logo img:hover {
-    transform: scale(1.1);
   }
   
   .nav-mobile {

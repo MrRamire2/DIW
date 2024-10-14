@@ -36,7 +36,12 @@ header {
 }
 
 .header-logo img {
-width: 50px;
+  width: 50px;
+  transition: all 100ms;  
+}
+
+.header-logo img:hover {
+  transform: scale(1.03);
 }
 
 .login {
@@ -162,15 +167,6 @@ footer h3, footer a {
     text-align: left;
 
   }
-
-  .header-logo img{
-    width: 50px;
-    transition: all 100ms;
-  }
-
-  .header-logo img:hover {
-    transform: scale(1.1);
-  }
   
   .nav-mobile {
     display: none;
@@ -182,7 +178,7 @@ footer h3, footer a {
   }
   
   .login img:hover, .nav-mobile img:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
   
   .nav-desktop {
