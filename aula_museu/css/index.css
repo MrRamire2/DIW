@@ -6,6 +6,12 @@ BEIGE = #ffecd3
 AZUL = #001a57
  */
 
+
+ @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
+
 * {
   margin: 0;
   padding: 0;
@@ -19,7 +25,7 @@ body {
 
 header {
   padding: 5px 20px 2px;
-  background-color: #8F6B47;
+  background-color: #041A1F;
   display: grid;
   grid-template-columns: 1fr  4fr 1fr;
   grid-template-areas: "mobile logo login";
@@ -55,7 +61,7 @@ header {
 }
 
 .login img:hover, .nav-mobile img:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .nav-mobile {
@@ -72,7 +78,7 @@ header {
 main {
   flex-grow: 1;
   height: 55vh;
-  background-image: url(../images/Fondo.gif);
+  background-image: url(../images/Fondo2.gif);
   background-size: 500px;
   background-attachment: fixed;
 }
@@ -85,7 +91,7 @@ main > div {
 
 
 footer {
-  background-color: #8F6B47;
+  background-color: #041A1F;
   padding: 15px 20px 20px;
 }
 
@@ -96,7 +102,7 @@ footer > div {
 }
 
 footer > div:nth-child(2) {
-  justify-content:space-between;
+  justify-content:space-around;
 }
 
 footer > div > ul {
@@ -121,10 +127,14 @@ footer img:hover {
 
 footer h3, footer a {
   display: inline-block;
-  color: #ffecd3;
-  font-family: 'Raleway';
+  color: #FDFEFA;
+  font-family: "Roboto", sans-serif;
   font-weight: lighter;
-  font-size: 15px;
+  font-size: 10px;
+}
+
+footer a {
+  color: #FDFEFA;
 }
 
 
@@ -160,16 +170,16 @@ footer h3, footer a {
   }
   
   .nav-desktop > div > a {
-    color: #ffecd3;
-    font-family: 'Raleway';
-    font-weight: lighter;
+    color: #BFA473;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
     font-size: 20px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     text-decoration: none;
     padding: 15px 15px 21px;
 
-    background: linear-gradient(0deg, #876343 50%, transparent 50%);
+    background: linear-gradient(0deg, #BFA473 50%, transparent 50%);
     background-size: 200% 200%;
     background-position: 100% 0%;
     transition: background-position 0.3s ease, color 0.5s ease;
@@ -177,17 +187,13 @@ footer h3, footer a {
   }
 
   .home > a:nth-child(1){
-    background-color: #876343;
+    background-color: #BFA473;
+    color: #041A1F;
   }
 
   .nav-desktop > div > a:hover {
     background-position: 100% 100%;
-  }
-
-
-
-  main {
-    height: 85vh;
+    color: #041A1F;
   }
 
 

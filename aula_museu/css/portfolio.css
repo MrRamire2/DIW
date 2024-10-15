@@ -1,10 +1,14 @@
 /* 
-MARRON = #8F6B47
-MARRON CLARO = #DF9D5D
-CREMA = #F4D493
-BEIGE = #ffecd3
-AZUL = #001a57
+ https://coolors.co/041a1f-20333d-294b52-bfa473-f2ede4-fdfefa
+ Rich black = #041A1F
+ Ecru = #BFA473
+ Dun = #DED1B7
+ Baby powder = #FDFEFA
  */
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 
  * {
   margin: 0;
@@ -19,7 +23,7 @@ body {
 
 header {
   padding: 5px 20px 2px;
-  background-color: #8F6B47;
+  background-color: #041A1F;
   display: grid;
   grid-template-columns: 1fr  4fr 1fr;
   grid-template-areas: "mobile logo login";
@@ -55,7 +59,7 @@ header {
 }
 
 .login img:hover, .nav-mobile img:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .nav-mobile {
@@ -71,7 +75,7 @@ header {
 
 main {
   flex-grow: 1;
-  background-image: url(../images/Fondo.gif);
+  background-image: url(../images/Fondo2.gif);
   background-size: 500px;
   background-attachment: fixed;
   padding: 20px 5px;
@@ -96,14 +100,14 @@ main > div > img {
 }
 
 main > div:hover {
-  filter: drop-shadow(0 2px 5px #876343);
+  filter: drop-shadow(0px 0px 5px #BFA473);
 }
 
 main > div > h2 {
-  color: #ffecd3;
-  font-family: 'Raleway';
-  font-weight: normal;
-  text-shadow: 1px 1px 2px #8F6B47, 0 0 1em #876343, 0 0 0.2em #876343;
+  color: #041A1F;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  text-shadow: 1px 1px 2px #BFA473;
   font-size: 15px;
   position: absolute;
   bottom: 10px;
@@ -113,7 +117,7 @@ main > div > h2 {
 
 
 footer {
-  background-color: #8F6B47;
+  background-color: #041A1F;
   padding: 15px 20px 20px;
 }
 
@@ -124,7 +128,7 @@ footer > div {
 }
 
 footer > div:nth-child(2) {
-  justify-content:space-between;
+  justify-content:space-around;
 }
 
 footer > div > ul {
@@ -149,10 +153,14 @@ footer img:hover {
 
 footer h3, footer a {
   display: inline-block;
-  color: #ffecd3;
-  font-family: 'Raleway';
+  color: #FDFEFA;
+  font-family: "Roboto", sans-serif;
   font-weight: lighter;
-  font-size: 15px;
+  font-size: 10px;
+}
+
+footer a {
+  color: #FDFEFA;
 }
 
 
@@ -178,7 +186,7 @@ footer h3, footer a {
   }
   
   .login img:hover, .nav-mobile img:hover {
-    transform: scale(1.03);
+    transform: scale(1.05);
   }
   
   .nav-desktop {
@@ -188,16 +196,16 @@ footer h3, footer a {
   }
   
   .nav-desktop > div > a {
-    color: #ffecd3;
-    font-family: 'Raleway';
-    font-weight: lighter;
+    color: #BFA473;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
     font-size: 20px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     text-decoration: none;
     padding: 15px 15px 21px;
 
-    background: linear-gradient(0deg, #876343 50%, transparent 50%);
+    background: linear-gradient(0deg, #BFA473 50%, transparent 50%);
     background-size: 200% 200%;
     background-position: 100% 0%;
     transition: background-position 0.3s ease, color 0.5s ease;
@@ -205,15 +213,16 @@ footer h3, footer a {
   }
 
   .portfolio > a:nth-child(1){
-    background-color: #876343;
+    background-color: #BFA473;
+    color: #041A1F;
   }
 
   .nav-desktop > div > a:hover {
     background-position: 100% 100%;
+    color: #041A1F;
   }
 
 
-  
   footer h3, footer a {
     font-size: 20px;
   }
