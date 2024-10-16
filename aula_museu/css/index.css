@@ -197,6 +197,13 @@ footer a {
   }
 
 
+  
+  main {
+    height: 85vh;
+  }
+
+
+
   footer h3, footer a {
     font-size: 20px;
   }
