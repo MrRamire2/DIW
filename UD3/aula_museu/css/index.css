@@ -1,0 +1,210 @@
+/* 
+MARRON = #8F6B47
+MARRON CLARO = #DF9D5D
+CREMA = #F4D493
+BEIGE = #ffecd3
+AZUL = #001a57
+ */
+
+
+ @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  padding: 5px 20px 2px;
+  background-color: #041A1F;
+  display: grid;
+  grid-template-columns: 1fr  4fr 1fr;
+  grid-template-areas: "mobile logo login";
+  align-items: center;
+}
+
+.nav-desktop {
+  display: none;
+}
+
+.header-logo {
+  grid-area: logo;
+  text-align: center;
+}
+
+.header-logo img {
+  width: 50px;
+  transition: all 100ms;
+}
+
+.header-logo img:hover {
+  transform: scale(1.03);
+}
+
+.login {
+  grid-area: login;
+  text-align: end;
+}
+
+.login img, .nav-mobile img{
+  width: 50px;
+  transition: all 100ms;
+}
+
+.login img:hover, .nav-mobile img:hover {
+  transform: scale(1.03);
+}
+
+ .nav-mobile {
+  grid-area: mobile;
+  display: flex;
+}
+
+.nav-mobile li {
+  display: none;
+} 
+
+
+
+main {
+  flex-grow: 1;
+  height: 55vh;
+  background-image: url(../images/Fondo2.gif);
+  background-size: 500px;
+  background-attachment: fixed;
+}
+
+main > div {
+  height: 100%;
+}
+
+
+
+
+footer {
+  background-color: #041A1F;
+  padding: 15px 20px 20px;
+}
+
+footer > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
+footer > div:nth-child(2) {
+  justify-content:space-around;
+}
+
+footer > div > ul {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+footer li {
+  display: inline-block;
+}
+
+footer img {
+  width: 30px;
+  margin: 5px;
+  margin-bottom: 20px;
+}
+
+footer img:hover {
+  transform: scale(1.05);
+}
+
+footer h3, footer a {
+  display: inline-block;
+  color: #FDFEFA;
+  font-family: "Roboto", sans-serif;
+  font-weight: lighter;
+  font-size: 10px;
+}
+
+footer a {
+  color: #FDFEFA;
+}
+
+
+
+@media screen and (min-width: 950px) {
+  header {
+    grid-template-columns: 1fr  4fr 1fr;
+    grid-template-areas: "logo desktop login";
+  }
+
+  .header-logo {
+    text-align: left;
+
+  }
+  
+  .nav-mobile {
+    display: none;
+  }
+  
+  .login img, .nav-mobile img{
+    width: 50px;
+    transition: all 100ms;
+  }
+  
+  .login img:hover, .nav-mobile img:hover {
+    transform: scale(1.05);
+  }
+  
+  .nav-desktop {
+    grid-area: desktop;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-desktop > div > a {
+    color: #BFA473;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-size: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-decoration: none;
+    padding: 15px 15px 21px;
+
+    background: linear-gradient(0deg, #BFA473 50%, transparent 50%);
+    background-size: 200% 200%;
+    background-position: 100% 0%;
+    transition: background-position 0.3s ease, color 0.5s ease;
+    cursor: pointer;
+  }
+
+  .home > a:nth-child(1){
+    background-color: #BFA473;
+    color: #041A1F;
+  }
+
+  .nav-desktop > div > a:hover {
+    background-position: 100% 100%;
+    color: #041A1F;
+  }
+
+
+  
+  main {
+    height: 90vh;
+  }
+
+
+
+  footer h3, footer a {
+    font-size: 20px;
+  }
+}
