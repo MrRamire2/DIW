@@ -1,0 +1,251 @@
+@import 'variables';
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  padding: 5px 20px 2px;
+  background-color: $rich-black;
+  display: grid;
+  grid-template-columns: 1fr  4fr 1fr;
+  grid-template-areas: "mobile logo login";
+  align-items: center;
+}
+
+.nav-desktop {
+  display: none;
+}
+
+.header-logo {
+  grid-area: logo;
+  text-align: center;
+}
+
+.header-logo img {
+  width: 50px;
+  transition: all 100ms;
+}
+
+.header-logo img:hover {
+  transform: scale(1.03);
+}
+
+.login {
+  grid-area: login;
+  text-align: end;
+}
+
+.login img {
+  display: none;
+}
+
+.nav-mobile img{
+  width: 50px;
+  transition: all 100ms;
+}
+
+.login img:hover, .nav-mobile img:hover {
+  transform: scale(1.03);
+}
+
+.nav-mobile {
+  grid-area: mobile;
+  display: flex;
+}
+
+.nav-mobile li {
+  display: none;
+}
+
+
+
+main {
+  flex-grow: 1;
+  background-image: url(../images/Fondo2.gif);
+  background-size: 500px;
+  background-attachment: fixed;
+  padding: 100px 10%;
+}
+
+main > form {
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  background-color: $rich-black;
+  padding: 20px 50px;
+  border-radius: 3px;
+  text-align: center;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0px 0px 30px 0px $ecru;
+
+}
+
+main > form > label {
+  color: $ecru;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  text-align: left;
+}
+
+main > form > input {
+  padding: 5px;
+  border-radius: 2px;
+  margin: 15px 0;
+  width: 100%;
+  border: 0px;
+  background-color: $baby-powder;
+  border: 2px solid $ecru;
+}
+
+main > form > input:focus {
+  outline: none;
+  border: 2px solid $dun;
+  box-shadow: 0px 0px 10px 0px $ecru;
+}
+
+main > form > button {
+  margin: 50px auto 20px;
+  padding: 5px 20px;
+  border-radius: 2px;
+  width: 90px;
+  background-color: $ecru;
+  color: $rich-black;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  transition: all 100ms;
+  border: 2px solid $ecru;
+}
+
+main > form > button:hover {
+  border: 2px solid $dun;
+  box-shadow: 0px 0px 10px 0px $ecru;
+}
+
+main > form > button:focus {
+  outline: none;
+  border: 2px solid $dun;
+  box-shadow: 0px 0px 10px 0px $ecru;
+}
+
+
+
+
+footer {
+  background-color: $rich-black;
+  padding: 15px 20px 20px;
+}
+
+footer > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
+footer > div:nth-child(2) {
+  justify-content:space-around;
+}
+
+footer > div > ul {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+}
+
+footer li {
+  display: inline-block;
+}
+
+footer img {
+  width: 30px;
+  margin: 5px;
+  margin-bottom: 20px;
+}
+
+footer img:hover {
+  transform: scale(1.05);
+}
+
+footer h3, footer a {
+  display: inline-block;
+  color: $baby-powder;
+  font-family: "Roboto", sans-serif;
+  font-weight: lighter;
+  font-size: 10px;
+}
+
+footer a {
+  color: $baby-powder;
+}
+
+
+
+@media screen and (min-width: 950px) {
+  header {
+    grid-template-columns: 1fr  4fr 1fr;
+    grid-template-areas: "logo desktop login";
+  }
+
+  .header-logo {
+    text-align: left;
+
+  }
+  
+  .nav-mobile {
+    display: none;
+  }
+  
+  .nav-mobile img{
+    width: 50px;
+    transition: all 100ms;
+  }
+  
+  .login img:hover, .nav-mobile img:hover {
+    transform: scale(1.05);
+  }
+  
+  .nav-desktop {
+    grid-area: desktop;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-desktop > div > a {
+    color: $ecru;
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-size: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-decoration: none;
+    padding: 15px 15px 22px;
+
+    background: linear-gradient(0deg, $ecru 50%, transparent 50%);
+    background-size: 200% 200%;
+    background-position: 100% 0%;
+    transition: background-position 0.3s ease, color 0.5s ease;
+    cursor: pointer;
+  }
+
+  .nav-desktop > div > a:hover {
+    background-position: 100% 100%;
+    color: $rich-black;
+  }
+
+
+
+
+  footer h3, footer a {
+    font-size: 20px;
+  }
+}
