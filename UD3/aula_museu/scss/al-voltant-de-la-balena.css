@@ -1,16 +1,5 @@
-/* 
- https://coolors.co/041a1f-20333d-294b52-bfa473-f2ede4-fdfefa
- Rich black = #041A1F
- Ecru = #BFA473
- Dun = #DED1B7
- Baby powder = #FDFEFA
- */
-
-
- @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-
- * {
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
   margin: 0;
   padding: 0;
 }
@@ -25,7 +14,7 @@ header {
   padding: 5px 20px 2px;
   background-color: #041A1F;
   display: grid;
-  grid-template-columns: 1fr  4fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
   grid-template-areas: "mobile logo login";
   align-items: center;
 }
@@ -41,7 +30,7 @@ header {
 
 .header-logo img {
   width: 50px;
-  transition: all 100ms;  
+  transition: all 100ms;
 }
 
 .header-logo img:hover {
@@ -53,7 +42,7 @@ header {
   text-align: end;
 }
 
-.login img, .nav-mobile img{
+.login img, .nav-mobile img {
   width: 50px;
   transition: all 100ms;
 }
@@ -70,8 +59,6 @@ header {
 .nav-mobile li {
   display: none;
 }
-
-
 
 main {
   flex-grow: 1;
@@ -97,7 +84,11 @@ main > div {
   transition: all 300ms;
 }
 
-main > div > div:first-child{
+main > div:hover {
+  transform: scale(1.01);
+}
+
+main > div > div:first-child {
   height: 70%;
   overflow: hidden;
   background-color: #041A1F;
@@ -105,7 +96,7 @@ main > div > div:first-child{
   border-start-end-radius: 10px;
 }
 
-main > div > div:nth-child(2){
+main > div > div:nth-child(2) {
   height: 30%;
   overflow: hidden;
   background-color: #041A1F;
@@ -118,7 +109,6 @@ main > div > div > img {
   width: 100%;
   height: auto;
   border-radius: 3px;
-
 }
 
 main > div:hover {
@@ -126,13 +116,21 @@ main > div:hover {
 }
 
 main > div > div > h2 {
-  color: #FDFEFA;
+  color: #BFA473;
+  font-size: 17px;
+  font-weight: normal;
+  line-height: 1.5;
   font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-size: 15px;
+  margin-bottom: 5px;
 }
 
-
+main > div > div > p {
+  color: #FDFEFA;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
+}
 
 footer {
   background-color: #041A1F;
@@ -146,7 +144,7 @@ footer > div {
 }
 
 footer > div:nth-child(2) {
-  justify-content:space-around;
+  justify-content: space-around;
 }
 
 footer > div > ul {
@@ -169,79 +167,114 @@ footer img:hover {
   transform: scale(1.05);
 }
 
-footer h3, footer a {
-  display: inline-block;
+footer h3 {
   color: #FDFEFA;
-  font-family: "Roboto", sans-serif;
+  font-size: 14px;
   font-weight: lighter;
-  font-size: 10px;
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
 }
 
 footer a {
   color: #FDFEFA;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
 }
-
-
 
 @media screen and (min-width: 950px) {
   header {
-    grid-template-columns: 1fr  4fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
     grid-template-areas: "logo desktop login";
   }
-
   .header-logo {
     text-align: left;
-
   }
-  
   .nav-mobile {
     display: none;
   }
-  
-  .login img, .nav-mobile img{
+  .nav-mobile img {
     width: 50px;
     transition: all 100ms;
   }
-  
-  .login img:hover, .nav-mobile img:hover {
+  .login img:hover,
+  .nav-mobile img:hover {
     transform: scale(1.05);
   }
-  
   .nav-desktop {
     grid-area: desktop;
     display: flex;
     justify-content: center;
   }
-  
   .nav-desktop > div > a {
     color: #BFA473;
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
     font-size: 20px;
+    font-weight: normal;
+    line-height: 1.5;
+    font-family: "Roboto", sans-serif;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     text-decoration: none;
-    padding: 15px 15px 21px;
-
+    padding: 15px 15px 23px;
     background: linear-gradient(0deg, #BFA473 50%, transparent 50%);
     background-size: 200% 200%;
     background-position: 100% 0%;
     transition: background-position 0.3s ease, color 0.5s ease;
     cursor: pointer;
   }
-
-  .voltant_balena > a:nth-child(1){
-    background-color: #BFA473;
-    color: #041A1F;
-  }
-
   .nav-desktop > div > a:hover {
     background-position: 100% 100%;
     color: #041A1F;
   }
-
-
   footer h3, footer a {
     font-size: 20px;
   }
 }
+@media screen and (min-width: 950px) {
+  header {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas: "logo desktop login";
+  }
+  .header-logo {
+    text-align: left;
+  }
+  .nav-mobile {
+    display: none;
+  }
+  .login img, .nav-mobile img {
+    width: 50px;
+    transition: all 100ms;
+  }
+  .login img:hover, .nav-mobile img:hover {
+    transform: scale(1.05);
+  }
+  .nav-desktop {
+    grid-area: desktop;
+    display: flex;
+    justify-content: center;
+  }
+  .nav-desktop > div > a {
+    color: #BFA473;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1.5;
+    font-family: "Roboto", sans-serif;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-decoration: none;
+    padding: 15px 15px 23px;
+    background: linear-gradient(0deg, #BFA473 50%, transparent 50%);
+    background-size: 200% 200%;
+    background-position: 100% 0%;
+    transition: background-position 0.3s ease, color 0.5s ease;
+    cursor: pointer;
+  }
+  .nav-desktop > div > a:hover {
+    background-position: 100% 100%;
+    color: #041A1F;
+  }
+  footer h3, footer a {
+    font-size: 20px;
+  }
+}/*# sourceMappingURL=al-voltant-de-la-balena.css.map */

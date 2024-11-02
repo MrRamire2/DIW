@@ -42,12 +42,14 @@ header {
   text-align: end;
 }
 
-.login img, .nav-mobile img {
+.login img,
+.nav-mobile img {
   width: 50px;
   transition: all 100ms;
 }
 
-.login img:hover, .nav-mobile img:hover {
+.login img:hover,
+.nav-mobile img:hover {
   transform: scale(1.03);
 }
 
@@ -92,10 +94,11 @@ main > div:hover {
 
 main > div > h2 {
   color: #041A1F;
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  text-shadow: 1px 1px 2px #BFA473;
   font-size: 15px;
+  font-weight: lighter;
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
+  text-shadow: 1px 1px 2px #BFA473;
   position: absolute;
   bottom: 10px;
   left: 10px;
@@ -136,12 +139,14 @@ footer img:hover {
   transform: scale(1.05);
 }
 
-footer h3, footer a {
+footer h3,
+footer a {
   display: inline-block;
   color: #FDFEFA;
-  font-family: "Roboto", sans-serif;
-  font-weight: lighter;
   font-size: 10px;
+  font-weight: lighter;
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
 }
 
 footer a {
@@ -159,11 +164,13 @@ footer a {
   .nav-mobile {
     display: none;
   }
-  .login img, .nav-mobile img {
+  .login img,
+  .nav-mobile img {
     width: 50px;
     transition: all 100ms;
   }
-  .login img:hover, .nav-mobile img:hover {
+  .login img:hover,
+  .nav-mobile img:hover {
     transform: scale(1.05);
   }
   .nav-desktop {
@@ -173,13 +180,14 @@ footer a {
   }
   .nav-desktop > div > a {
     color: #BFA473;
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
     font-size: 20px;
+    font-weight: normal;
+    line-height: 1.5;
+    font-family: "Roboto", sans-serif;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     text-decoration: none;
-    padding: 15px 15px 21px;
+    padding: 15px 15px 23px;
     background: linear-gradient(0deg, #BFA473 50%, transparent 50%);
     background-size: 200% 200%;
     background-position: 100% 0%;
@@ -194,7 +202,8 @@ footer a {
     background-position: 100% 100%;
     color: #041A1F;
   }
-  footer h3, footer a {
+  footer h3,
+  footer a {
     font-size: 20px;
   }
 }/*# sourceMappingURL=portfolio.css.map */
