@@ -109,6 +109,11 @@ footer{
   padding: 10px;
   flex-shrink: 1;
 }
+footer h3{
+  font-family: "Roboto", sans-serif;
+  color: #BFA473;
+  font-size: small;
+}
 
 svg{
   fill: #BFA473;
@@ -119,4 +124,22 @@ svg{
 
 svg:hover{
   transform: scale(1.05);
+}
+
+@media screen and (max-width: 800px) {
+
+  header{
+    flex-direction:column-reverse;
+  }
+  header > div{
+    position: static;
+    left: auto;
+  }
+  header > div > h2{
+    font-size:small;
+  }
+  header > div > h3{
+    display: none;
+    position: none;
+  }
 }
