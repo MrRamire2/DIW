@@ -1,6 +1,5 @@
 @import 'variables'; 
-
-
+@import 'mixins';
 
 * {
   margin: 0;
@@ -17,7 +16,7 @@ header {
   padding: 5px 20px 2px;
   background-color: $rich-black;
   display: grid;
-  grid-template-columns: 1fr  4fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
   grid-template-areas: "mobile logo login";
   align-items: center;
 }
@@ -33,7 +32,7 @@ header {
 
 .header-logo img {
   width: 50px;
-  transition: all 100ms;
+  transition: all 100ms;  
 }
 
 .header-logo img:hover {
@@ -45,7 +44,7 @@ header {
   text-align: end;
 }
 
-.login img, .nav-mobile img{
+.login img, .nav-mobile img {
   width: 50px;
   transition: all 100ms;
 }
@@ -54,7 +53,7 @@ header {
   transform: scale(1.03);
 }
 
- .nav-mobile {
+.nav-mobile {
   grid-area: mobile;
   display: flex;
 }
@@ -62,8 +61,6 @@ header {
 .nav-mobile li {
   display: none;
 } 
-
-
 
 main {
   flex-grow: 1;
@@ -77,9 +74,6 @@ main > div {
   height: 100%;
 }
 
-
-
-
 footer {
   background-color: $rich-black;
   padding: 15px 20px 20px;
@@ -92,7 +86,7 @@ footer > div {
 }
 
 footer > div:nth-child(2) {
-  justify-content:space-around;
+  justify-content: space-around;
 }
 
 footer > div > ul {
@@ -117,34 +111,28 @@ footer img:hover {
 
 footer h3, footer a {
   display: inline-block;
-  color: $baby-powder;
-  font-family: "Roboto", sans-serif;
-  font-weight: lighter;
-  font-size: 10px;
+  @include text-style($baby-powder, 10px, lighter);
 }
 
 footer a {
   color: $baby-powder;
 }
 
-
-
 @media screen and (min-width: 950px) {
   header {
-    grid-template-columns: 1fr  4fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
     grid-template-areas: "logo desktop login";
   }
 
   .header-logo {
     text-align: left;
-
   }
-  
+
   .nav-mobile {
     display: none;
   }
-  
-  .login img, .nav-mobile img{
+
+  .login img, .nav-mobile img {
     width: 50px;
     transition: all 100ms;
   }
@@ -160,10 +148,7 @@ footer a {
   }
   
   .nav-desktop > div > a {
-    color: $ecru;
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-    font-size: 20px;
+    @include text-style($ecru, 20px);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     text-decoration: none;
@@ -176,7 +161,7 @@ footer a {
     cursor: pointer;
   }
 
-  .home > a:nth-child(1){
+  .home > a:nth-child(1) {
     background-color: $ecru;
     color: $rich-black;
   }
@@ -186,13 +171,9 @@ footer a {
     color: $rich-black;
   }
 
-
-  
   main {
     height: 90vh;
   }
-
-
 
   footer h3, footer a {
     font-size: 20px;

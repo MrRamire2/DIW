@@ -1,6 +1,5 @@
 @import 'variables';
-
-
+@import 'mixins';
 
 * {
   margin: 0;
@@ -17,7 +16,7 @@ header {
   padding: 5px 20px 2px;
   background-color: $rich-black;
   display: grid;
-  grid-template-columns: 1fr  4fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
   grid-template-areas: "mobile logo login";
   align-items: center;
 }
@@ -45,12 +44,14 @@ header {
   text-align: end;
 }
 
-.login img, .nav-mobile img{
+.login img,
+.nav-mobile img {
   width: 50px;
   transition: all 100ms;
 }
 
-.login img:hover, .nav-mobile img:hover {
+.login img:hover,
+.nav-mobile img:hover {
   transform: scale(1.03);
 }
 
@@ -62,8 +63,6 @@ header {
 .nav-mobile li {
   display: none;
 }
-
-
 
 main {
   flex-grow: 1;
@@ -96,17 +95,12 @@ main > div:hover {
 }
 
 main > div > h2 {
-  color: $rich-black;
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
+  @include text-style($rich-black, 15px, lighter);
   text-shadow: 1px 1px 2px $ecru;
-  font-size: 15px;
   position: absolute;
   bottom: 10px;
   left: 10px;
 }
-
-
 
 footer {
   background-color: $rich-black;
@@ -120,7 +114,7 @@ footer > div {
 }
 
 footer > div:nth-child(2) {
-  justify-content:space-around;
+  justify-content: space-around;
 }
 
 footer > div > ul {
@@ -143,55 +137,49 @@ footer img:hover {
   transform: scale(1.05);
 }
 
-footer h3, footer a {
+footer h3,
+footer a {
   display: inline-block;
-  color: $baby-powder;
-  font-family: "Roboto", sans-serif;
-  font-weight: lighter;
-  font-size: 10px;
+  @include text-style($baby-powder, 10px, lighter);
 }
 
 footer a {
   color: $baby-powder;
 }
 
-
-
 @media screen and (min-width: 950px) {
   header {
-    grid-template-columns: 1fr  4fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
     grid-template-areas: "logo desktop login";
   }
 
   .header-logo {
     text-align: left;
-
   }
-  
+
   .nav-mobile {
     display: none;
   }
-  
-  .login img, .nav-mobile img{
+
+  .login img,
+  .nav-mobile img {
     width: 50px;
     transition: all 100ms;
   }
-  
-  .login img:hover, .nav-mobile img:hover {
+
+  .login img:hover,
+  .nav-mobile img:hover {
     transform: scale(1.05);
   }
-  
+
   .nav-desktop {
     grid-area: desktop;
     display: flex;
     justify-content: center;
   }
-  
+
   .nav-desktop > div > a {
-    color: $ecru;
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-    font-size: 20px;
+    @include text-style($ecru, 20px);
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     text-decoration: none;
@@ -204,7 +192,7 @@ footer a {
     cursor: pointer;
   }
 
-  .portfolio > a:nth-child(1){
+  .portfolio > a:nth-child(1) {
     background-color: $ecru;
     color: $rich-black;
   }
@@ -214,8 +202,8 @@ footer a {
     color: $rich-black;
   }
 
-
-  footer h3, footer a {
+  footer h3,
+  footer a {
     font-size: 20px;
   }
 }
