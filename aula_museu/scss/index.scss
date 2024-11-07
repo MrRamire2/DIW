@@ -62,6 +62,8 @@ header {
   display: none;
 } 
 
+
+
 main {
   flex-grow: 1;
   height: 55vh;
@@ -69,6 +71,16 @@ main {
   background-size: 500px;
   background-attachment: fixed;
 }
+
+//accessibility
+.accessibility-button {
+  @include button-accessibility($ecru, $rich-black, $ecru, 30px);
+}
+
+.accessibility-options > div > button{
+  @include button-accessibility-options($ecru, $rich-black, $ecru, 30px);
+}
+
 
 main > div {
   height: 100%;

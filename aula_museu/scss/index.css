@@ -7,7 +7,7 @@
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 header {
@@ -66,6 +66,43 @@ main {
   background-image: url(../images/Fondo2.gif);
   background-size: 500px;
   background-attachment: fixed;
+}
+
+.accessibility-button {
+  display: inline-block;
+  position: fixed;
+  bottom: 15px;
+  left: 10px;
+  padding: 3.5px 3.5px 1px;
+  border-radius: 50px;
+  background-color: #BFA473;
+  border-style: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.accessibility-button:hover {
+  box-shadow: 0px 0px 10px 0px #BFA473;
+  transform: scale(1.05);
+}
+.accessibility-button .material-symbols-outlined {
+  color: #041A1F;
+  font-size: 30px;
+}
+
+.accessibility-options > div > button {
+  display: inline-block;
+  padding: 3.5px 3.5px 1px;
+  border-radius: 50px;
+  background-color: #BFA473;
+  border-style: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.accessibility-options > div > button:hover {
+  box-shadow: 0px 0px 10px 0px #BFA473;
+  transform: scale(1.05);
+}
+.accessibility-options > div > button .material-symbols-outlined {
+  color: #041A1F;
+  font-size: 30px;
 }
 
 main > div {
