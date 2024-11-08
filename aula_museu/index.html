@@ -66,33 +66,36 @@
                 <li><a href="#contact">Al voltant de la balena</a></li>
             </ul>
         </nav>
-    </header>
 
+    </header>
     <main>
         
         <aside>
-            <button class="accessibility-button"><span class="material-symbols-outlined">accessibility_new</span></button>
-            <section class="accessibility-options">
-                <div>
-                    <label for="">grayscale</label>
-                    <button><span class="material-symbols-outlined">filter_b_and_w</span></button>             
-                </div>
-                <div>
-                    <label for="">dark contrast</label>
-                    <button><span class="material-symbols-outlined">contrast</span></button>
-                </div>
-                <div>
-                    <label for="">light contrast</label>
-                    <button><span class="material-symbols-outlined">contrast</span></button>
-                </div>
-                <div>
-                    <label for="">high saturation</label>
-                    <button><span class="material-symbols-outlined">opacity</span></button>
-                </div>
-                <div>
-                    <label for="">low saturation</label>
-                    <button><span class="material-symbols-outlined">opacity</span></button>
-                </div>
+            <button class="accessibility-button" id="accessibility-button"><span class="material-symbols-outlined">accessibility_new</span></button>
+            
+            <section class="accessibility-options" id="accessibility-options">
+
+                <button class="selected">              
+                    <span class="material-symbols-outlined">filter_b_and_w</span>           
+                    <label class="nombre-button" for="">grayscale</label>
+                </button>
+                <button class="selected">                    
+                    <span class="material-symbols-outlined">contrast</span>
+                    <label class="nombre-button" for="">dark contrast</label>
+                </button>
+                <button class="selected">
+                    <span class="material-symbols-outlined">contrast</span>
+                    <label class="nombre-button" for="">light contrast</label>
+                </button>
+                <button class="selected">
+                    <span class="material-symbols-outlined">opacity</span>
+                    <label class="nombre-button" for="">high saturation</label>
+                </button>
+                <button class="selected">
+                    <span class="material-symbols-outlined">opacity</span>
+                    <label class="nombre-button" for="">low saturation</label>
+                </button>
+
             </section>
          </aside>
 
@@ -136,7 +139,8 @@
     </footer>
 
 
-    <script src="desplegable.js"></script>
+    <script src="./js/desplegable.js"></script>
+    <script src="./js/desplegable-accessibility.js"></script>
 
 </body>
 

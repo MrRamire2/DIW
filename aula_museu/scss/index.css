@@ -42,6 +42,10 @@ header {
   text-align: end;
 }
 
+.nav-mobile img {
+  z-index: 1;
+}
+
 .login img, .nav-mobile img {
   width: 50px;
   transition: all 100ms;
@@ -56,16 +60,27 @@ header {
   display: flex;
 }
 
-.nav-mobile li {
+.dropdown-content {
   display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 175px;
+  padding: 60px 20px 20px;
+  transition: all 0.3s ease;
+  background-color: rgba(4, 26, 31, 0.6941176471);
 }
 
-main {
-  flex-grow: 1;
-  height: 55vh;
-  background-image: url(../images/Fondo2.gif);
-  background-size: 500px;
-  background-attachment: fixed;
+.dropdown-content.active {
+  display: block;
+}
+
+.dropdown-content a, .dropdown-content li {
+  text-decoration: none;
+  list-style: none;
+  color: #FDFEFA;
+  margin-top: 20px;
 }
 
 .accessibility-button {
@@ -78,6 +93,7 @@ main {
   background-color: #BFA473;
   border-style: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 1;
 }
 .accessibility-button:hover {
   box-shadow: 0px 0px 10px 0px #BFA473;
@@ -88,21 +104,75 @@ main {
   font-size: 30px;
 }
 
-.accessibility-options > div > button {
-  display: inline-block;
-  padding: 3.5px 3.5px 1px;
+.accessibility-options {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(4, 26, 31, 0.6941176471);
+  padding: 20px 20px 60px;
+}
+
+.accessibility-options.active {
+  display: block; /* Mostrar las opciones cuando se agrega la clase 'active' */
+}
+
+.selected {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 10px;
+  padding: 10px;
+  height: 30px;
   border-radius: 50px;
   background-color: #BFA473;
   border-style: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
-.accessibility-options > div > button:hover {
+.selected:hover {
   box-shadow: 0px 0px 10px 0px #BFA473;
   transform: scale(1.05);
 }
-.accessibility-options > div > button .material-symbols-outlined {
+.selected .material-symbols-outlined {
   color: #041A1F;
   font-size: 30px;
+}
+.selected .nombre-button {
+  display: inline-block;
+  width: 100px;
+}
+
+.selected {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 10px;
+  padding: 10px;
+  height: 30px;
+  border-radius: 50px;
+  background-color: #BFA473;
+  border-style: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.selected:hover {
+  box-shadow: 0px 0px 10px 0px #BFA473;
+  transform: scale(1.05);
+}
+.selected .material-symbols-outlined {
+  color: #041A1F;
+  font-size: 30px;
+}
+.selected .nombre-button {
+  display: inline-block;
+  width: 100px;
+}
+
+main {
+  flex-grow: 1;
+  height: 55vh;
+  background-image: url(../images/Fondo2.gif);
+  background-size: 500px;
+  background-attachment: fixed;
 }
 
 main > div {
