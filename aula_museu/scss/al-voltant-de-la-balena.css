@@ -1,13 +1,41 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 * {
   margin: 0;
   padding: 0;
 }
 
+/* Filtros */
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.dark-contrast {
+  filter: contrast(150%) brightness(50%);
+}
+
+.light-contrast {
+  filter: contrast(120%) brightness(150%);
+}
+
+.high-saturation {
+  filter: saturate(150%);
+}
+
+.low-saturation {
+  filter: saturate(50%);
+}
+
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem; /* Tamaño de fuente por defecto */
+  line-height: 1.5; /* Interlineado por defecto */
+  word-spacing: 0.3em; /* Espaciado entre palabras por defecto */
+  letter-spacing: 0.05em; /* Espaciado entre letras por defecto */
+  transition: all 0.3s ease; /* Suaviza los cambios */
 }
 
 header {
@@ -56,8 +84,157 @@ header {
   display: flex;
 }
 
-.nav-mobile li {
-  display: none;
+.toggle-image {
+  z-index: 2;
+}
+
+/* Estilos iniciales cuando el menú no está activo */
+.dropdown-content {
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-height: 100%;
+  width: 300px;
+  padding: 60px 10px 20px;
+  background-color: rgba(4, 26, 31, 0.6941176471);
+  opacity: 0; /* Empieza siendo invisible */
+  transform: translate(-100%, 0); /* Empieza en la esquina superior izquierda */
+  transition: transform 0.4s ease, opacity 0.4s ease; /* Transición para movimiento y opacidad */
+  pointer-events: none; /* Evita la interacción cuando está oculto */
+  z-index: 1;
+}
+
+/* Estilos cuando el menú está activo */
+.dropdown-content.active {
+  opacity: 1; /* Visible */
+  transform: translate(0, 0); /* Posición final */
+  pointer-events: auto; /* Permite la interacción */
+}
+
+.dropdown-content li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 10px;
+  padding: 0;
+  height: 30px;
+  border-radius: 50px;
+  background-color: #BFA473;
+  border-style: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  justify-content: center;
+}
+.dropdown-content li:hover {
+  box-shadow: 0px 0px 10px 0px #BFA473;
+  transform: scale(1.05);
+}
+.dropdown-content li .material-symbols-outlined {
+  color: #041A1F;
+  font-size: 30px;
+}
+.dropdown-content li .nombre-button {
+  display: inline-block;
+  width: 100px;
+}
+
+.dropdown-content a {
+  display: inline-block;
+  text-decoration: none;
+  color: #041A1F;
+}
+
+.dropdown-content li:hover {
+  box-shadow: 0px 0px 10px 0px rgba(4, 26, 31, 0.6941176471);
+  transform: scale(1.03);
+}
+
+.accessibility-button {
+  display: inline-block;
+  position: fixed;
+  bottom: 15px;
+  left: 10px;
+  padding: 3.5px 3.5px 1px;
+  border-radius: 50px;
+  background-color: #BFA473;
+  border-style: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 2;
+}
+.accessibility-button:hover {
+  box-shadow: 0px 0px 10px 0px #BFA473;
+  transform: scale(1.05);
+}
+.accessibility-button .material-symbols-outlined {
+  color: #041A1F;
+  font-size: 30px;
+}
+
+/* Estilos iniciales cuando el menú de accesibilidad no está activo */
+.accessibility-options {
+  z-index: 1;
+  height: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  background-color: rgba(4, 26, 31, 0.6941176471);
+  padding: 60px 10px 20px;
+  opacity: 0; /* Invisible inicialmente */
+  transform: translate(-100%, 0); /* Empieza fuera de la vista, en la parte izquierda */
+  transition: transform 0.4s ease, opacity 0.4s ease; /* Transición para el movimiento y opacidad */
+  pointer-events: none; /* Evita la interacción cuando está oculto */
+}
+
+/* Estilos cuando el menú de accesibilidad está activo */
+.accessibility-options.active {
+  opacity: 1; /* Visible */
+  transform: translateY(0); /* Se coloca en su posición final */
+  pointer-events: auto; /* Permite la interacción */
+}
+
+.selected {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 10px;
+  padding: 10px;
+  height: 30px;
+  border-radius: 50px;
+  background-color: #BFA473;
+  border-style: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 260px;
+}
+.selected:hover {
+  box-shadow: 0px 0px 10px 0px #BFA473;
+  transform: scale(1.05);
+}
+.selected .material-symbols-outlined {
+  color: #041A1F;
+  font-size: 30px;
+}
+.selected .nombre-button {
+  display: inline-block;
+  width: 100px;
+}
+
+/* Estilo básico para los controles */
+.font-settings {
+  margin: 15px;
+  padding: 10px;
+  background-color: #BFA473;
+  border-radius: 15px;
+}
+
+.font-settings label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.font-settings input[type=range] {
+  width: 100%;
 }
 
 main {
@@ -74,7 +251,12 @@ main {
   justify-content: center;
 }
 
-main > div {
+main > aside {
+  position: fixed;
+  z-index: 1;
+}
+
+main > section {
   display: flex;
   flex-direction: column;
   width: 350px;
@@ -84,11 +266,12 @@ main > div {
   transition: all 300ms;
 }
 
-main > div:hover {
+main > section:hover {
   transform: scale(1.01);
+  filter: drop-shadow(0px 0px 5px #BFA473);
 }
 
-main > div > div:first-child {
+main > section > figure {
   height: 70%;
   overflow: hidden;
   background-color: #041A1F;
@@ -96,7 +279,7 @@ main > div > div:first-child {
   border-start-end-radius: 10px;
 }
 
-main > div > div:nth-child(2) {
+main > section > article {
   height: 30%;
   overflow: hidden;
   background-color: #041A1F;
@@ -105,17 +288,13 @@ main > div > div:nth-child(2) {
   border-end-end-radius: 10px;
 }
 
-main > div > div > img {
+main > section > figure > img {
   width: 100%;
   height: auto;
   border-radius: 3px;
 }
 
-main > div:hover {
-  filter: drop-shadow(0px 0px 5px #BFA473);
-}
-
-main > div > div > h2 {
+main > section > article > h2 {
   color: #BFA473;
   font-size: 17px;
   font-weight: normal;
@@ -124,7 +303,7 @@ main > div > div > h2 {
   margin-bottom: 5px;
 }
 
-main > div > div > p {
+main > section > article > p {
   color: #FDFEFA;
   font-size: 15px;
   font-weight: normal;
@@ -147,7 +326,7 @@ footer > div:nth-child(2) {
   justify-content: space-around;
 }
 
-footer > div > ul {
+footer > div:nth-child(2) > nav > ul {
   display: flex;
   flex-direction: column;
   margin-right: 10px;
@@ -167,9 +346,10 @@ footer img:hover {
   transform: scale(1.05);
 }
 
-footer h3 {
+footer h3, footer a {
+  display: inline-block;
   color: #FDFEFA;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: lighter;
   line-height: 1.5;
   font-family: "Roboto", sans-serif;
@@ -177,13 +357,9 @@ footer h3 {
 
 footer a {
   color: #FDFEFA;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 1.5;
-  font-family: "Roboto", sans-serif;
 }
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 1050px) {
   header {
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-areas: "logo desktop login";

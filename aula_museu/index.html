@@ -10,7 +10,6 @@
 </head>
 
 <body>
- 
     <header>
 
             <!-- Logo del sitio -->
@@ -59,17 +58,15 @@
         <nav class="nav-mobile">
             <img src="./images/menu.png" alt="Options menu" class="toggle-image" id="toggleButton">
             <ul class="dropdown-content" id="dropdownContent">
-                <li><a href="/student070/dwes/index.php">Inici</a></li>
+                <li><a href="./index.html">Inici</a></li>
                 <li><a href="#rooms">Història</a></li>
-                <li><a href="../views/portfolio.html">Cartera</a></li>
+                <li><a href="./views/portfolio.html">Cartera</a></li>
                 <li><a href="#contact">Notícies</a></li>
-                <li><a href="#contact">Al voltant de la balena</a></li>
+                <li><a href="./views/al-voltant-de-la-balena.html">Al voltant de la balena</a></li>
             </ul>
         </nav>
-
     </header>
     <main>
-        
         <aside>
             <button class="accessibility-button" id="accessibility-button"><span class="material-symbols-outlined">accessibility_new</span></button>
             
@@ -77,70 +74,86 @@
 
                 <button class="selected">              
                     <span class="material-symbols-outlined">filter_b_and_w</span>           
-                    <label class="nombre-button" for="">grayscale</label>
+                    <label class="nombre-button" id="grayscale" for="">grayscale</label>
                 </button>
                 <button class="selected">                    
                     <span class="material-symbols-outlined">contrast</span>
-                    <label class="nombre-button" for="">dark contrast</label>
+                    <label class="nombre-button" id="dark_contrast" for="">dark contrast</label>
                 </button>
                 <button class="selected">
                     <span class="material-symbols-outlined">contrast</span>
-                    <label class="nombre-button" for="">light contrast</label>
+                    <label class="nombre-button" id="light_contrast" for="">light contrast</label>
                 </button>
                 <button class="selected">
                     <span class="material-symbols-outlined">opacity</span>
-                    <label class="nombre-button" for="">high saturation</label>
+                    <label class="nombre-button" id="high_saturation" for="">high saturation</label>
                 </button>
                 <button class="selected">
                     <span class="material-symbols-outlined">opacity</span>
-                    <label class="nombre-button" for="">low saturation</label>
+                    <label class="nombre-button" id="low_saturation" for="">low saturation</label>
                 </button>
 
+                <div class="font-settings">
+                    <label for="font-size">Font Size (em):</label>
+                    <input type="range" id="font-size" name="font-size" min="0.5" max="3" step="0.1" value="1">
+                    
+                    <label for="line-spacing">Line Spacing (em):</label>
+                    <input type="range" id="line-spacing" name="line-spacing" min="0.5" max="2" step="0.1" value="1.5">
+                    
+                    <label for="word-spacing">Word Spacing (em):</label>
+                    <input type="range" id="word-spacing" name="word-spacing" min="0.1" max="1.5" step="0.1" value="0.3">
+                    
+                    <label for="letter-spacing">Letter Spacing (em):</label>
+                    <input type="range" id="letter-spacing" name="letter-spacing" min="0.01" max="0.2" step="0.01" value="0.05">
+                </div>
             </section>
          </aside>
 
-        <div class="sketchfab-embed-wrapper"> <iframe title="Blue whale skeleton" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="100%" height="100%" src="https://sketchfab.com/models/8502dbef80ed4aa688c13c90cb14de73/embed?autospin=1&autostart=1&transparent=1&ui_hint=0&ui_theme=dark&dnt=1"> </iframe> </div>
-       
+        <!-- <section class="sketchfab-embed-wrapper"> <iframe title="Blue whale skeleton" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="100%" height="100%" src="https://sketchfab.com/models/8502dbef80ed4aa688c13c90cb14de73/embed?autospin=1&autostart=1&transparent=1&ui_hint=0&ui_theme=dark&dnt=1"> </iframe> </section> -->
+        <section class="sketchfab-embed-wrapper"> <iframe title="Blue whale skeleton" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share width="100%" height="100%" src="https://sketchfab.com/models/8502dbef80ed4aa688c13c90cb14de73/embed?autostart=1&annotations_visible=1&transparent=1"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/blue-whale-skeleton-8502dbef80ed4aa688c13c90cb14de73?utm_medium=embed&utm_campaign=share-popup&utm_content=8502dbef80ed4aa688c13c90cb14de73" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Blue whale skeleton </a> by <a href="https://sketchfab.com/NHM_Imaging?utm_medium=embed&utm_campaign=share-popup&utm_content=8502dbef80ed4aa688c13c90cb14de73" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> NHM_Imaging </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=8502dbef80ed4aa688c13c90cb14de73" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></section>    
     </main>
 
     <footer>
+        <!-- Redes Sociales -->
         <div>
-          <a href="https://www.facebook.com/" target="_blank"><img src="./images/facebook.png"/></a>
-          <a href="https://www.instagram.com/" target="_blank"><img src="./images/instagram.png"/></a>
-          <a href="https://www.twitter.com/" target="_blank"><img src="./images/x.png"/></a>
-          <a href="https://www.whatsapp.com/" target="_blank"><img src="./images/whatsapp.png"/></a>
+          <nav aria-label="Social media links">
+            <ul>
+              <li><a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><img src="./images/facebook.png" alt="Facebook logo"></a></li>
+              <li><a href="https://www.instagram.com/" target="_blank" aria-label="Instagram"><img src="./images/instagram.png" alt="Instagram logo"></a></li>
+              <li><a href="https://www.twitter.com/" target="_blank" aria-label="Twitter"><img src="./images/x.png" alt="Twitter logo"></a></li>
+              <li><a href="https://www.whatsapp.com/" target="_blank" aria-label="WhatsApp"><img src="./images/whatsapp.png" alt="WhatsApp logo"></a></li>
+            </ul>
+          </nav>
         </div>
+      
+        <!-- Secciones de navegación del sitio -->
         <div>
+          <nav aria-label="Site navigation">
             <ul>
-                <li><h3>About The Met</h3></li>
-                <li><h3>Mission and History</h3></li>
-                <li><h3>Collection Areas</h3></li>
-                <li><h3>Conservation Departments</h3></li>
-                <li><h3>Accessibility</h3></li>
-                <li><h3>Press</h3></li>
+              <li><h3><a href="#">About The Met</a></h3></li>
+              <li><h3><a href="#">Mission and History</a></h3></li>
+              <li><h3><a href="#">Collection Areas</a></h3></li>
             </ul>
+          </nav>
       
+          <nav aria-label="Support section">
             <ul>
-                <li><h3>Support</h3></li>
-                <li><h3>Membership</h3></li>
-                <li><h3>Host an Event</h3></li>
-                <li><h3>Travel with The Met</h3></li>
-                <li><h3>Corporate Support</h3></li>
+              <li><h3><a href="#">Membership</a></h3></li>
+              <li><h3><a href="#">Host an Event</a></h3></li>
             </ul>
+          </nav>
       
-            <ul><h3>Others</h3>
-                <li><a href="#" target="_blank">Volunteers</a></li>
-                <li><a href="#" target="_blank">Fellowships</a></li>
-                <li><a href="#" target="_blank">Internships</a></li>
+          <nav aria-label="Other sections">
+            <ul>
+              <li><h3><a href="#">Volunteers</a></h3></li>
+              <li><h3><a href="#">Fellowships</a></h3></li>
             </ul>
-      
-
+          </nav>
         </div>
-    </footer>
-
-
-    <script src="./js/desplegable.js"></script>
-    <script src="./js/desplegable-accessibility.js"></script>
+      </footer>
+      
+      <script src="./js/desplegable.js"></script>
+      <script src="./js/desplegable-accessibility.js"></script>
 
 </body>
 

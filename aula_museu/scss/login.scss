@@ -6,10 +6,39 @@
   padding: 0;
 }
 
+/* Filtros */
+
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.dark-contrast {
+  filter: contrast(150%) brightness(50%);
+}
+
+.light-contrast {
+  filter: contrast(120%) brightness(150%);
+}
+
+.high-saturation {
+  filter: saturate(150%);
+}
+
+.low-saturation {
+  filter: saturate(50%);
+}
+
+
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;  /* Tamaño de fuente por defecto */
+  line-height: 1.5;  /* Interlineado por defecto */
+  word-spacing: 0.3em;  /* Espaciado entre palabras por defecto */
+  letter-spacing: 0.05em;  /* Espaciado entre letras por defecto */
+  transition: all 0.3s ease; /* Suaviza los cambios */
 }
 
 header {
@@ -58,14 +87,111 @@ header {
   transform: scale(1.03);
 }
 
+// desplegable de mobile
 .nav-mobile {
   grid-area: mobile;
   display: flex;
 }
-
-.nav-mobile li {
-  display: none;
+.toggle-image{
+  z-index: 2;
 }
+
+/* Estilos iniciales cuando el menú no está activo */
+.dropdown-content {
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-height: 100%;
+  width: 300px;
+  padding: 60px 10px 20px;
+  background-color: #041A1Fb1;
+  opacity: 0; /* Empieza siendo invisible */
+  transform: translate(-100%, 0); /* Empieza en la esquina superior izquierda */
+  transition: transform 0.4s ease, opacity 0.4s ease; /* Transición para movimiento y opacidad */
+  pointer-events: none; /* Evita la interacción cuando está oculto */
+  z-index: 1;
+}
+
+/* Estilos cuando el menú está activo */
+.dropdown-content.active {
+  opacity: 1; /* Visible */
+  transform: translate(0, 0); /* Posición final */
+  pointer-events: auto; /* Permite la interacción */
+}
+
+.dropdown-content li{
+  @include button-accessibility-options($ecru, $rich-black, $ecru, 30px, 0);
+  justify-content: center;
+}
+
+.dropdown-content a {
+  display: inline-block;
+  text-decoration: none;
+  color: $rich-black;
+}
+
+.dropdown-content li:hover{
+  box-shadow: 0px 0px 10px 0px #041A1Fb1;
+  transform: scale(1.03);
+}
+
+
+//accessibility
+.accessibility-button {
+  @include button-accessibility($ecru, $rich-black, $ecru, 30px);
+  z-index: 2;
+}
+
+/* Estilos iniciales cuando el menú de accesibilidad no está activo */
+.accessibility-options {
+  z-index: 1;
+  height: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  background-color: #041A1Fb1;
+  padding: 60px 10px 20px;
+  opacity: 0; /* Invisible inicialmente */
+  transform: translate(-100%, 0); /* Empieza fuera de la vista, en la parte izquierda */
+  transition: transform 0.4s ease, opacity 0.4s ease; /* Transición para el movimiento y opacidad */
+  pointer-events: none; /* Evita la interacción cuando está oculto */
+}
+
+/* Estilos cuando el menú de accesibilidad está activo */
+.accessibility-options.active {
+  opacity: 1; /* Visible */
+  transform: translateY(0); /* Se coloca en su posición final */
+  pointer-events: auto; /* Permite la interacción */
+}
+
+.selected{
+  @include button-accessibility-options($ecru, $rich-black, $ecru, 30px, 10px);
+  width: 260px;
+}
+
+
+
+/* Estilo básico para los controles */
+.font-settings {
+  margin: 15px;
+  padding: 10px;
+  background-color: $ecru;
+  border-radius: 15px;
+}
+
+.font-settings label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.font-settings input[type="range"] {
+  width: 100%;
+}
+
+
 
 main {
   flex-grow: 1;
@@ -73,6 +199,11 @@ main {
   background-size: 500px;
   background-attachment: fixed;
   padding: 100px 10%;
+}
+
+main > aside{
+  position: fixed;
+  z-index: 1;
 }
 
 main > form {
@@ -107,6 +238,10 @@ main > form > input:focus {
   box-shadow: 0px 0px 10px 0px $ecru;
 }
 
+.mandatory{
+  color: red;
+}
+
 main > form > button {
   @include button($ecru, $rich-black, $ecru, $dun);
 }
@@ -126,7 +261,8 @@ footer > div:nth-child(2) {
   justify-content: space-around;
 }
 
-footer > div > ul {
+
+footer > div:nth-child(2) > nav > ul {
   display: flex;
   flex-direction: column;
   margin-right: 10px;
@@ -146,15 +282,16 @@ footer img:hover {
   transform: scale(1.05);
 }
 
-footer h3 {
-  @include text-style($baby-powder, 14px, lighter);
+footer h3, footer a {
+  display: inline-block;
+  @include text-style($baby-powder, 10px, lighter);
 }
 
-footer a {
-  @include text-style($baby-powder, 14px);
+footer a { 
+  color: $baby-powder;
 }
 
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 1050px) {
   header {
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-areas: "logo desktop login";
