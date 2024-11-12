@@ -121,22 +121,16 @@ header {
   pointer-events: auto; /* Permite la interacción */
 }
 
-.dropdown-content li{
-  @include button-accessibility-options($ecru, $rich-black, $ecru, 30px, 0);
+/* Estilos cuando el menú está activo */
+.dropdown-content.active {
+  opacity: 1; /* Visible */
+  transform: translate(0, 0); /* Posición final */
+  pointer-events: auto; /* Permite la interacción */
+}
+
+header .selected{
   justify-content: center;
 }
-
-.dropdown-content a {
-  display: inline-block;
-  text-decoration: none;
-  color: $rich-black;
-}
-
-.dropdown-content li:hover{
-  box-shadow: 0px 0px 10px 0px #041A1Fb1;
-  transform: scale(1.03);
-}
-
 
 //accessibility
 .accessibility-button {
