@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 desktop.classList.remove(filter);
             }
         });
-        if (exceptClass !== "grayscale") {
+        if (header-bg !== exceptClass) {
             header.classList.remove("header-bg");
         }
     }
