@@ -116,41 +116,8 @@ header {
   pointer-events: auto; /* Permite la interacción */
 }
 
-.dropdown-content li {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin: 10px;
-  padding: 0;
-  height: 30px;
-  border-radius: 50px;
-  background-color: #BFA473;
-  border-style: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+header .selected {
   justify-content: center;
-}
-.dropdown-content li:hover {
-  box-shadow: 0px 0px 10px 0px #BFA473;
-  transform: scale(1.05);
-}
-.dropdown-content li .material-symbols-outlined {
-  color: #041A1F;
-  font-size: 30px;
-}
-.dropdown-content li .nombre-button {
-  display: inline-block;
-  width: 100px;
-}
-
-.dropdown-content a {
-  display: inline-block;
-  text-decoration: none;
-  color: #041A1F;
-}
-
-.dropdown-content li:hover {
-  box-shadow: 0px 0px 10px 0px rgba(4, 26, 31, 0.6941176471);
-  transform: scale(1.03);
 }
 
 .accessibility-button {
