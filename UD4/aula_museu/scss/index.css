@@ -116,6 +116,13 @@ header {
   pointer-events: auto; /* Permite la interacción */
 }
 
+/* Estilos cuando el menú está activo */
+.dropdown-content.active {
+  opacity: 1; /* Visible */
+  transform: translate(0, 0); /* Posición final */
+  pointer-events: auto; /* Permite la interacción */
+}
+
 header .selected {
   justify-content: center;
 }

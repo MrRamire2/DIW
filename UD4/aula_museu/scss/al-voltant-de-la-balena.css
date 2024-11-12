@@ -137,27 +137,6 @@ header .selected {
   background-color: #BFA473;
   border-style: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  z-index: 1;
-}
-.accessibility-button:hover {
-  box-shadow: 0px 0px 10px 0px #BFA473;
-  transform: scale(1.05);
-}
-.accessibility-button .material-symbols-outlined {
-  color: #041A1F;
-  font-size: 30px;
-}
-
-.accessibility-button {
-  display: inline-block;
-  position: fixed;
-  bottom: 15px;
-  left: 10px;
-  padding: 3.5px 3.5px 1px;
-  border-radius: 50px;
-  background-color: #BFA473;
-  border-style: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
   z-index: 2;
 }
 .accessibility-button:hover {

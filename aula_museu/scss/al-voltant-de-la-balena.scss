@@ -133,13 +133,6 @@ header .selected{
 //accessibility
 .accessibility-button {
   @include button-accessibility($ecru, $rich-black, $ecru, 30px);
-  z-index: 1;
-}
-
-
-//accessibility
-.accessibility-button {
-  @include button-accessibility($ecru, $rich-black, $ecru, 30px);
   z-index: 2;
 }
 
@@ -171,8 +164,6 @@ header .selected{
   @include button-accessibility-options($ecru, $rich-black, $ecru, 30px, 10px);
   width: 260px;
 }
-
-
 
 /* Estilo básico para los controles */
 .font-settings {

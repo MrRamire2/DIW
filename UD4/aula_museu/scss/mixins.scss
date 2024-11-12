@@ -48,6 +48,35 @@
 }
 
 
+@mixin button-accessibility-options($bg-color, $icon-color, $shadow-color, $font-size, $padding) {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 10px;
+  padding: $padding;
+  height: 30px;
+  border-radius: 50px;
+  background-color: $bg-color;
+  border-style: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+&:hover{
+  box-shadow: 0px 0px 10px 0px $shadow-color;
+  transform: scale(1.05);
+}
+
+& .material-symbols-outlined{
+  color: $icon-color;
+  font-size: $font-size;
+}
+
+& .nombre-button{
+  display: inline-block;
+  width: 100px;
+}
+}
+
+
 //estilos para los textos
 @mixin text-style($color, $font-size, $font-weight: normal, $line-height: 1.5) {
   color: $color;
