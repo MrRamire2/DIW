@@ -39,19 +39,27 @@ document.addEventListener("DOMContentLoaded", function () {
         const buttonElement = document.getElementById(button.id);
         if (buttonElement) {
             buttonElement.addEventListener("click", () => {
-                main.classList.toggle(button.class);
-                footer.classList.toggle(button.class);
-                logo.classList.toggle("grayscale");
-                login.classList.toggle("grayscale");
-                desktop.classList.toggle("grayscale");
-                header.classList.toggle("header-bg", button.class === "grayscale");
-                resetFiltersExcept(button.class);
+                const isActive = main.classList.contains(button.class);
+                resetFilters(); // Quita todos los filtros
+                
+                if (!isActive) { // Si el filtro no estaba activo, lo aplica
+                    main.classList.add(button.class);
+                    footer.classList.add(button.class);
+                    logo.classList.add(button.class);
+                    login.classList.add(button.class);
+                    desktop.classList.add(button.class);
+                    
+                    // Solo aplica `header-bg` si el filtro es "grayscale"
+                    if (button.class === "grayscale") {
+                        header.classList.add("header-bg");
+                    }
+                }
             });
         }
     });
 
-    // Función para resetear todos los filtros excepto el seleccionado
-    function resetFiltersExcept(exceptClass) {
+    // Función para resetear todos los filtros
+    function resetFilters() {
         const filters = [
             "grayscale",
             "dark-contrast",
@@ -60,19 +68,16 @@ document.addEventListener("DOMContentLoaded", function () {
             "low-saturation",
         ];
         filters.forEach((filter) => {
-            if (filter !== exceptClass) {
-                main.classList.remove(filter);
-                footer.classList.remove(filter);
-                logo.classList.remove(filter);
-                login.classList.remove(filter);
-                desktop.classList.remove(filter);
-            }
+            main.classList.remove(filter);
+            footer.classList.remove(filter);
+            logo.classList.remove(filter);
+            login.classList.remove(filter);
+            desktop.classList.remove(filter);
         });
-        if (exceptClass !== "grayscale") {
-            header.classList.remove("header-bg");
-        }
+        header.classList.remove("header-bg");
     }
 });
+
 
 
 
