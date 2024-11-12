@@ -38,6 +38,10 @@ body {
   transition: all 0.3s ease; /* Suaviza los cambios */
 }
 
+.header-bg {
+  background-color: #181414;
+}
+
 header {
   padding: 5px 20px 2px;
   background-color: #041A1F;
@@ -71,7 +75,7 @@ header {
 }
 
 .nav-mobile img {
-  z-index: 1;
+  z-index: 2;
 }
 
 .login img, .nav-mobile img {
@@ -102,6 +106,7 @@ header {
   transform: translate(-100%, 0); /* Empieza en la esquina superior izquierda */
   transition: transform 0.4s ease, opacity 0.4s ease; /* Transición para movimiento y opacidad */
   pointer-events: none; /* Evita la interacción cuando está oculto */
+  z-index: 1;
 }
 
 /* Estilos cuando el menú está activo */
@@ -235,17 +240,17 @@ header {
   width: 100%;
 }
 
+aside {
+  position: fixed;
+  z-index: 1;
+}
+
 main {
   flex-grow: 1;
   height: 55vh;
   background-image: url(../images/Fondo2.gif);
   background-size: 500px;
   background-attachment: fixed;
-}
-
-main > aside {
-  position: fixed;
-  z-index: 1;
 }
 
 main > section {

@@ -19,41 +19,35 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const body = document.body;
+    const main = document.querySelector('main');
+    const footer = document.querySelector('footer');
+    const logo = document.querySelector('.header-logo'); 
+    const login = document.querySelector('.login'); 
+    const desktop = document.querySelector('.nav-desktop'); 
+    const header = document.querySelector('header');
 
-    // Botón de escala de grises
-    const grayscaleButton = document.getElementById("grayscale");
-    grayscaleButton.addEventListener("click", () => {
-        body.classList.toggle("grayscale");
-        resetFiltersExcept("grayscale");
-    });
+    const accessibilityButtons = [
+        { id: "grayscale", class: "grayscale" },
+        { id: "dark_contrast", class: "dark-contrast" },
+        { id: "light_contrast", class: "light-contrast" },
+        { id: "high_saturation", class: "high-saturation" },
+        { id: "low_saturation", class: "low-saturation" }
+    ];
 
-    // Botón de contraste oscuro
-    const darkContrastButton = document.getElementById("dark_contrast");
-    darkContrastButton.addEventListener("click", () => {
-        body.classList.toggle("dark-contrast");
-        resetFiltersExcept("dark-contrast");
-    });
-
-    // Botón de contraste claro
-    const lightContrastButton = document.getElementById("light_contrast");
-    lightContrastButton.addEventListener("click", () => {
-        body.classList.toggle("light-contrast");
-        resetFiltersExcept("light-contrast");
-    });
-
-    // Botón de alta saturación
-    const highSaturationButton = document.getElementById("high_saturation");
-    highSaturationButton.addEventListener("click", () => {
-        body.classList.toggle("high-saturation");
-        resetFiltersExcept("high-saturation");
-    });
-
-    // Botón de baja saturación
-    const lowSaturationButton = document.getElementById("low_saturation");
-    lowSaturationButton.addEventListener("click", () => {
-        body.classList.toggle("low-saturation");
-        resetFiltersExcept("low-saturation");
+    // Agregar evento de clic a cada botón de accesibilidad
+    accessibilityButtons.forEach(button => {
+        const buttonElement = document.getElementById(button.id);
+        if (buttonElement) {
+            buttonElement.addEventListener("click", () => {
+                main.classList.toggle(button.class);
+                footer.classList.toggle(button.class);
+                logo.classList.toggle("grayscale");
+                login.classList.toggle("grayscale");
+                desktop.classList.toggle("grayscale");
+                header.classList.toggle("header-bg", button.class === "grayscale");
+                resetFiltersExcept(button.class);
+            });
+        }
     });
 
     // Función para resetear todos los filtros excepto el seleccionado
@@ -67,11 +61,19 @@ document.addEventListener("DOMContentLoaded", function () {
         ];
         filters.forEach((filter) => {
             if (filter !== exceptClass) {
-                body.classList.remove(filter);
+                main.classList.remove(filter);
+                footer.classList.remove(filter);
+                logo.classList.remove(filter);
+                login.classList.remove(filter);
+                desktop.classList.remove(filter);
             }
         });
+        if (exceptClass !== "grayscale") {
+            header.classList.remove("header-bg");
+        }
     }
 });
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
