@@ -4,11 +4,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "primary": "#495F41",
-        "secondary": "#FF5666",
+        "rich-black": "#041A1F",
+        "ecru": "#BFA473",
+        "dun": "#DED1B7",
+        "baby-powder": "#FDFEFA",
       },
       spacing: {
         0.75: "6px",
+      },
+      backgroundImage: {
+        'background': "url('/src/UD3/images/Fondo2.gif')",
       }
     },
   },
