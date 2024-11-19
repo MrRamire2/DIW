@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const fontSize = fontSizeInput.value + "em";
         const lineSpacing = lineSpacingInput.value + "em";
         const wordSpacing = wordSpacingInput.value + "em";
-        const letterSpacing = letterSpacingInput.value + "em";
+        const letterSpacing = letterSpacingInput.value + "px";
 
         // Actualizar las propiedades del body con los valores de los inputs
         document.body.style.fontSize = fontSize;

@@ -95,6 +95,7 @@ header > div{
 .nav-mobile {
   grid-area: mobile;
   display: flex;
+  justify-self: center;
 }
 .toggle-image{
   z-index: 2;
@@ -223,7 +224,6 @@ footer li {
 footer img {
   width: 30px;
   margin: 5px;
-  margin-bottom: 20px;
 }
 
 footer img:hover {
@@ -232,75 +232,25 @@ footer img:hover {
 
 footer h3, footer a {
   display: inline-block;
-  @include text-style($baby-powder, 10px, lighter);
+  @include text-style($baby-powder, 12px, lighter);
 }
 
 footer a {
   color: $baby-powder;
 }
 
-@media screen and (min-width: 1050px) {
-  header {
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-areas: "logo desktop login";
-  }
-
-  .header-logo {
-    text-align: left;
-  }
-
-  .nav-mobile {
-    display: none;
-  }
-
-  .nav-mobile img {
-    width: 50px;
-    transition: all 100ms;
-  }
-
-  .login img:hover,
-  .nav-mobile img:hover {
-    transform: scale(1.05);
-  }
-
-  .nav-desktop {
-    grid-area: desktop;
-    display: flex;
-    justify-content: center;
-  }
-
-  .nav-desktop > div > a {
-    @include text-style($ecru, 20px);
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    text-decoration: none;
-    padding: 15px 15px 23px;
-
-    background: linear-gradient(0deg, $ecru 50%, transparent 50%);
-    background-size: 200% 200%;
-    background-position: 100% 0%;
-    transition: background-position 0.3s ease, color 0.5s ease;
-    cursor: pointer;
-  }
-
-  .nav-desktop > div > a:hover {
-    background-position: 100% 100%;
-    color: $rich-black;
-  }
-
-  footer h3, footer a {
-    font-size: 20px;
-  }
-}
-
 @media screen and (min-width: 950px) {
   header {
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 80px auto 80px;
     grid-template-areas: "logo desktop login";
   }
 
-  .header-logo {
+    .header-logo {
     text-align: left;
+    margin: 0 10px;
+  }
+  .login{
+    margin: 0 10px;
   }
 
   .nav-mobile {
@@ -342,6 +292,6 @@ footer a {
   }
 
   footer h3, footer a {
-    font-size: 20px; 
+    font-size: 15px; 
   }
 }

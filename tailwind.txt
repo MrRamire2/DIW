@@ -1,0 +1,1 @@
+npx tailwindcss -i ./src/UD3/tailwind/input.css -o ./src/UD3/tailwind/output.css --watch
