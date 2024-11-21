@@ -1,173 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../tailwind/output.css">
-    <link rel="stylesheet" href="../scss/header-footer.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&" />
-    <title>News</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../tailwind/output.css">
+  <link rel="stylesheet" href="../scss/header-footer.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&" />
+  <title>News</title>
 </head>
+
 <body class="flex h-full">
-    <header>
-      <!-- Logo del sitio -->
-      <div class="header-logo">
-        <a href="../index.html">
-          <img src="../images/logo.png" alt="Logo" />
-        </a>
+  <header>
+    <!-- Logo del sitio -->
+    <div class="header-logo">
+      <a href="../index.html">
+        <img src="../images/logo.png" alt="Logo" />
+      </a>
+    </div>
+
+    <!--Logueo -->
+    <div class="login">
+      <a href="./login.html"><img src="../images/login.png" alt="Login button" /></a>
+    </div>
+
+    <!-- Menú de navegación ordenador-->
+    <nav class="nav-desktop">
+
+      <!-- home -->
+      <div class="home">
+        <a href="../index.html">Inici</a>
       </div>
-  
-      <!--Logueo -->
-      <div class="login">
-        <a href="./login.html"><img src="../images/login.png" alt="Login button" /></a>
+
+      <!-- history -->
+      <div class="history">
+        <a href="/student070/dwes/pages/register.php">Història</a>
       </div>
-  
-      <!-- Menú de navegación ordenador-->
-      <nav class="nav-desktop">
-  
-        <!-- home -->
-        <div class="home">
-          <a href="../index.html">Inici</a>
-        </div>
-  
-        <!-- history -->
-        <div class="history">
-          <a href="/student070/dwes/pages/register.php">Història</a>
-        </div>
-  
-        <!-- portfolio -->
-        <div class="portfolio">
-          <a href="./portfolio.html">Muntatge</a>
-        </div>
-  
-        <!-- news -->
-        <div class="news">
-          <a href="./news.html">Notícies</a>
-        </div>
-  
-        <!-- voltant de la balena -->
-        <div class="voltant_balena">
-          <a href="./al-voltant-de-la-balena.html">Al voltant de la balena</a>
-        </div>
-  
-      </nav>
-  
-      <!-- Menú de navegación movil-->
-      <nav class="nav-mobile">
-        <img src="../images/menu.png" alt="Options menu" class="toggle-image" id="toggleButton">
-        <section class="dropdown-content" id="dropdownContent">
-            <button class="selected" onclick="window.location.href='../index.html'">Inici</button>
-            <button class="selected" onclick="window.location.href='#rooms'">Història</button>
-            <button class="selected" onclick="window.location.href='./portfolio.html'">Muntatge</button>
-            <button class="selected" onclick="window.location.href='./news.html'">Notícies</button>
-            <button class="selected" onclick="window.location.href='./al-voltant-de-la-balena.html'">Al voltant de la balena</button>
-        </section>
+
+      <!-- portfolio -->
+      <div class="portfolio">
+        <a href="./portfolio.html">Muntatge</a>
+      </div>
+
+      <!-- news -->
+      <div class="news">
+        <a href="./news.html">Notícies</a>
+      </div>
+
+      <!-- voltant de la balena -->
+      <div class="voltant_balena">
+        <a href="./al-voltant-de-la-balena.html">Al voltant de la balena</a>
+      </div>
+
     </nav>
-    
-    </header>
-  
-    <aside>
-      <button class="accessibility-button" id="accessibility-button"><span class="material-symbols-outlined">accessibility_new</span></button>
-      
-      <section class="accessibility-options" id="accessibility-options">
-  
-          <button class="selected" id="grayscale">
-              <span class="material-symbols-outlined">filter_b_and_w</span>
-              <span class="nombre-button">grayscale</span>
-          </button>
-          
-          <button class="selected" id="dark_contrast">                    
-              <span class="material-symbols-outlined">contrast</span>
-              <span class="nombre-button">dark contrast</span>
-          </button>
-          
-          <button class="selected" id="light_contrast">
-              <span class="material-symbols-outlined">contrast</span>
-              <span class="nombre-button">light contrast</span>
-          </button>
-          
-          <button class="selected" id="high_saturation">
-              <span class="material-symbols-outlined">opacity</span>
-              <span class="nombre-button">high saturation</span>
-          </button>
-          
-          <button class="selected" id="low_saturation">
-              <span class="material-symbols-outlined">opacity</span>
-              <span class="nombre-button">low saturation</span>
-          </button>
-          
-  
-          <div class="font-settings">
-              <label for="font-size">Font Size (em):</label>
-              <input type="range" id="font-size" name="font-size" min="0.5" max="3" step="0.1" value="1">
-              
-              <label for="line-spacing">Line Spacing (em):</label>
-              <input type="range" id="line-spacing" name="line-spacing" min="0.5" max="2" step="0.1" value="1.5">
-              
-              <label for="word-spacing">Word Spacing (em):</label>
-              <input type="range" id="word-spacing" name="word-spacing" min="0.1" max="1.5" step="0.1" value="0.3">
-              
-              <label for="letter-spacing">Letter Spacing (em):</label>
-              <input type="range" id="letter-spacing" name="letter-spacing" min="0.01" max="0.2" step="0.01" value="0.05">
-          </div>
+
+    <!-- Menú de navegación movil-->
+    <nav class="nav-mobile">
+      <img src="../images/menu.png" alt="Options menu" class="toggle-image" id="toggleButton">
+      <section class="dropdown-content" id="dropdownContent">
+        <button class="selected" onclick="window.location.href='../index.html'">Inici</button>
+        <button class="selected" onclick="window.location.href='#rooms'">Història</button>
+        <button class="selected" onclick="window.location.href='./portfolio.html'">Muntatge</button>
+        <button class="selected" onclick="window.location.href='./news.html'">Notícies</button>
+        <button class="selected" onclick="window.location.href='./al-voltant-de-la-balena.html'">Al voltant de la
+          balena</button>
       </section>
-   </aside>
-  
-    <main class="flex flex-wrap gap-4 justify-center content-center bg-dun p-4 bg-background bg-repeat flex-grow h-full">
-  
-      <section class="h-64 w-64 bg-rich-black rounded-md hover:scale-[1.01] hover:ease-linear transition-all duration-100">
-        <section class="h-3/5 overflow-hidden">
-          <img class="rounded-t-md" src="../images/noticias/1.jpg" alt="whale spine">
-        </section>
-        <article class="p-2 text-center">
-          <h2 class="text-sm text-ecru">Lorem ipsum dolor sit</h2>
-          <p class="text-xs text-baby-powder">Tres versiones en 24 horas: así queda la conferencia «En defensa de Mahón» de Joan Pons Torres</p>
-        </article>
+    </nav>
+
+  </header>
+
+  <aside>
+    <button class="accessibility-button" id="accessibility-button"><span
+        class="material-symbols-outlined">accessibility_new</span></button>
+
+    <section class="accessibility-options" id="accessibility-options">
+
+      <button class="selected" id="grayscale">
+        <span class="material-symbols-outlined">filter_b_and_w</span>
+        <span class="nombre-button">grayscale</span>
+      </button>
+
+      <button class="selected" id="dark_contrast">
+        <span class="material-symbols-outlined">contrast</span>
+        <span class="nombre-button">dark contrast</span>
+      </button>
+
+      <button class="selected" id="light_contrast">
+        <span class="material-symbols-outlined">contrast</span>
+        <span class="nombre-button">light contrast</span>
+      </button>
+
+      <button class="selected" id="high_saturation">
+        <span class="material-symbols-outlined">opacity</span>
+        <span class="nombre-button">high saturation</span>
+      </button>
+
+      <button class="selected" id="low_saturation">
+        <span class="material-symbols-outlined">opacity</span>
+        <span class="nombre-button">low saturation</span>
+      </button>
+
+
+      <div class="font-settings">
+        <label for="font-size">Font Size (em):</label>
+        <input type="range" id="font-size" name="font-size" min="0.5" max="3" step="0.1" value="1">
+
+        <label for="line-spacing">Line Spacing (em):</label>
+        <input type="range" id="line-spacing" name="line-spacing" min="0.5" max="2" step="0.1" value="1.5">
+
+        <label for="word-spacing">Word Spacing (em):</label>
+        <input type="range" id="word-spacing" name="word-spacing" min="0.1" max="1.5" step="0.1" value="0.3">
+
+        <label for="letter-spacing">Letter Spacing (em):</label>
+        <input type="range" id="letter-spacing" name="letter-spacing" min="0.01" max="0.2" step="0.01" value="0.05">
+      </div>
+    </section>
+  </aside>
+
+  <main class="flex flex-wrap gap-4 bg-dun p-4 bg-background bg-repeat flex-grow h-full">
+
+    <article class="flex flex-wrap">
+
+      <h2 class="text-4xl text-rich-black">Les relíquies de l’institut Joan Ramis de Maó ‘conten’ com era la vida acadèmica de fa segle i mig</h2>
+
+      <h3 class="text-xl text-rich-black">L'Aula-museu s'obre a les visites concertades en espera d'aconseguir més fons per obrir-lo al públic en general
+      </h3>
+
+      <section class="w-auto flex-wrap flex">
+
+        <img class="rounded-t-md" src="../images/noticias/1.jpg" alt="whale spine">
+
+          <p class="inline-block">Un esquelet, un mico, una cria de vell marí, són algunes de les relíquies que es poden trobar a l’aula museu
+          de l’institut de secundària de Maó, Joan Ramis i Ramis. Avui s’ha obert a visites concertades el seu fons
+          cultural i històric del centre, amb 159 anys d’història, que es va decidir museïtzar per poder mostrar
+          objectes com els que hi havia a l’antiga Escola Nàutica, fundada el 1855, i que va ser el primer centre
+          oficial d’ensenyament de secundària a l’illa.</p>   
+
+        <p class="inline-block">Els alumnes de l’assignatura de Cooperació i Serveis a la Comunitat i els de Patrimoni s’encarreguen de fer
+          la visita guiada. Es deté en elements com els ossos d’una balena que es va trobar el 1912 a l’illa de l’Aire.
+          L’esquelet espera l’arribada de diners i de temps millors perquè es pugui muntar. El centre reclama l’ajuda de
+          la Conselleria per poder donar continuïtat al projecte.</p>
+
+        <p class="inline-block">Si arriben diners i recursos, el museu es podria obrir en el futur al públic en general al marge de l’horari
+          lectiu.</p>
+
       </section>
-  
-    </main>
-  
-    <footer>
-      <!-- Redes Sociales -->
-      <div>
-        <nav aria-label="Social media links">
-          <ul>
-            <a href="https://www.facebook.com/" target="_blank"><img src="../images/facebook.png" alt="Facebook logo"/></a>
-    <a href="https://www.instagram.com/" target="_blank"><img src="../images/instagram.png" alt="Instagram logo"/></a>
-    <a href="https://www.twitter.com/" target="_blank"><img src="../images/x.png" alt="Twitter logo"/></a>
-    <a href="https://www.whatsapp.com/" target="_blank"><img src="../images/whatsapp.png" alt="Whatsapp logo"/></a>
-          </ul>
-        </nav>
-      </div>
-    
-      <!-- Secciones de navegación del sitio -->
-      <div>
-        <nav aria-label="Site navigation">
-          <ul>
-            <li><h3><a href="#">About The Met</a></h3></li>
-            <li><h3><a href="#">Mission and History</a></h3></li>
-            <li><h3><a href="#">Collection Areas</a></h3></li>
-          </ul>
-        </nav>
-    
-        <nav aria-label="Support section">
-          <ul>
-            <li><h3><a href="#">Membership</a></h3></li>
-            <li><h3><a href="#">Host an Event</a></h3></li>
-          </ul>
-        </nav>
-    
-        <nav aria-label="Other sections">
-          <ul>
-            <li><h3><a href="#">privacy policies and coockies</a></h3></li>
-            <li><h3><a href="#">Fellowships</a></h3></li>
-          </ul>
-        </nav>
-      </div>
-    </footer>
-  
-    <script src="../js/desplegable.js"></script>
-    <script src="../js/desplegable-accessibility.js"></script>
-  
-  </body>
+
+    </article>
+
+  </main>
+
+  <footer>
+    <!-- Redes Sociales -->
+    <div>
+      <nav aria-label="Social media links">
+        <ul>
+          <a href="https://www.facebook.com/" target="_blank"><img src="../images/facebook.png"
+              alt="Facebook logo" /></a>
+          <a href="https://www.instagram.com/" target="_blank"><img src="../images/instagram.png"
+              alt="Instagram logo" /></a>
+          <a href="https://www.twitter.com/" target="_blank"><img src="../images/x.png" alt="Twitter logo" /></a>
+          <a href="https://www.whatsapp.com/" target="_blank"><img src="../images/whatsapp.png"
+              alt="Whatsapp logo" /></a>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Secciones de navegación del sitio -->
+    <div>
+      <nav aria-label="Site navigation">
+        <ul>
+          <li>
+            <h3><a href="#">About The Met</a></h3>
+          </li>
+          <li>
+            <h3><a href="#">Mission and History</a></h3>
+          </li>
+          <li>
+            <h3><a href="#">Collection Areas</a></h3>
+          </li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Support section">
+        <ul>
+          <li>
+            <h3><a href="#">Membership</a></h3>
+          </li>
+          <li>
+            <h3><a href="#">Host an Event</a></h3>
+          </li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Other sections">
+        <ul>
+          <li>
+            <h3><a href="#">privacy policies and coockies</a></h3>
+          </li>
+          <li>
+            <h3><a href="#">Fellowships</a></h3>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../js/desplegable.js"></script>
+  <script src="../js/desplegable-accessibility.js"></script>
+
+</body>
+
 </html>
