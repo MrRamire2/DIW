@@ -315,6 +315,10 @@ footer a {
     transition: background-position 0.3s ease, color 0.5s ease;
     cursor: pointer;
   }
+  .news > a:nth-child(1) {
+    background-color: #BFA473;
+    color: #041A1F;
+  }
   .nav-desktop > div > a:hover {
     background-position: 100% 100%;
     color: #041A1F;

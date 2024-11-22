@@ -392,6 +392,11 @@ footer a {
     cursor: pointer;
   }
 
+  .voltant_balena > a:nth-child(1) {
+    background-color: $ecru;
+    color: $rich-black;
+  }
+
   .nav-desktop > div > a:hover {
     background-position: 100% 100%;
     color: $rich-black;
