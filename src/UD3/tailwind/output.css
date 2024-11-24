@@ -706,6 +706,10 @@ video {
   background-image: url('./aula_museu/images/Fondo2.gif');
 }
 
+.bg-\[url\(\'\.\.\/images\/Fondo2\.gif\'\)\] {
+  background-image: url('../images/Fondo2.gif');
+}
+
 .bg-repeat {
   background-repeat: repeat;
 }
