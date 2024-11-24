@@ -13,7 +13,7 @@ module.exports = {
         0.75: "6px",
       },
       backgroundImage: {
-        'background': "url('/DIW/src/UD3/images/fondo2.gif')",
+        'background': "url('./src/UD3/images/fondo2.gif')",
       }
     },
   },
