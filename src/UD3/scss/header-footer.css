@@ -225,6 +225,12 @@ header .selected {
   width: 100%;
 }
 
+main {
+  background-image: url(../images/Fondo2.gif);
+  background-size: 500px;
+  background-attachment: fixed;
+}
+
 footer {
   background-color: #041A1F;
   padding: 15px 20px 20px;
