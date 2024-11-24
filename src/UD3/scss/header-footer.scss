@@ -76,8 +76,9 @@ header > div{
 
 .login {
   grid-area: login;
-  text-align: end;
   height: 50px;
+  margin: 0;
+  justify-self: end;
 }
 
 .login img, .nav-mobile img {
@@ -93,7 +94,6 @@ header > div{
 .nav-mobile {
   grid-area: mobile;
   display: flex;
-  justify-self: center;
 }
 .toggle-image{
   z-index: 2;
@@ -131,7 +131,7 @@ header > div{
   color: $ecru;
   position: absolute;
   top: 11px;
-  left: 85px;
+  left: 60px;
 }
 
 
