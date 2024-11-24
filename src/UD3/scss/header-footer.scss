@@ -41,10 +41,6 @@ body {
   transition: all 0.3s ease; /* Suaviza los cambios */
 }
 
-.header-bg{
-  background-color: #181414;
-}
-
 header {
   padding: 5px 20px 2px;
   background-color: $rich-black;
@@ -66,11 +62,12 @@ header > div{
 .header-logo {
   grid-area: logo;
   text-align: center;
+  height: 58px;
 }
 
 .header-logo img {
   width: 50px;
-  transition: all 100ms;  
+  transition: all 100ms; 
 }
 
 .header-logo img:hover {
@@ -80,6 +77,7 @@ header > div{
 .login {
   grid-area: login;
   text-align: end;
+  height: 50px;
 }
 
 .login img, .nav-mobile img {
@@ -99,6 +97,7 @@ header > div{
 }
 .toggle-image{
   z-index: 2;
+  height: 50px;
 }
 
 /* Estilos iniciales cuando el menú no está activo */
@@ -116,21 +115,25 @@ header > div{
   transition: transform 0.4s ease, opacity 0.4s ease; /* Transición para movimiento y opacidad */
   pointer-events: none; /* Evita la interacción cuando está oculto */
   z-index: 1;
+
+  &.active { /* Anidamos el estado activo dentro de .dropdown-content */
+    opacity: 1; /* Visible */
+    transform: translate(0, 0); /* Posición final */
+    pointer-events: auto; /* Permite la interacción */
+  }
 }
 
-/* Estilos cuando el menú está activo */
-.dropdown-content.active {
-  opacity: 1; /* Visible */
-  transform: translate(0, 0); /* Posición final */
-  pointer-events: auto; /* Permite la interacción */
+.indicator-mobile {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: $ecru;
+  position: absolute;
+  top: 11px;
+  left: 85px;
 }
 
-/* Estilos cuando el menú está activo */
-.dropdown-content.active {
-  opacity: 1; /* Visible */
-  transform: translate(0, 0); /* Posición final */
-  pointer-events: auto; /* Permite la interacción */
-}
 
 header .selected{
   justify-content: center;
@@ -162,14 +165,16 @@ header .selected{
   transform: translate(-100%, 0); /* Empieza fuera de la vista, en la parte izquierda */
   transition: transform 0.4s ease, opacity 0.4s ease; /* Transición para el movimiento y opacidad */
   pointer-events: none; /* Evita la interacción cuando está oculto */
+
+  /* Estilos cuando el menú de accesibilidad está activo */
+  &.active {
+    opacity: 1; /* Visible */
+    transform: translateY(0); /* Se coloca en su posición final */
+    pointer-events: auto; /* Permite la interacción */
+  }
 }
 
-/* Estilos cuando el menú de accesibilidad está activo */
-.accessibility-options.active {
-  opacity: 1; /* Visible */
-  transform: translateY(0); /* Se coloca en su posición final */
-  pointer-events: auto; /* Permite la interacción */
-}
+
 
 .selected{
   @include button-accessibility-options($ecru, $rich-black, $ecru, 30px, 10px);
@@ -182,16 +187,19 @@ header .selected{
   padding: 10px;
   background-color: $ecru;
   border-radius: 15px;
+
+  label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+
+  input[type="range"] {
+    width: 100%;
+  }
 }
 
-.font-settings label {
-  display: block;
-  margin: 10px 0 5px;
-}
 
-.font-settings input[type="range"] {
-  width: 100%;
-}
+
 
 
 main{
@@ -204,46 +212,48 @@ main{
 footer {
   background-color: $rich-black;
   padding: 15px 20px 20px;
+
+  & > div {
+    display: flex;
+    justify-content: right;
+
+    &:nth-child(2) {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    &:nth-child(2) > nav > ul {
+      display: flex;
+      flex-direction: column;
+      margin-right: 10px;
+      margin-bottom: 5px;
+    }
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  img {
+    width: 30px;
+    margin: 5px;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  h3, a {
+    display: inline-block;
+    @include text-style($baby-powder, 12px, lighter);
+    font-size: 15px; 
+  }
+
+  a {
+    color: $baby-powder;
+  }
 }
 
-footer > div {
-  display: flex;
-  flex-direction: row;
-  justify-content: right;
-}
-
-footer > div:nth-child(2) {
-  justify-content: space-around;
-}
-
-
-footer > div:nth-child(2) > nav > ul {
-  display: flex;
-  flex-direction: column;
-  margin-right: 10px;
-}
-
-footer li {
-  display: inline-block;
-}
-
-footer img {
-  width: 30px;
-  margin: 5px;
-}
-
-footer img:hover {
-  transform: scale(1.05);
-}
-
-footer h3, footer a {
-  display: inline-block;
-  @include text-style($baby-powder, 12px, lighter);
-}
-
-footer a {
-  color: $baby-powder;
-}
 
 @media screen and (min-width: 950px) {
   header {
@@ -251,7 +261,7 @@ footer a {
     grid-template-areas: "logo desktop login";
   }
 
-    .header-logo {
+  .header-logo {
     text-align: left;
     margin: 0 10px;
   }
@@ -276,33 +286,24 @@ footer a {
     grid-area: desktop;
     display: flex;
     justify-content: center;
-  }
 
-  .nav-desktop > div > a {
-    @include text-style($ecru, 20px);
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    text-decoration: none;
-    padding: 15px 15px 23px;
+    & > div > a {
+      @include text-style($ecru, 20px);
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      text-decoration: none;
+      padding: 15px 15px 23px;
+  
+      background: linear-gradient(0deg, $ecru 50%, transparent 50%);
+      background-size: 200% 200%;
+      background-position: 100% 0%;
+      transition: background-position 0.3s ease, color 0.5s ease;
+      cursor: pointer;
 
-    background: linear-gradient(0deg, $ecru 50%, transparent 50%);
-    background-size: 200% 200%;
-    background-position: 100% 0%;
-    transition: background-position 0.3s ease, color 0.5s ease;
-    cursor: pointer;
-  }
-
-  .news > a:nth-child(1) {
-    background-color: $ecru;
-    color: $rich-black;
-  }
-
-  .nav-desktop > div > a:hover {
-    background-position: 100% 100%;
-    color: $rich-black;
-  }
-
-  footer h3, footer a {
-    font-size: 15px; 
+      &:hover {
+        background-position: 100% 100%;
+        color: $rich-black;
+      }
+    }
   }
 }

@@ -38,10 +38,6 @@ body {
   transition: all 0.3s ease; /* Suaviza los cambios */
 }
 
-.header-bg {
-  background-color: #181414;
-}
-
 header {
   padding: 5px 20px 2px;
   background-color: #041A1F;
@@ -63,6 +59,7 @@ header > div {
 .header-logo {
   grid-area: logo;
   text-align: center;
+  height: 58px;
 }
 
 .header-logo img {
@@ -77,6 +74,7 @@ header > div {
 .login {
   grid-area: login;
   text-align: end;
+  height: 50px;
 }
 
 .login img, .nav-mobile img {
@@ -96,6 +94,7 @@ header > div {
 
 .toggle-image {
   z-index: 2;
+  height: 50px;
 }
 
 /* Estilos iniciales cuando el menú no está activo */
@@ -114,19 +113,21 @@ header > div {
   pointer-events: none; /* Evita la interacción cuando está oculto */
   z-index: 1;
 }
-
-/* Estilos cuando el menú está activo */
-.dropdown-content.active {
+.dropdown-content.active { /* Anidamos el estado activo dentro de .dropdown-content */
   opacity: 1; /* Visible */
   transform: translate(0, 0); /* Posición final */
   pointer-events: auto; /* Permite la interacción */
 }
 
-/* Estilos cuando el menú está activo */
-.dropdown-content.active {
-  opacity: 1; /* Visible */
-  transform: translate(0, 0); /* Posición final */
-  pointer-events: auto; /* Permite la interacción */
+.indicator-mobile {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 1.5;
+  color: #BFA473;
+  position: absolute;
+  top: 11px;
+  left: 85px;
 }
 
 header .selected {
@@ -173,9 +174,8 @@ header .selected {
   transform: translate(-100%, 0); /* Empieza fuera de la vista, en la parte izquierda */
   transition: transform 0.4s ease, opacity 0.4s ease; /* Transición para el movimiento y opacidad */
   pointer-events: none; /* Evita la interacción cuando está oculto */
+  /* Estilos cuando el menú de accesibilidad está activo */
 }
-
-/* Estilos cuando el menú de accesibilidad está activo */
 .accessibility-options.active {
   opacity: 1; /* Visible */
   transform: translateY(0); /* Se coloca en su posición final */
@@ -215,12 +215,10 @@ header .selected {
   background-color: #BFA473;
   border-radius: 15px;
 }
-
 .font-settings label {
   display: block;
   margin: 10px 0 5px;
 }
-
 .font-settings input[type=range] {
   width: 100%;
 }
@@ -235,36 +233,30 @@ footer {
   background-color: #041A1F;
   padding: 15px 20px 20px;
 }
-
 footer > div {
   display: flex;
-  flex-direction: row;
   justify-content: right;
 }
-
 footer > div:nth-child(2) {
-  justify-content: space-around;
+  display: flex;
+  justify-content: space-evenly;
 }
-
 footer > div:nth-child(2) > nav > ul {
   display: flex;
   flex-direction: column;
   margin-right: 10px;
+  margin-bottom: 5px;
 }
-
 footer li {
   display: inline-block;
 }
-
 footer img {
   width: 30px;
   margin: 5px;
 }
-
 footer img:hover {
   transform: scale(1.05);
 }
-
 footer h3, footer a {
   display: inline-block;
   color: #FDFEFA;
@@ -272,8 +264,8 @@ footer h3, footer a {
   font-weight: lighter;
   line-height: 1.5;
   font-family: "Roboto", sans-serif;
+  font-size: 15px;
 }
-
 footer a {
   color: #FDFEFA;
 }
@@ -321,15 +313,8 @@ footer a {
     transition: background-position 0.3s ease, color 0.5s ease;
     cursor: pointer;
   }
-  .news > a:nth-child(1) {
-    background-color: #BFA473;
-    color: #041A1F;
-  }
   .nav-desktop > div > a:hover {
     background-position: 100% 100%;
     color: #041A1F;
-  }
-  footer h3, footer a {
-    font-size: 15px;
   }
 }/*# sourceMappingURL=header-footer.css.map */
