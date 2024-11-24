@@ -686,28 +686,12 @@ video {
   background-color: rgb(4 26 31 / var(--tw-bg-opacity));
 }
 
-.bg-\[\] {
-  background-color: ;
-}
-
 .bg-background {
-  background-image: url('./aula_museu/images/Fondo2.gif');
+  background-image: url('/DIW/blob/main/aula_museu/images/Fondo2.gif');
 }
 
 .bg-gradient-to-l {
   background-image: linear-gradient(to left, var(--tw-gradient-stops));
-}
-
-.bg-\[url\(\'\/img\/hero-pattern\.svg\'\)\] {
-  background-image: url('/img/hero-pattern.svg');
-}
-
-.bg-\[url\(\'\.\/aula_museu\/images\/Fondo2\.gif\'\)\] {
-  background-image: url('./aula_museu/images/Fondo2.gif');
-}
-
-.bg-\[url\(\'\.\.\/images\/Fondo2\.gif\'\)\] {
-  background-image: url('../images/Fondo2.gif');
 }
 
 .bg-repeat {
