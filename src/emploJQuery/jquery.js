@@ -8,14 +8,16 @@ $(() => {
     $("button").html("<i>hola</i>");
 
     // función para cambiar de texto en el input
-    // $("button").on("click", function() {
-    //     console.log($("#texto").val("Jhonatan"));        
-    // })
+    $("button").on("click", function() {
+        console.log($("#texto").val("Jhonatan"));        
+    })
 
-    $("button").on({
-        click: function() {
-            $("#texto").val("Jhonatan"); 
-        }click: function(){
-      console.log("hola");
-    }})
+
+    //NO FUNCIONA
+    // $("button").on({
+    //     click: function() {
+    //         $("#texto").val("Jhonatan"); 
+    //     }click: function(){
+    //   console.log("hola");
+    // }})
 })
