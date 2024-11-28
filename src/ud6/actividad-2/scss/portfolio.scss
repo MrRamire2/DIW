@@ -1,0 +1,59 @@
+@import 'variables';
+@import 'mixins';
+
+main {
+  flex-grow: 1;
+  background-image: url(../images/Fondo2.gif);
+  background-size: 500px;
+  background-attachment: fixed;
+  margin: 0;
+}
+
+main > aside{
+  position: fixed;
+  z-index: 1;
+}
+
+main > section{
+  flex-grow: 1;
+  background-image: url(../images/Fondo2.gif);
+  background-size: 500px;
+  background-attachment: fixed;
+  padding: 20px 5px;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+main figure {
+  position: relative;
+  filter: drop-shadow(0 0 0);
+  flex-grow: 4;
+  transition: all 300ms;
+}
+
+main figure > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+}
+
+main figure:hover {
+  filter: drop-shadow(0px 0px 5px $ecru);
+}
+
+main figure > figcaption {
+  @include text-style($rich-black, 15px, lighter);
+  text-shadow: 1px 1px 2px $ecru;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-weight: bold;
+}
+
+.portfolio > a:nth-child(1) {
+  background-color: $ecru;
+  color: $rich-black;
+}
