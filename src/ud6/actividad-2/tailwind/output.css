@@ -107,7 +107,7 @@
 }
 
 /*
-! tailwindcss v3.4.15 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.14 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -554,8 +554,16 @@ video {
   display: none;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .float-none {
   float: none;
+}
+
+.m-10 {
+  margin: 2.5rem;
 }
 
 .m-3 {
@@ -566,48 +574,23 @@ video {
   margin: auto;
 }
 
-.m-2 {
-  margin: 0.5rem;
+.m-7 {
+  margin: 1.75rem;
 }
 
-.m-20 {
-  margin: 5rem;
+.my-9 {
+  margin-top: 2.25rem;
+  margin-bottom: 2.25rem;
 }
 
-.m-1 {
-  margin: 0.25rem;
-}
-
-.m-14 {
-  margin: 3.5rem;
-}
-
-.m-10 {
-  margin: 2.5rem;
-}
-
-.mt-0 {
-  margin-top: 0px;
-}
-
-.mt-20 {
-  margin-top: 5rem;
-}
-
-.mt-5 {
-  margin-top: 1.25rem;
-}
-
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-
-.mt-7 {
+.my-7 {
   margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
 }
 
-.ml-0 {
-  margin-left: 0px;
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .ml-3 {
@@ -618,20 +601,96 @@ video {
   margin-right: 0.75rem;
 }
 
+.mt-9 {
+  margin-top: 2.25rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mt-7 {
+  margin-top: 1.75rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-7 {
+  margin-bottom: 1.75rem;
+}
+
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
+}
+
+.hidden {
+  display: none;
+}
+
+.h-2 {
+  height: 0.5rem;
 }
 
 .h-full {
   height: 100%;
 }
 
+.h-96 {
+  height: 24rem;
+}
+
+.h-auto {
+  height: auto;
+}
+
 .w-11\/12 {
   width: 91.666667%;
 }
 
+.w-full {
+  width: 100%;
+}
+
+.w-28 {
+  width: 7rem;
+}
+
+.min-w-96 {
+  min-width: 24rem;
+}
+
+.max-w-96 {
+  max-width: 24rem;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+}
+
 .flex-grow {
   flex-grow: 1;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .flex-wrap {
@@ -642,6 +701,14 @@ video {
   align-content: center;
 }
 
+.items-center {
+  align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -650,8 +717,56 @@ video {
   gap: 1rem;
 }
 
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.bg-baby-powder {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 254 250 / var(--tw-bg-opacity));
+}
+
+.bg-rich-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(4 26 31 / var(--tw-bg-opacity));
+}
+
+.bg-ecru {
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 164 115 / var(--tw-bg-opacity));
+}
+
 .p-4 {
   padding: 1rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-1 {
+  padding: 0.25rem;
+}
+
+.p-5 {
+  padding: 1.25rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.p-7 {
+  padding: 1.75rem;
 }
 
 .text-4xl {
@@ -666,7 +781,22 @@ video {
 
 .text-rich-black {
   --tw-text-opacity: 1;
-  color: rgb(4 26 31 / var(--tw-text-opacity, 1));
+  color: rgb(4 26 31 / var(--tw-text-opacity));
+}
+
+.text-ecru {
+  --tw-text-opacity: 1;
+  color: rgb(191 164 115 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
 .grayscale {
@@ -688,9 +818,9 @@ video {
   border-width: 2px;
   border-style: solid;
   --tw-border-opacity: 1;
-  border-color: rgb(191 164 115 / var(--tw-border-opacity, 1));
+  border-color: rgb(191 164 115 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgb(4 26 31 / var(--tw-bg-opacity, 1));
+  background-color: rgb(4 26 31 / var(--tw-bg-opacity));
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 100ms;
@@ -722,14 +852,14 @@ video {
   font-size: 0.875rem;
   line-height: 1.25rem;
   --tw-text-opacity: 1;
-  color: rgb(191 164 115 / var(--tw-text-opacity, 1));
+  color: rgb(191 164 115 / var(--tw-text-opacity));
 }
 
 .card-description {
   font-size: 0.75rem;
   line-height: 1rem;
   --tw-text-opacity: 1;
-  color: rgb(253 254 250 / var(--tw-text-opacity, 1));
+  color: rgb(253 254 250 / var(--tw-text-opacity));
 }
 
 @media (min-width: 768px) {
@@ -756,10 +886,6 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .lg\:max-w-3xl {
-    max-width: 48rem;
-  }
-
   .lg\:max-w-5xl {
     max-width: 64rem;
   }

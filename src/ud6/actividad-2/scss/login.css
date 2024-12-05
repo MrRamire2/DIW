@@ -12,7 +12,7 @@ main > aside {
   z-index: 1;
 }
 
-main > form {
+main > div {
   display: flex;
   justify-content: left;
   flex-direction: column;
@@ -24,7 +24,7 @@ main > form {
   box-shadow: 0px 0px 30px 0px #BFA473;
 }
 
-main > form > label {
+main > div > label {
   color: #BFA473;
   font-size: 14px;
   font-weight: normal;
@@ -32,7 +32,7 @@ main > form > label {
   font-family: "Roboto", sans-serif;
 }
 
-main > form > input {
+main > div > input {
   padding: 5px;
   border-radius: 2px;
   margin: 15px 0;
@@ -42,7 +42,7 @@ main > form > input {
   border: 2px solid #BFA473;
 }
 
-main > form > input:focus {
+main > div > input:focus {
   outline: none;
   border: 2px solid #DED1B7;
   box-shadow: 0px 0px 10px 0px #BFA473;
@@ -58,7 +58,7 @@ main > form > input:focus {
   color: red;
 }
 
-main > form > button {
+main > div > button {
   margin: 50px auto 20px;
   padding: 5px 20px;
   border-radius: 2px;
@@ -70,11 +70,11 @@ main > form > button {
   transition: all 100ms;
   border: 2px solid #BFA473;
 }
-main > form > button:hover {
+main > div > button:hover {
   border: 2px solid #DED1B7;
   box-shadow: 0px 0px 10px 0px #BFA473;
 }
-main > form > button:focus {
+main > div > button:focus {
   outline: none;
   border: 2px solid #DED1B7;
   box-shadow: 0px 0px 10px 0px #BFA473;

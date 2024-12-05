@@ -1,1 +1,7 @@
 npx tailwindcss -i ./src/UD3/tailwind/input.css -o ./src/UD3/tailwind/output.css --watch
+
+npx tailwindcss -i ./src/ud6/actividad-2/tailwind/input.css -o ./src/ud6/actividad-2/tailwind/output.css --watch
+
+
+
+\ud6\actividad-2\tailwind

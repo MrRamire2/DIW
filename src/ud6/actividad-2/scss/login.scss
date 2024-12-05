@@ -14,7 +14,7 @@ main > aside{
   z-index: 1;
 }
 
-main > form {
+main > div {
   display: flex;
   justify-content: left;
   flex-direction: column;
@@ -26,11 +26,11 @@ main > form {
   box-shadow: 0px 0px 30px 0px $ecru;
 }
 
-main > form > label {
+main > div > label {
   @include text-style($ecru, 14px);
 }
 
-main > form > input {
+main > div > input {
   padding: 5px;
   border-radius: 2px;
   margin: 15px 0;
@@ -40,7 +40,7 @@ main > form > input {
   border: 2px solid $ecru;
 }
 
-main > form > input:focus {
+main > div > input:focus {
   outline: none;
   border: 2px solid $dun;
   box-shadow: 0px 0px 10px 0px $ecru;
@@ -56,6 +56,6 @@ main > form > input:focus {
   color: red;
 }
 
-main > form > button {
+main > div > button {
   @include button($ecru, $rich-black, $ecru, $dun);
 }
