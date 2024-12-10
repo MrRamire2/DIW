@@ -1,8 +1,0 @@
-@import 'variables'; 
-@import 'mixins';
-
-//es para poder reutilizar el codigo del header, este es el que me dice en que pagina me encuentro
-.news > a:nth-child(1) {
-  background-color: $ecru;
-  color: $rich-black;
-}
