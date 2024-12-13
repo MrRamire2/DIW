@@ -31,6 +31,8 @@ submit.addEventListener("click", () => {
 
             if (user["is_first_login"] === 1) {
                 document.location.href="../views/change-password.html";
+            } else {
+                document.location.href="../index.html";
             }
 
         } else {

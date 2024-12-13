@@ -83,6 +83,8 @@ header > div{
   height: 50px;
   margin: 0;
   justify-self: end;
+  display: flex;
+  align-items: center;
 }
 
 .login img, .nav-mobile img {
@@ -92,6 +94,11 @@ header > div{
 
 .login img:hover, .nav-mobile img:hover {
   transform: scale(1.03);
+}
+
+.logout{
+  z-index: 2;
+  color: $ecru;
 }
 
 // desplegable de mobile

@@ -735,14 +735,14 @@ video {
   color: rgb(239 68 68 / var(--tw-text-opacity, 1));
 }
 
-.text-rich-black {
-  --tw-text-opacity: 1;
-  color: rgb(4 26 31 / var(--tw-text-opacity, 1));
-}
-
 .text-red-600 {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity, 1));
+}
+
+.text-rich-black {
+  --tw-text-opacity: 1;
+  color: rgb(4 26 31 / var(--tw-text-opacity, 1));
 }
 
 .shadow-\[0_0_30px_0px_\#BFA473\] {
