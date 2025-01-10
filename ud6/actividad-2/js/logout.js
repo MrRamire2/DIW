@@ -1,19 +1,23 @@
 // Obtener los elementos de logout y la imagen del perfil
 const logout = document.getElementById("logout");
+const login = document.getElementById("login");
 const imgProfile = document.getElementById("img-profile");
 
 // Obtener el valor de 'users_log' desde localStorage (si existe)
-const userLog = localStorage.getItem('users_log');
+const userLog = JSON.parse(localStorage.getItem('users_log'));
 
 // Comprobar si el usuario está logueado
 if (userLog === null) {
     // Si no está logueado, ocultar el enlace de logout y mostrar la imagen de login
-    logout.style.display = "none";
-    imgProfile.src = "./images/login.png"; 
-} else {
+    login.style.display = "block";
+    logout.style.display = "none"; 
+
+}else {
     // Si está logueado, mostrar el enlace de logout
-    logout.style.display = "block";
-    imgProfile.src = "./images/profile.png"; 
+    login.style.display = "none";
+    logout.style.display = "block"; 
+    logout.style.margin = "10px";
+    imgProfile.src = userLog; 
 }
 
 // Agregar el evento de logout

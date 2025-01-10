@@ -18,10 +18,6 @@ submit.addEventListener("click", () => {
 
         //contraseña con salt encriptada
         const hash = CryptoJS.SHA256(password_salt).toString();
-
-        //para comparar
-        console.log(hash);
-        console.log(user["password_hash"]);
     
         //comprueba que exista el usuario con los datos ingresados
         if (email.value === user["email"] && hash === user["password_hash"]) {
