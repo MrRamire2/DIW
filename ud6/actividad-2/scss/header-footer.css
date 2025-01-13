@@ -75,9 +75,10 @@ header > div {
 }
 
 .login, .logout {
+  z-index: 3;
   grid-area: login;
   height: 50px;
-  width: auto;
+  width: 50px;
   margin: 0;
   justify-self: end;
   align-items: center;
@@ -93,9 +94,26 @@ header > div {
   transform: scale(1.03);
 }
 
-.logout-link {
-  z-index: 2;
-  color: #BFA473;
+.profile-menu {
+  height: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  right: 0;
+  width: 300px;
+  background-color: rgba(4, 26, 31, 0.6941176471);
+  padding: 20px 10px 20px;
+  opacity: 0; /* Invisible inicialmente */
+  transform: translate(100%, 0); /* Empieza fuera de la vista, en la parte izquierda */
+  transition: transform 0.4s ease, opacity 0.4s ease; /* Transición para el movimiento y opacidad */
+  pointer-events: none; /* Evita la interacción cuando está oculto */
+}
+.profile-menu.active {
+  opacity: 1; /* Visible */
+  transform: translateY(0); /* Se coloca en su posición final */
+  pointer-events: auto; /* Permite la interacción */
+}
+.profile-menu li {
+  list-style: none;
 }
 
 .nav-mobile {
