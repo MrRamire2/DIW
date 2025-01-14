@@ -45,7 +45,7 @@ header {
   padding: 5px 20px 2px;
   background-color: #041A1F;
   display: grid;
-  grid-template-columns: 2fr 4fr 2fr;
+  grid-template-columns: 50px auto 50px;
   grid-template-areas: "mobile logo login";
   align-items: center;
   padding: 5px;
@@ -114,6 +114,10 @@ header > div {
 }
 .profile-menu li {
   list-style: none;
+}
+
+.admin {
+  display: none;
 }
 
 .nav-mobile {
@@ -295,12 +299,11 @@ footer a {
 
 @media screen and (min-width: 950px) {
   header {
-    grid-template-columns: 200px auto 200px;
+    grid-template-columns: 50px auto 50px;
     grid-template-areas: "logo desktop login";
   }
   .header-logo {
     text-align: left;
-    margin: 0 10px;
   }
   .login {
     margin: 0 10px;

@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     const accessibilityButton = document.getElementById("accessibility-button");
     const accessibilityOptions = document.getElementById("accessibility-options");
-    const dropdownContent = document.getElementById("dropdownContent"); // Referencia al otro menú
+    const dropdownContent = document.getElementById("dropdownContent");
+    const profileMenu = document.getElementById("profile-menu");
 
     if (accessibilityButton && accessibilityOptions) {
         accessibilityButton.addEventListener("click", function() {
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Si el menú de accesibilidad está activo, desactiva el dropdown
             if (accessibilityOptions.classList.contains('active')) {
                 dropdownContent.classList.remove('active');
+                profileMenu.classList.remove('active');    
             }
         });
     } else {

@@ -20,9 +20,39 @@
     </div>
 
     <!--Logueo -->
-    <div class="login">
-      <a href="./login.html"><img id="img-profile" src="../images/login.png" alt="Login button" /></a>
-    </div>
+    <div id="login" class="login">
+      <a href="../views/login.html"><img id="img-profile" src="../images/login.png"/></a>
+  </div>
+  <div id="logout" class="logout">
+      <img id="img-profile-logout" src="../images/users/admin.png"/>
+      <ul id="profile-menu" class="profile-menu">
+          <li>
+              <button class="selected" id="profile-btn">
+                  <span class="nombre-button">Profile</span>
+              </button>
+          </li>
+          <li>
+              <button class="selected" id="logout-btn">
+                  <span class="nombre-button">Logout</span>
+              </button>
+          </li>
+          <li>
+            <button class="selected admin" id="edit-users">
+                <span class="nombre-button">Edit users</span>
+            </button>
+        </li>
+        <li>
+            <button class="selected admin" id="edit-news">
+                <span class="nombre-button">Edit news</span>
+            </button>
+        </li>
+        <li>
+            <button class="selected admin" id="edit-bone-files">
+                <span class="nombre-button">Edit bone files</span>
+            </button>
+        </li>
+    </ul>
+</div>
 
     <!-- Menú de navegación ordenador-->
     <nav class="nav-desktop">
@@ -292,10 +322,12 @@
     </div>
   </footer>
 
-  <script src="./js/logout.js"></script>
+  <script src="../js/admin-options.js"></script>
+  <script src="../js/logout.js"></script>
   <script src="../js/img-profile-change.js"></script>
   <script src="../js/desplegable.js"></script>
   <script src="../js/desplegable-accessibility.js"></script>
+  <script src="../js/desplegable-profile.js"></script>
 
 </body>
 
