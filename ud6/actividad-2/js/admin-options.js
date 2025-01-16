@@ -11,4 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
         editNews.style.display = storedUser.edit_news === 1 ? "flex" : "none";
         editBoneFiles.style.display = storedUser.edit_bone_files === 1 ? "flex" : "none";
     }
+
+    editNews.addEventListener("click", ()=>{
+        document.location.href="../views/news-edit.html";
+    });
 });
