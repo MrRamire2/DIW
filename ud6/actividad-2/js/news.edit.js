@@ -23,7 +23,7 @@ $(function() {
           if (type === "paragraph") {
             newElement = $(
               `<div class="element">
-                <p class="editable" onclick="editParagraph(this)">Escribe aquí tu texto...</p>
+                <input type="text" class="editable" value="Escribe aquí tu texto..."></input>
               </div>`
             );
           } else if (type === "image") {
@@ -67,6 +67,10 @@ $(function() {
   
       initializeDroppable();
       initializeDeleteButtons();
+    });
+
+    $("#save-config").on("click", function(){
+      getData();
     });
   
     function initializeDeleteButtons() {
@@ -157,20 +161,25 @@ $(function() {
     reader.readAsDataURL(input.files[0]);
   }
   
-  function editParagraph(paragraph) {
-    const $p = $(paragraph);
-    const currentText = $p.text();
-    const input = $(`<input type="text" value="${currentText}" />`);
-  
-    input.on("blur", function() {
-      const newText = $(this).val();
-      $p.text(newText);
-      $p.show();
-      $(this).remove();
+  function getData() {
+    const rows = $(".row");
+
+    rows.each((index, row) => {
+      const inputs = $(row).find("input");
+      
+      inputs.each((i, input) => { 
+        console.log(index);  
+
+        if ($(input).attr("type") == "text") {
+          console.log($(input).val());
+        } else {
+          const file = input.files[0];
+          console.log(file);
+          console.log("imagen");
+          console.log(input);
+        }
+      });
     });
-  
-    $p.hide();
-    $p.after(input);
-    input.focus();
-  }
-  
+
+    // return newJson;
+}
