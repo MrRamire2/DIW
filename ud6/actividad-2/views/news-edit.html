@@ -158,6 +158,13 @@
       <h3>Editor de noticias</h3>
       <div class="tool" data-type="paragraph">Párrafo</div>
       <div class="tool" data-type="image">Imagen</div>
+
+      <div class="news-select">
+        <select id="load-news-select">
+          <option value="">Seleccionar noticia</option>
+        </select>
+        <button id="load-news">Cargar Configuración</button>
+      </div>
     </div>
 
     <div class="builder" id="builder">
@@ -165,15 +172,32 @@
     </div>
 
     <div class="options">
-      <label for="column-choice">Número de columnas por fila:</label>
-      <select class="column-choice" id="column-choice">
-        <option value="1">1 columna</option>
-        <option value="2">2 columnas</option>
-      </select>
+
+      <div class="options-form">
+        <div>
+          <label for="column-choice">Número de columnas por fila:</label>
+          <select class="column-choice" id="column-choice">
+            <option value="1">1 columna</option>
+            <option value="2">2 columnas</option>
+          </select>
+        </div>
+        <div>
+          <label for="title">Titulo:</label>
+          <input type="text" id="title" />
+        </div>
+      
+        <div>
+          <label for="state">Publicar:</label>
+          <input class="state-checkbox" type="checkbox" id="state">
+        </div>
+      </div>
+      
       <div class="options-button">
       <button id="add-row">Añadir Fila</button>
-      <button id="save-config">Guardar Configuración</button>
-      <button id="load-config">Cargar Configuración</button>
+      <!-- <button id="save-news">Guardar Configuración</button> -->
+      <!-- <button id="load-news">Cargar Configuración</button> -->
+      <button id="upload-news">Subir Configuración</button>
+      <button id="delete-news">Eliminar</button>
     </div>
     </div>
   </main>

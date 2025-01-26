@@ -17,6 +17,7 @@ body {
     min-width: 100%;
     height: 100px;
     background-color: rgba($color: $ecru, $alpha: 0.7);
+    z-index: 1;
   }
   .toolbox div {
     display: inline-block;
@@ -26,6 +27,17 @@ body {
     background-color: $rich-black;
     border-radius: 5px;
     cursor: move;
+  }
+  .toolbox .news-select{
+    position: absolute;
+    right: 10px;
+    padding: 7px;
+  }
+  .toolbox .news-select select{
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: $rich-black;
+    background-color: $baby-powder;
   }
   .builder{
     display: flex;
@@ -98,12 +110,33 @@ body {
     min-width: 100%;
     background-color: rgba($color: $ecru, $alpha: 0.7);
   }
-  .options > select{
-    margin: 5px 0 15px;
+  .options select, .options input{
     border-radius: 5px;
     padding: 5px 10px;
     color: $rich-black;
     background-color: $baby-powder;
+  }
+  .options-form{
+    display: flex;
+    flex-direction: row;
+  }
+  .options-form > div{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+  }
+  .options-form label{
+    margin-bottom: 5px;
+  }
+  input[type=checkbox] {
+    transform: scale(1.5);
+    margin: 5px;
+    width: 23px;
+    height: 23px; 
+    cursor: pointer;
+  }
+  .options-button{
+    margin-top: 20px;
   }
   .options-button > button{
     margin: 5px 0;
