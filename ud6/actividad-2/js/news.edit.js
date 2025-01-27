@@ -107,42 +107,51 @@ $(function () {
 
   // Cargar configuración
   $("#load-news").on("click", function () {
-    const config = localStorage.getItem("postBuilderConfig");
+    const config = JSON.parse(localStorage.getItem('news'));
+    let idSelect = $("#load-news-select").val();
+
     if (!config) {
-      alert("No hay configuración guardada.");
-      return;
+        alert("No hay configuración guardada.");
+        return;
     }
 
-    const rows = JSON.parse(config);
-    $(".row-container").empty();
-    rows.forEach(row => {
-      let newRow = '<div class="row">';
-      row.forEach(column => {
-        newRow += column.length > 1 ? `<div class="column half">` : `<div class="column">`;
-        column.forEach(element => {
-          if (element.type === "paragraph") {
-            newRow += `
-              <div class="element">
-                <p class="editable" onclick="editParagraph(this)">${element.content}</p>
-              </div>`;
-          } else if (element.type === "image") {
-            newRow += `
-              <div class="element">
-                <img src="${element.src}" alt="Imagen">
-              </div>`;
-          }
-        });
-        newRow += `</div>`;
-      });
-      newRow += `<button class="delete-row-btn">Eliminar fila</button></div>`;
-      $(".row-container").append(newRow);
+    $.each(config, (index, news) => {
+        if (news.id === idSelect) {
+            console.log("Matched news:", news);
+            const content = news.content;
+            $(".row-container").empty();
+
+            $.each(content, (rowIndex, row) => {
+                let newRow = '<div class="row">';
+                $.each(row, (columnIndex, column) => {
+                    newRow += column.length > 1 ? `<div class="column half">` : `<div class="column">`;
+                    
+                    column.forEach(element => {
+                        if (element.type === "paragraph") {
+                            newRow += `
+                                <div class="element">
+                                    <p class="editable" onclick="editParagraph(this)">${element.content}</p>
+                                </div>`;
+                        } else if (element.type === "image") {
+                            newRow += `
+                                <div class="element">
+                                    <img src="${element.src}" alt="Imagen">
+                                </div>`;
+                        }
+                    });
+
+                    newRow += `</div>`; // Close column
+                });
+
+                newRow += `<button class="delete-row-btn">Eliminar fila</button></div>`; // Close row
+                $(".row-container").append(newRow);
+            });
+        }
     });
 
     initializeDroppable();
     initializeDeleteButtons();
-  });
-
-  initializeDroppable();
+});
 
   // Subir configuración
   $("#upload-news").on("click", function () {
@@ -159,6 +168,9 @@ $(function () {
   $("#delete-news").on("click", function () {
     deleteContent();
   });
+
+  // Cargar noticias
+  getNews();
 
   function deleteContent() {
     $(".row").remove();
@@ -272,3 +284,12 @@ function createStandardizedJson(title, author, contentArray, notice_state) {
   };
 }
 
+
+function getNews() {
+  let newsData = JSON.parse(localStorage.getItem('news'));
+  $("#load-news-select").find('option').not(':first').remove();
+
+  $.each(newsData, (index, news) => {
+    $("#load-news-select").append(`<option value='${news.id}'>${news.title}</option>`)
+  })
+}
