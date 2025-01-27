@@ -111,47 +111,45 @@ $(function () {
     let idSelect = $("#load-news-select").val();
 
     if (!config) {
-        alert("No hay configuración guardada.");
-        return;
+      alert("No hay configuración guardada.");
+      return;
     }
 
     $.each(config, (index, news) => {
-        if (news.id === idSelect) {
-            console.log("Matched news:", news);
-            const content = news.content;
-            $(".row-container").empty();
+      if (news.id === idSelect) {
+        console.log("Matched news:", news);
+        const content = news.content;
+        $(".row-container").empty(); // Limpiar todo antes de cargar
+        // $.each(content, (row) => {
+        let newRow = '<div class="row">';
+        $.each(content, (index, column) => {
+          newRow += column.length > 1 ? `<div class="column half">` : `<div class="column">`;
+          column.forEach(element => {
+            if (element.type === "paragraph") {
+              newRow += `
+              <div class="element">
+                <p class="editable" onclick="editParagraph(this)">${element.content}</p>
+              </div>`;
+            } else if (element.type === "image") {
+              newRow += `
+              <div class="element">
+                <img src="${element.src}" alt="Imagen">
+              </div>`;
+            }
+          });
 
-            $.each(content, (rowIndex, row) => {
-                let newRow = '<div class="row">';
-                $.each(row, (columnIndex, column) => {
-                    newRow += column.length > 1 ? `<div class="column half">` : `<div class="column">`;
-                    
-                    column.forEach(element => {
-                        if (element.type === "paragraph") {
-                            newRow += `
-                                <div class="element">
-                                    <p class="editable" onclick="editParagraph(this)">${element.content}</p>
-                                </div>`;
-                        } else if (element.type === "image") {
-                            newRow += `
-                                <div class="element">
-                                    <img src="${element.src}" alt="Imagen">
-                                </div>`;
-                        }
-                    });
+          newRow += `</div>`;
+        });
 
-                    newRow += `</div>`; // Close column
-                });
-
-                newRow += `<button class="delete-row-btn">Eliminar fila</button></div>`; // Close row
-                $(".row-container").append(newRow);
-            });
-        }
+        newRow += `<button class="delete-row-btn">Eliminar fila</button></div>`;
+        $(".row-container").append(newRow);
+        // });
+      }
     });
 
     initializeDroppable();
     initializeDeleteButtons();
-});
+  });
 
   // Subir configuración
   $("#upload-news").on("click", function () {
