@@ -10,8 +10,8 @@ $(function () {
       accept: ".tool",
       drop: function (event, ui) {
         const type = ui.draggable.data("type");
-        if ($(this).children().length >= 2 && $(this).hasClass("half")) {
-          alert("Solo se permiten dos elementos por columna.");
+        if ($(this).children().length >= 1 && $(this).hasClass("half")) {
+          alert("Solo se permite un elementos por columna.");
           return;
         }
         if ($(this).children().length >= 1 && !$(this).hasClass("half")) {
@@ -117,13 +117,15 @@ $(function () {
 
     $.each(config, (index, news) => {
       if (news.id === idSelect) {
-        console.log("Matched news:", news);
+
+        $("#title").val(news.title);
+
         const content = news.content;
+        console.log(content)
         $(".row-container").empty(); // Limpiar todo antes de cargar
-        // $.each(content, (row) => {
         let newRow = '<div class="row">';
         $.each(content, (index, column) => {
-          newRow += column.length > 1 ? `<div class="column half">` : `<div class="column">`;
+          newRow += `<div class="column">`;
           column.forEach(element => {
             if (element.type === "paragraph") {
               newRow += `
@@ -137,13 +139,11 @@ $(function () {
               </div>`;
             }
           });
-
           newRow += `</div>`;
         });
 
         newRow += `<button class="delete-row-btn">Eliminar fila</button></div>`;
         $(".row-container").append(newRow);
-        // });
       }
     });
 
@@ -154,9 +154,19 @@ $(function () {
   // Subir configuración
   $("#upload-news").on("click", function () {
     if ($("#title").val() !== "") {
-      const newsJson = getData();
-      saveToLocalStorage(newsJson);
-      deleteContent();
+      const newsStorage = JSON.parse(localStorage.getItem('news'));
+      const validator = true;
+      $.each(newsStorage, (index, news) => {
+        if ($("#title").val() === news.title) {
+          alert("Ya existe una noticia con ese título, quieres sobre escribirla?");
+          validator = false;
+        }
+      })
+        if (validator) {
+        const newsJson = getData();
+        saveToLocalStorage(newsJson);
+        deleteContent();
+      }
     } else {
       alert("Por favor, ingrese un título para la noticia.");
     }
@@ -215,7 +225,6 @@ function getData() {
     const rowData = [];
 
     elements.each((i, element) => {
-      console.log(index);
 
       if ($(element).children().is("p")) {
         rowData.push({

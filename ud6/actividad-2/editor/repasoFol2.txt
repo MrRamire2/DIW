@@ -1,0 +1,55 @@
+// Diferencia entre gastos e inversiones:
+
+Los gastos se producen cuando se genera una compra de un bien o un servicio. ej: salarios, mantenimiento, consumo de agua, puesta en marcha, stock, etc.
+
+Las inversiones son gastos con los que se espera recuperar o incrementar lo invertido. ej: compra de terreno, maquinaria, vehiculos, local, etc
+
+// Diferencia principal: el gasto es la utilización de un bien o servicio a cambio de un contraprestación, mientras que la inversión se espera conseguir un rendimiento en el futuro.
+
+//PATENTE: Derecho que obtiene una empresa para explotar en exclisiva la producción de un bien o servicio durante un periodo de tiempo determinado como contrapartida a la realización de un invento o innovación
+
+
+
+//Aportaciones propias y de socios temporales:
+
+La primera forma de financiación suelen ser los ahorros, ayuda de conocios o de empresas y particulares que se dedican a invertir.
+
+Aportación del empresario: El primer paso consiste en determinar la cantidad de dinero que debe aportar el promotor del proyecto empresarial. Una pista en este sentido la dan los bancos, que, entre los requisitos que imponen para conceder un préstamo, exigen que el empresario aporte al menos un 35% del total de la inversion.
+
+Familiares y amigos: Las tres efes(family, friends, fools), es decir, personas cercanas al emprendedor con cierta propension al riesgo. casi la 4ta parte de los emprendedores suele recurrir a esta manera de conseguir ingresos.
+Conviene que se firme un ducumento notarial, si se trata de una cantidad importante > 6000€.
+Otra manera de ayudar es presentandose como avalista de un prestamo.
+
+Business angels o inversores particulares: Generalmente son empresarios que se dedican a invertir e impulsar el desarrollo de proyectos que consideran que tienen un alto potencial. La media de su inversion ronda los 25.000€ - 30.000€. Nunca superan el 50% del capital, y su permanencia oscila entre los 3 y 5 años.
+Al hacer esto, pueden reducir del IRPF un 30% de la cantidad invertida con un limite maximo de 60.000€
+
+Crowdfunding o micromecenazgo: Es un sistema de financiación colectiva, generalmente realizada atraves de internet, por medio de pequeñas aportaciones las cuales financian el proyecto.
+
+Intercambio de servicios, bartering o estrategia win-win: Es un intercambio de productos o servicios en donde ambas empresas salen beneficiadas del producido de la otra.
+
+
+//Alquiler de bienes o equipos
+
+Renting: 
+-Alquiler de bienes y equipos para el uso personal.
+-Su uso mas extendido es para los vehiculos de empresa, suele venir con todo incluido por un plazo contratado.
+-Es una buena alternativa a la compra cuando el coste es muy elevado o para aquellos que son para un uso puntual o puede quedarse obsoleto.
+-El pago por el servicio suele ser mensual y normalmente se exige una fianza, pro lo general de 2 meses. Finalizado el contrato, se puede sustituir el vehiculo por otro nuevo o devolverlo.
+
+Leasing:
+- alquiler con opción a compra.
+-Para los bienes y equipos que suponen una fuerte inversion y que tienen una vida operativa larga. ej: oficinas, locales, maquinaria, etc.
+-Ofrece la posibilidad de disponer de bienes costoso sin hacer una gran inversion inicial y con la posibilidad de comprarlos al finalizar el plazo.
+-Tiene como ventaja la opcion a compra, la amortización acelerada del bien y compatibilidad con algunas subvenciones.
+-El mantenimiento recae sobre el arrendatario.
+-Minimo de 2 años para los b. muebles y 10 para los b. inmuebles.
+
+
+//Prestamo
+
+Prestamos bancarios: Pueden ser a corto o largo plazo. En el primer caso, la cantidad adeudada deberá pagarse en un plazo que normalmente es de un año o inferior, mientras que al largo plazo, esta podrá cancelarse en un periodo superior al ejercicio economico(Más de un año).
+
+Tipos de prestamos: 
+-Interés fijo:
+-Interés variable:
+-Interés mixto:
