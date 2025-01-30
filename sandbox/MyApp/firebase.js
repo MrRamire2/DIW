@@ -19,19 +19,37 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-export const saveTask = (title, description, priority) => 
-    addDoc(collection(db, "tasks"), {title, description, priority});
-
 export const getTasks = () => getDocs(collection(db, "tasks"));
 
-
-export const onGetTasks = (callback) => 
+export const onGetTasks = (callback) =>
   onSnapshot(collection(db, "tasks"), callback);
 
+export const saveTask = async (title, description, priority) => {
+  const docRef = await addDoc(collection(db, "tasks"), {
+    title, description, priority
+  });
 
-// export {
-//   onSnapshot, collection, db
-// };
+  console.log(docRef.id);
 
+  return docRef.Id;
+};
 
-// que hace addDoc????
+export const saveTaskWithCustomId = async (id, title, description, priority) => {
+  try {
+    await setDoc (doc(db, "tasks", id), {
+      title, description, priority
+    });
+    console.log("Task saved with custom ID: ", id);
+  } catch (error) {
+    console.error("Error saving task with custom ID: ", error);
+  }
+}
+
+export const deleteTask = async (id) => {
+  try {
+    await deleteDoc(doc(db, "tasks", id));
+    console.log("Task delete with ID: ", id);
+  } catch (error) {
+    console.log("Error deletying task: ", error)
+  }
+}
