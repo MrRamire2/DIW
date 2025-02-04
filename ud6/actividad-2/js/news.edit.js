@@ -107,15 +107,15 @@ $(function () {
 
   // Cargar configuración
   $("#load-news").on("click", function () {
-    const config = JSON.parse(localStorage.getItem('news'));
+    const allNews = JSON.parse(localStorage.getItem('news'));
     let idSelect = $("#load-news-select").val();
 
-    if (!config) {
+    if (!allNews) {
       alert("No hay configuración guardada.");
       return;
     }
 
-    $.each(config, (index, news) => {
+    $.each(allNews, (index, news) => {
       if (news.id === idSelect) {
 
         $("#title").val(news.title);
@@ -123,27 +123,30 @@ $(function () {
         const content = news.content;
         console.log(content)
         $(".row-container").empty(); // Limpiar todo antes de cargar
-        let newRow = '<div class="row">';
-        $.each(content, (index, column) => {
-          newRow += `<div class="column">`;
-          column.forEach(element => {
-            if (element.type === "paragraph") {
+
+        let newRow;
+
+        $.each(content, (index, row) => {
+          newRow = '<div class="row">';
+
+          row.forEach(column => {
+            newRow += `<div class="column">`;
+            if (column.type === "paragraph") {
               newRow += `
               <div class="element">
-                <p class="editable" onclick="editParagraph(this)">${element.content}</p>
+                <p class="editable" onclick="editParagraph(this)">${column.content}</p>
               </div>`;
-            } else if (element.type === "image") {
+            } else if (column.type === "image") {
               newRow += `
               <div class="element">
-                <img src="${element.src}" alt="Imagen">
+                <img src="${column.src}" alt="Imagen">
               </div>`;
             }
+            newRow += `</div>`;
           });
-          newRow += `</div>`;
+          newRow += `<button class="delete-row-btn">Eliminar fila</button></div>`;
+          $(".row-container").append(newRow);
         });
-
-        newRow += `<button class="delete-row-btn">Eliminar fila</button></div>`;
-        $(".row-container").append(newRow);
       }
     });
 
@@ -154,15 +157,33 @@ $(function () {
   // Subir configuración
   $("#upload-news").on("click", function () {
     if ($("#title").val() !== "") {
-      const newsStorage = JSON.parse(localStorage.getItem('news'));
-      const validator = true;
+      const newsStorage = JSON.parse(localStorage.getItem('news')) || [];
+
+      let isUnique = true;
+
       $.each(newsStorage, (index, news) => {
+
         if ($("#title").val() === news.title) {
-          alert("Ya existe una noticia con ese título, quieres sobre escribirla?");
-          validator = false;
+
+          isUnique = false;
+
+          if (confirm("Ya existe una noticia con ese título, quieres sobrescribirla?")) {
+            
+            //eliminar noticia a sobrescribir
+            let newsData = JSON.parse(localStorage.getItem('news')) || [];
+            newsData.splice(index, 1);
+            localStorage.setItem('news', JSON.stringify(newsData));
+
+            //añadir noticia
+            const newsJson = getData();
+            saveToLocalStorage(newsJson);
+            deleteContent();
+          }
+          return false;
         }
-      })
-        if (validator) {
+      });
+
+      if (isUnique) {
         const newsJson = getData();
         saveToLocalStorage(newsJson);
         deleteContent();
@@ -170,6 +191,7 @@ $(function () {
     } else {
       alert("Por favor, ingrese un título para la noticia.");
     }
+    getNews();
   });
 
   // eliminar configuración
@@ -187,6 +209,7 @@ $(function () {
   }
 });
 
+//cargar imagen
 function loadImage(event) {
   const input = event.target;
   const reader = new FileReader();
@@ -199,6 +222,7 @@ function loadImage(event) {
   reader.readAsDataURL(input.files[0]);
 }
 
+//editar parrafo
 function editParagraph(paragraph) {
   const $p = $(paragraph);
   const currentText = $p.text();
@@ -216,6 +240,7 @@ function editParagraph(paragraph) {
   input.focus();
 }
 
+//obtener datos del DOM
 function getData() {
   const rows = $(".row");
   const newJson = {};
@@ -245,7 +270,7 @@ function getData() {
   return newJson;
 }
 
-
+//subir noticias
 function saveToLocalStorage(newJson) {
   let newsData = localStorage.getItem('news');
   let user_logged = localStorage.getItem('users_log');
@@ -279,7 +304,7 @@ function saveToLocalStorage(newJson) {
   alert("Datos guardados en localStorage:", newsData);
 }
 
-
+//formato de json
 function createStandardizedJson(title, author, contentArray, notice_state) {
   return {
     id: Math.random().toString(36).substr(2, 9),
@@ -291,7 +316,7 @@ function createStandardizedJson(title, author, contentArray, notice_state) {
   };
 }
 
-
+//obtener noticias para select
 function getNews() {
   let newsData = JSON.parse(localStorage.getItem('news'));
   $("#load-news-select").find('option').not(':first').remove();
