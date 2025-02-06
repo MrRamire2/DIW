@@ -1,0 +1,2 @@
+-Falta hacer que la contraseña para el usuario sea como minimo de 8 caracteres y que tenga los requerimientos basicos
+-hacer que las noticias se vean en el apartado de noticias
