@@ -1,4 +1,4 @@
-import { saveNews } from "../firebase/firebase-connect.js";
+import { getNewsDb, saveNews, updateNews } from "../firebase/firebase-connect.js";
 
 $(function () {
   // Hacer los elementos de la toolbox arrastrables
@@ -108,8 +108,8 @@ $(function () {
   });
 
   // Cargar configuración
-  $("#load-news").on("click", function () {
-    const allNews = JSON.parse(localStorage.getItem('news'));
+  $("#load-news").on("click", async function () {
+    const allNews = await getNewsDb();
     let idSelect = $("#load-news-select").val();
 
     if (!allNews) {
@@ -124,7 +124,9 @@ $(function () {
 
         const content = news.content;
         console.log(content)
-        $(".row-container").empty(); // Limpiar todo antes de cargar
+
+        // Limpiar contenido actual
+        $(".row-container").empty();
 
         let newRow;
 
@@ -157,44 +159,52 @@ $(function () {
   });
 
   // Subir configuración
-  $("#upload-news").on("click", function () {
-    if ($("#title").val() !== "") {
-      const newsStorage = JSON.parse(localStorage.getItem('news')) || [];
-
-      let isUnique = true;
-
-      $.each(newsStorage, (index, news) => {
-
-        if ($("#title").val() === news.title) {
-
-          isUnique = false;
-
-          if (confirm("Ya existe una noticia con ese título, quieres sobrescribirla?")) {
-            
-            //eliminar noticia a sobrescribir
-            let newsData = JSON.parse(localStorage.getItem('news')) || [];
-            newsData.splice(index, 1);
-            localStorage.setItem('news', JSON.stringify(newsData));
-
-            //añadir noticia
-            const newsJson = getData();
-            saveToLocalStorage(newsJson);
-            deleteContent();
-          }
-          return false;
-        }
-      });
-
-      if (isUnique) {
-        const newsJson = getData();
-        saveToLocalStorage(newsJson);
-        deleteContent();
-      }
-    } else {
+  $("#upload-news").on("click", async function () {
+    const title = $("#title").val();
+  
+    if (title === "") {
       alert("Por favor, ingrese un título para la noticia.");
+      return;
     }
+  
+    const newsStorage = await getNewsDb() || [];
+    let isUnique = true;
+  
+    for (const news of newsStorage) {
+      if (title === news.title) {
+        isUnique = false;
+  
+        console.log(news.id);
+        if (confirm("Ya existe una noticia con ese título, ¿quieres sobrescribirla?")) {
+          try {
+            
+            // PROBLEMA!! ME DICE QUE NO EXISTE EL ID EN LA BASE DE DATOS
+            await updateNews(news.id, { content: getData() });
+            deleteContent();
+            console.log("Noticia sobrescrita correctamente.");
+          } catch (error) {
+            console.error("Error al actualizar la noticia:", error);
+          }
+        }
+  
+        //salir de la función
+        return;
+      }
+    }
+  
+    if (isUnique) {
+      try {
+        const newsJson = getData();
+        await saveToDb(newsJson);
+        deleteContent();
+      } catch (error) {
+        console.error("Error al guardar la noticia:", error);
+      }
+    }
+  
     getNews();
   });
+  
 
   // eliminar configuración
   $("#delete-news").on("click", function () {
@@ -273,7 +283,7 @@ function getData() {
 }
 
 //subir noticias
-function saveToLocalStorage(newJson) {
+function saveToDb(newJson) {
   let newsData = localStorage.getItem('news');
   let user_logged = localStorage.getItem('users_log');
   let title = $("#title").val();
@@ -300,8 +310,6 @@ function saveToLocalStorage(newJson) {
 
   let newsStorage = createStandardizedJson(title, user_logged["name"], newJson, state);
 
-  // newsData.push(newsStorage);
-  // localStorage.setItem('news', JSON.stringify(newsData));
   saveNews(newsStorage);
 
   alert("Datos guardados en localStorage:", newsData);
@@ -320,11 +328,15 @@ function createStandardizedJson(title, author, contentArray, notice_state) {
 }
 
 //obtener noticias para select
-function getNews() {
-  let newsData = JSON.parse(localStorage.getItem('news'));
-  $("#load-news-select").find('option').not(':first').remove();
-
-  $.each(newsData, (index, news) => {
-    $("#load-news-select").append(`<option value='${news.id}'>${news.title}</option>`)
-  })
+async function getNews() {
+  try{
+    let newsData = await getNewsDb();
+    $("#load-news-select").find('option').not(':first').remove();
+  
+    $.each(newsData, (index, news) => {
+      $("#load-news-select").append(`<option value='${news.id}'>${news.title}</option>`)
+    })
+  } catch (error) {
+    console.error("Error obteniendo noticias:", error);
+  }
 }

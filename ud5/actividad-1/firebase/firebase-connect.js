@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, onSnapshot, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js"
+import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -27,5 +27,22 @@ export const saveNews = async (newsJson) => {
     return docRef;  // Retorna la referencia del documento creado
   } catch (error) {
     console.error("Error al guardar los datos:", error);
+  }
+};
+
+export const getNewsDb = async () => {
+  const querySnapshot = await getDocs(collection(db, "news"));
+  return querySnapshot.docs.map(doc => {
+    return { id: doc.id, ...doc.data() };
+  });
+};
+
+export const updateNews = async (id, newsJson) => {
+  try {
+    const newsRef = doc(db, "news", id);
+    await updateDoc(newsRef, newsJson);
+    console.log("Noticia actualizada con ID: ", id);
+  } catch (error) {
+    console.error("Error al actualizar la noticia: ", error);
   }
 };
