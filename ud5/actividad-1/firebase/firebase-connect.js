@@ -18,13 +18,13 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);  // Inicializar Firestore
+const db = getFirestore(app);
 
 
 export const saveNews = async (newsJson) => {
   try {
     const docRef = await addDoc(collection(db, "news"), newsJson);
-    return docRef;  // Retorna la referencia del documento creado
+    return docRef;
   } catch (error) {
     console.error("Error al guardar los datos:", error);
   }
@@ -45,4 +45,10 @@ export const updateNews = async (id, newsJson) => {
   } catch (error) {
     console.error("Error al actualizar la noticia: ", error);
   }
+};
+
+//hacer update para añadir id al documento
+export const updateId = (newsId) => {
+  const newsRef = doc(db, "news", newsId);
+  updateDoc(newsRef, { id: newsId });
 };

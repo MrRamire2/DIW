@@ -1,4 +1,4 @@
-import { getNewsDb, saveNews, updateNews } from "../firebase/firebase-connect.js";
+import { getNewsDb, saveNews, updateNews,updateId } from "../firebase/firebase-connect.js";
 
 $(function () {
   // Hacer los elementos de la toolbox arrastrables
@@ -25,16 +25,20 @@ $(function () {
         if (type === "paragraph") {
           newElement = $(
             `<div class="element">
-              <p class="editable" onclick="editParagraph(this)">Escribe aquí tu texto...</p>
+              <p class="editable">Escribe aquí tu texto...</p>
             </div>`
           );
+
+          newElement.on("click", editParagraph);
         } else if (type === "image") {
           newElement = $(
             `<div class="element">
-              <input type="file" accept="image/*" onchange="loadImage(event)" />
+              <input type="file" accept="image/*"  />
               <img src="" alt="Imagen" style="display: none;">
             </div>`
           );
+
+          newElement.on("change", loadImage(e));
         }
 
         $(this).append(newElement);
@@ -138,8 +142,10 @@ $(function () {
             if (column.type === "paragraph") {
               newRow += `
               <div class="element">
-                <p class="editable" onclick="editParagraph(this)">${column.content}</p>
+                <p class="editable">${column.content}</p>
               </div>`;
+              //PROBLEMA CON ESTE ONCLICK !!!!!!!!!!!!!
+              newRow.on("click", editParagraph);
             } else if (column.type === "image") {
               newRow += `
               <div class="element">
@@ -235,8 +241,8 @@ function loadImage(event) {
 }
 
 //editar parrafo
-function editParagraph(paragraph) {
-  const $p = $(paragraph);
+function editParagraph() {
+  const $p = $(this);
   const currentText = $p.text();
   const input = $(`<input type="text" value="${currentText}" />`);
 
@@ -283,7 +289,7 @@ function getData() {
 }
 
 //subir noticias
-function saveToDb(newJson) {
+async function saveToDb(newJson) {
   let newsData = localStorage.getItem('news');
   let user_logged = localStorage.getItem('users_log');
   let title = $("#title").val();
@@ -310,7 +316,10 @@ function saveToDb(newJson) {
 
   let newsStorage = createStandardizedJson(title, user_logged["name"], newJson, state);
 
-  saveNews(newsStorage);
+  const news = await saveNews(newsStorage);
+  const newsId = news.id;
+  //hacer update para añadir id al documento
+  updateId(newsId);
 
   alert("Datos guardados en localStorage:", newsData);
 }
