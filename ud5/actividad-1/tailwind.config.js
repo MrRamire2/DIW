@@ -11,6 +11,7 @@ module.exports = {
       },
       spacing: {
         0.75: "6px",
+        68: "17rem",
       },
       backgroundImage: {
         'background': "url('/DIW/blob/main/aula_museu/images/Fondo2.gif')",

@@ -25,7 +25,7 @@ $(function () {
         if (type === "paragraph") {
           newElement = $(`
             <div class="element">
-              <p class="editable">Escribe aquí tu texto...</p>
+              <input type="text" class="editable w-full" value="Escribe aquí tu texto..."></input>
             </div>
           `);
         } else if (type === "image") {
@@ -38,9 +38,6 @@ $(function () {
         }
   
         $(this).append(newElement);
-  
-        // Poder editar los párrafos
-        newElement.find(".editable").on("click", editParagraph);
   
         // Cargar imágenes cuando se selecciona un archivo
         newElement.find(".image-upload").on("change", loadImage);
@@ -126,7 +123,10 @@ $(function () {
 
     $.each(allNews, (index, news) => {
       if (news.id === idSelect) {
+        
         $("#title").val(news.title);
+        $("#state").prop("checked", news.notice_state == 1);
+
         const content = news.content;
 
         // Limpiar contenido actual
@@ -141,7 +141,7 @@ $(function () {
             if (column.type === "paragraph") {
               let newParagraph = $(`
               <div class="element">
-                <p class="editable">${column.content}</p>
+                <input type="text" class="editable w-full" value="${column.content}" />
               </div>
             `);
               newColumn.append(newParagraph);
@@ -161,8 +161,6 @@ $(function () {
           newRow.append('<button class="delete-row-btn">Eliminar fila</button>');
           $(".row-container").append(newRow);
 
-          // Habilitar la edición de párrafos y carga de imágenes después de añadir al DOM
-          newRow.find(".editable").on("click", editParagraph);
           newRow.find(".image-upload").on("change", loadImage);
         });
         initializeDeleteButtons();
@@ -188,6 +186,12 @@ $(function () {
 
         if (confirm("Ya existe una noticia con ese título, ¿quieres sobrescribirla?")) {
           try {
+
+            if ($("#state").prop("checked")) {
+              await updateNews(news.id, { notice_state: 1 });
+            } else {
+              await updateNews(news.id, { notice_state: 0 });
+            }
 
             await updateNews(news.id, { content: getData() });
             deleteContent();
@@ -248,25 +252,6 @@ function loadImage(event) {
   reader.readAsDataURL(input.files[0]);
 }
 
-
-//editar parrafo
-function editParagraph() {
-  const $p = $(this);
-  const currentText = $p.text();
-  const input = $(`<input type="text" value="${currentText}" />`);
-
-  input.on("blur", function () {
-    const newText = $(this).val();
-    $p.text(newText);
-    $p.show();
-    $(this).remove();
-  });
-
-  $p.hide();
-  $p.after(input);
-  input.focus();
-}
-
 //obtener datos del DOM
 function getData() {
   const rows = $(".row");
@@ -278,10 +263,10 @@ function getData() {
 
     elements.each((i, element) => {
 
-      if ($(element).children().is("p")) {
+      if ($(element).children().is("input[type='text']")) {
         rowData.push({
           type: "paragraph",
-          content: $(element).find("p").text()
+          content: $(element).find("input[type='text']").val()
         });
       } else {
 
@@ -327,11 +312,13 @@ async function saveToDb(newJson) {
 
 //formato de json
 function createStandardizedJson(title, author, contentArray, notice_state) {
+  const date = new Date();
+  const formattedDate = date.toISOString();
   return {
     id: Math.random().toString(36).substr(2, 9),
     title: title,
     author: author,
-    date: new Date().toISOString(),
+    date: formattedDate,
     content: contentArray,
     notice_state: notice_state
   };

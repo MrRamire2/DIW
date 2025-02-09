@@ -13,6 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     editNews.addEventListener("click", ()=>{
-        document.location.href="/actividad-1/views/news-edit.html";
+        document.location.href="/views/news-edit.html";
     });
 });
