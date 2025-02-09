@@ -1,8 +1,8 @@
 {
-  "devDependencies": {
-    "tailwindcss": "^3.4.16"
-  },
   "dependencies": {
     "crypto-js": "^4.2.0"
+  },
+  "scripts": {
+    "dev": "vite"
   }
 }

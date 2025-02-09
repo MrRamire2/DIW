@@ -81,7 +81,7 @@ main {
   width: 48%;
 }
 
-.element {
+.element, .column > input {
   padding: 10px;
   background-color: #DED1B7;
   border: 1px solid #BFA473;

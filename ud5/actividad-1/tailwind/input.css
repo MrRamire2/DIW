@@ -4,7 +4,7 @@
 
 /* styles.css */
 .card-container {
-  @apply h-64 w-64 bg-rich-black rounded-md hover:scale-[1.01] hover:ease-linear transition-all duration-100 cursor-pointer border-2 border-ecru border-solid rounded-lg;
+  @apply h-68 w-64 bg-ecru rounded-md hover:scale-[1.01] hover:ease-linear transition-all duration-100 cursor-pointer border-2 border-ecru border-solid rounded-lg overflow-hidden;
 }
 
 .card-image-container {

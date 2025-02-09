@@ -1,4 +1,4 @@
-import { getNewsDb, saveNews, updateNews,updateId } from "../firebase/firebase-connect.js";
+import { getNewsDb, saveNews, updateNews, updateId } from "../firebase/firebase-connect.js";
 
 $(function () {
   // Hacer los elementos de la toolbox arrastrables
@@ -13,35 +13,38 @@ $(function () {
       drop: function (event, ui) {
         const type = ui.draggable.data("type");
         if ($(this).children().length >= 1 && $(this).hasClass("half")) {
-          alert("Solo se permite un elementos por columna.");
+          alert("Solo se permite un elemento por columna.");
           return;
         }
         if ($(this).children().length >= 1 && !$(this).hasClass("half")) {
           alert("Solo se permite un elemento en esta columna.");
           return;
         }
-
+  
         let newElement;
         if (type === "paragraph") {
-          newElement = $(
-            `<div class="element">
+          newElement = $(`
+            <div class="element">
               <p class="editable">Escribe aquí tu texto...</p>
-            </div>`
-          );
-
-          newElement.on("click", editParagraph);
+            </div>
+          `);
         } else if (type === "image") {
-          newElement = $(
-            `<div class="element">
-              <input type="file" accept="image/*"  />
-              <img src="" alt="Imagen" style="display: none;">
-            </div>`
-          );
-
-          newElement.on("change", loadImage(e));
+          newElement = $(`
+            <div class="element">
+              <img class="img-editable" src="" alt="Imagen" style="display: none;">
+              <input type="file" accept="image/*" class="image-upload" />
+            </div>
+          `);
         }
-
+  
         $(this).append(newElement);
+  
+        // Poder editar los párrafos
+        newElement.find(".editable").on("click", editParagraph);
+  
+        // Cargar imágenes cuando se selecciona un archivo
+        newElement.find(".image-upload").on("change", loadImage);
+  
         makeElementsDraggable();
       }
     });
@@ -123,68 +126,69 @@ $(function () {
 
     $.each(allNews, (index, news) => {
       if (news.id === idSelect) {
-
         $("#title").val(news.title);
-
         const content = news.content;
-        console.log(content)
 
         // Limpiar contenido actual
         $(".row-container").empty();
 
-        let newRow;
-
         $.each(content, (index, row) => {
-          newRow = '<div class="row">';
+          let newRow = $('<div class="row"></div>');
 
           row.forEach(column => {
-            newRow += `<div class="column">`;
+            let newColumn = $('<div class="column"></div>');
+
             if (column.type === "paragraph") {
-              newRow += `
+              let newParagraph = $(`
               <div class="element">
                 <p class="editable">${column.content}</p>
-              </div>`;
-              //PROBLEMA CON ESTE ONCLICK !!!!!!!!!!!!!
-              newRow.on("click", editParagraph);
+              </div>
+            `);
+              newColumn.append(newParagraph);
             } else if (column.type === "image") {
-              newRow += `
+              let newImage = $(`
               <div class="element">
-                <img src="${column.src}" alt="Imagen">
-              </div>`;
+                <img class="img-editable" src="${column.src}" alt="Imagen">
+                <input type="file" accept="image/*" class="image-upload" />
+              </div>
+            `);
+              newColumn.append(newImage);
             }
-            newRow += `</div>`;
+
+            newRow.append(newColumn);
           });
-          newRow += `<button class="delete-row-btn">Eliminar fila</button></div>`;
+
+          newRow.append('<button class="delete-row-btn">Eliminar fila</button>');
           $(".row-container").append(newRow);
+
+          // Habilitar la edición de párrafos y carga de imágenes después de añadir al DOM
+          newRow.find(".editable").on("click", editParagraph);
+          newRow.find(".image-upload").on("change", loadImage);
         });
+        initializeDeleteButtons();
       }
     });
-
-    initializeDroppable();
-    initializeDeleteButtons();
   });
 
   // Subir configuración
   $("#upload-news").on("click", async function () {
     const title = $("#title").val();
-  
+
     if (title === "") {
       alert("Por favor, ingrese un título para la noticia.");
       return;
     }
-  
+
     const newsStorage = await getNewsDb() || [];
     let isUnique = true;
-  
+
     for (const news of newsStorage) {
       if (title === news.title) {
         isUnique = false;
-  
-        console.log(news.id);
+
         if (confirm("Ya existe una noticia con ese título, ¿quieres sobrescribirla?")) {
           try {
-            
-            // PROBLEMA!! ME DICE QUE NO EXISTE EL ID EN LA BASE DE DATOS
+
             await updateNews(news.id, { content: getData() });
             deleteContent();
             console.log("Noticia sobrescrita correctamente.");
@@ -192,12 +196,12 @@ $(function () {
             console.error("Error al actualizar la noticia:", error);
           }
         }
-  
+
         //salir de la función
         return;
       }
     }
-  
+
     if (isUnique) {
       try {
         const newsJson = getData();
@@ -207,10 +211,10 @@ $(function () {
         console.error("Error al guardar la noticia:", error);
       }
     }
-  
+
     getNews();
   });
-  
+
 
   // eliminar configuración
   $("#delete-news").on("click", function () {
@@ -231,14 +235,19 @@ $(function () {
 function loadImage(event) {
   const input = event.target;
   const reader = new FileReader();
-  reader.onload = function () {
+
+  reader.onloadend = async function () {
+    const base64String = reader.result;
+
     const img = $(input).siblings("img");
-    img.attr("src", reader.result);
+    img.attr("src", base64String);
     img.show();
-    $(input).hide();
+
   };
+
   reader.readAsDataURL(input.files[0]);
 }
+
 
 //editar parrafo
 function editParagraph() {
@@ -275,6 +284,7 @@ function getData() {
           content: $(element).find("p").text()
         });
       } else {
+
         rowData.push({
           type: "image",
           src: $(element).find("img").attr("src")
@@ -290,16 +300,9 @@ function getData() {
 
 //subir noticias
 async function saveToDb(newJson) {
-  let newsData = localStorage.getItem('news');
   let user_logged = localStorage.getItem('users_log');
   let title = $("#title").val();
   let state;
-
-  if (newsData) {
-    newsData = JSON.parse(newsData);
-  } else {
-    newsData = [];
-  }
 
   if (user_logged) {
     user_logged = JSON.parse(user_logged);
@@ -320,8 +323,6 @@ async function saveToDb(newJson) {
   const newsId = news.id;
   //hacer update para añadir id al documento
   updateId(newsId);
-
-  alert("Datos guardados en localStorage:", newsData);
 }
 
 //formato de json
@@ -338,10 +339,10 @@ function createStandardizedJson(title, author, contentArray, notice_state) {
 
 //obtener noticias para select
 async function getNews() {
-  try{
+  try {
     let newsData = await getNewsDb();
     $("#load-news-select").find('option').not(':first').remove();
-  
+
     $.each(newsData, (index, news) => {
       $("#load-news-select").append(`<option value='${news.id}'>${news.title}</option>`)
     })

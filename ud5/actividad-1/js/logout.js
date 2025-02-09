@@ -14,7 +14,7 @@ if (userLog === null) {
 }else {
     login.style.display = "none";
     logout.style.display = "block"; 
-    imgProfile.src = userLog;
+    imgProfile.src = userLog.profile_url;
 }
 
 // Agregar el evento de logout
@@ -24,5 +24,10 @@ logoutbtn.addEventListener("click", () => {
     
     // Cambiar la imagen de perfil y redirigir al login
     imgProfile.src = "./images/login.png";
-    window.location.href = "./views/login.html"; 
+
+    if (document.location.href.includes("index.html")) {
+        window.location.href = "./views/login.html"; 
+    } else {
+        window.location.href = "./login.html"; 
+    }
 });

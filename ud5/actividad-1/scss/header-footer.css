@@ -126,7 +126,7 @@ header > div {
 }
 
 .toggle-image {
-  z-index: 2;
+  z-index: 3;
   height: 50px;
 }
 
@@ -144,7 +144,7 @@ header > div {
   transform: translate(-100%, 0); /* Empieza en la esquina superior izquierda */
   transition: transform 0.4s ease, opacity 0.4s ease; /* Transición para movimiento y opacidad */
   pointer-events: none; /* Evita la interacción cuando está oculto */
-  z-index: 1;
+  z-index: 2;
 }
 .dropdown-content.active { /* Anidamos el estado activo dentro de .dropdown-content */
   opacity: 1; /* Visible */
@@ -181,7 +181,7 @@ header .selected {
   background-color: #BFA473;
   border-style: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  z-index: 2;
+  z-index: 3;
 }
 .accessibility-button:hover {
   box-shadow: 0px 0px 10px 0px #BFA473;
@@ -194,7 +194,7 @@ header .selected {
 
 /* Estilos iniciales cuando el menú de accesibilidad no está activo */
 .accessibility-options {
-  z-index: 1;
+  z-index: 2;
   height: 100%;
   box-sizing: border-box;
   position: fixed;

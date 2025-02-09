@@ -71,7 +71,7 @@ body {
   .column.half {
     width: 48%;
   }
-  .element {
+  .element, .column > input {
     padding: 10px;
     background-color: $dun;
     border: 1px solid $ecru;
