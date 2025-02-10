@@ -12,7 +12,7 @@
 }
 
 .card-image {
-  @apply rounded-t-md;
+  @apply rounded-t-md w-full h-full object-cover;
 } 
 
 .card-content {

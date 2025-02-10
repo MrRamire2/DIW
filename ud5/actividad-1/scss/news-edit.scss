@@ -36,6 +36,7 @@ body {
   .toolbox .news-select select{
     padding: 5px 10px;
     border-radius: 5px;
+    max-width: 200px;
     color: $rich-black;
     background-color: $baby-powder;
   }
