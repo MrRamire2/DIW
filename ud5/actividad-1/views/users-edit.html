@@ -165,19 +165,19 @@
     <div class="form-edit">
         <label>
             <span>Nombre</span>
-            <input type="text" name="name" id="name">
+            <input type="text" id="name">
         </label>
         <label>
             <span>Email</span>
-            <input type="email" name="email" id="email">
+            <input type="email"  id="email">
         </label>
         <label>
             <span>Contraseña</span>
-            <input type="password" name="password" id="password">
+            <input type="password" nam id="password">
         </label>
         <label>
             <span>Imagen de perfil</span>
-            <input type="file" name="email" id="email">
+            <input type="file"  id="image">
         </label>
 
         <h2>Opciones del usuario</h2>
@@ -195,8 +195,10 @@
             <input type="checkbox" name="edit_users" id="edit_users">
         </label>
 
-        <button class="form-edit-button" id="add-user">Añadir usuario</button>
-      <button class="form-edit-button" id="delete-user">Eliminar usuario</button>
+        <div class="form-edit-button-div">
+          <button class="form-edit-button" id="add-user">Añadir usuario</button>
+          <button class="form-edit-button red" id="delete-user">Eliminar usuario</button>
+        </div>
     </div>
 
     <!-- 
@@ -282,7 +284,7 @@
   <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
     integrity="sha384-SStJQoPipVtHHnIgUfDI+jTAbSyU+HMbhwt2XRRNpLIRFg9VguopT6Y4+cdOlkqg"
     crossorigin="anonymous"></script>
-  <script type="module" src="../js/news.edit.js"></script>
+  <script type="module" src="../js/users-edit.js"></script>
 </body>
 
 </html>

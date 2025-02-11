@@ -12,7 +12,6 @@ body {
   .toolbox {
     position: sticky;
     top: 0;
-    margin-bottom: 20px;
     padding: 10px;
     min-width: 100%;
     height: 100px;
@@ -42,7 +41,11 @@ body {
   .form-edit{
     display: flex;
     flex-direction: column;
+    background-color: rgba($color: $ecru, $alpha: 0.7);
     padding: 10px;
+    max-width: 500px;
+    margin: 10px auto;
+    border-radius: 5px;
   }
   .form-edit label{
     display: flex;
@@ -72,4 +75,11 @@ body {
   }
   .toolbox button{
   padding: 5px 10px;
+  }
+  .form-edit-button-div{
+    display: flex;
+    justify-content: space-around;
+  }
+  .red{
+    background-color: rgb(113, 0, 0);
   }

@@ -55,3 +55,19 @@ export const updateId = (newsId) => {
   const newsRef = doc(db, "news", newsId);
   updateDoc(newsRef, { id: newsId });
 };
+
+
+
+
+
+
+
+
+export const saveUsers = async (newsJson) => {
+  try {
+    const docRef = await addDoc(collection(db, "users"), newsJson);
+    return docRef;
+  } catch (error) {
+    console.error("Error al guardar los datos:", error);
+  }
+};
