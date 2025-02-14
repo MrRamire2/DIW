@@ -51,7 +51,7 @@ input[type=checkbox] {
   background-color: rgba(191, 164, 115, 0.7);
   padding: 10px;
   max-width: 500px;
-  margin: 10px auto;
+  margin: auto;
   border-radius: 5px;
 }
 

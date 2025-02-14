@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, query, orderBy } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js"
+import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, query, orderBy, setDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -58,16 +58,30 @@ export const updateId = (newsId) => {
 
 
 
-
-
-
-
-
-export const saveUsers = async (newsJson) => {
+export const saveUsers = async (newsJson, id) => {
   try {
-    const docRef = await addDoc(collection(db, "users"), newsJson);
-    return docRef;
+    const users = await getUsersDb();
+
+    const userExists = users.some(user => user.id === id);
+    if (userExists) {
+      return "Error: La ID ya está en uso (duplicada)";
+    }
+
+    await setDoc(doc(db, "users", id), newsJson);
+    return "Documento guardado exitosamente";
   } catch (error) {
     console.error("Error al guardar los datos:", error);
+    return "Error al guardar los datos";
   }
+};
+
+
+export const getUsersDb = async () => {
+  const q = query(collection(db, "users"));
+  const querySnapshot = await getDocs(q);
+
+  return querySnapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
 };
