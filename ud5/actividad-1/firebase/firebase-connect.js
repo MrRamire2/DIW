@@ -16,6 +16,7 @@ const firebaseConfig = {
   measurementId: "G-J0H2G1YJVL"
 };
 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -30,6 +31,7 @@ export const saveNews = async (newsJson) => {
   }
 };
 
+
 export const getNewsDb = async () => {
   const q = query(collection(db, "news"), orderBy("date", "asc"));
   const querySnapshot = await getDocs(q);
@@ -39,6 +41,7 @@ export const getNewsDb = async () => {
     ...doc.data(),
   }));
 };
+
 
 export const updateNews = async (id, newsJson) => {
   try {
@@ -50,12 +53,12 @@ export const updateNews = async (id, newsJson) => {
   }
 };
 
+
 //hacer update para añadir id al documento
 export const updateId = (newsId) => {
   const newsRef = doc(db, "news", newsId);
   updateDoc(newsRef, { id: newsId });
 };
-
 
 
 export const saveUsers = async (newsJson, id) => {
@@ -66,6 +69,7 @@ export const saveUsers = async (newsJson, id) => {
     if (userExists) {
       return "Error: La ID ya está en uso (duplicada)";
     }
+
 
     await setDoc(doc(db, "users", id), newsJson);
     return "Documento guardado exitosamente";

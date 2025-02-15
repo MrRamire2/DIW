@@ -1,15 +1,25 @@
-import { saveUsers } from "../firebase/firebase-connect.js";
+import { getUsersDb, saveUsers } from "../firebase/firebase-connect.js";
+
+
+$(function() {
+    getUsersSelect();
+});
+
 
 $("#add-user").on("click", async () => {
     const save = await saveUsers(formatData(), $("#email").val());
+    if (save == "Documento guardado exitosamente") {
+        clearInputs();
+    }
     alert(save);
   });
+
 
 function formatData() {
     const name = $("#name").val();
     const email = $("#email").val();
     const password = $("#password").val();
-    const image = $("#image").val();
+    const image = $("#image").attr("src");
     const editBoneFile = $("#edit_bone_files").prop("checked");
     const editNews = $("#edit_news").prop("checked");
     const editUsers = $("#edit_users").prop("checked");
@@ -36,7 +46,7 @@ function formatData() {
     }
 };
 
-// debo añadirlo en algun lado 
+ 
 function clearInputs() {
     $("#name").val("");
     $("#email").val("");
@@ -45,4 +55,35 @@ function clearInputs() {
     $("#edit_bone_files").prop("checked", false);
     $("#edit_news").prop("checked", false);
     $("#edit_users").prop("checked", false);
-}
+};
+
+
+async function getUsersSelect() {
+    try {
+        let usersData = await getUsersDb();
+        $("#load-users-select").find('option').not(':first').remove();
+
+        $.each(usersData, (index, user) => {
+            $("#load-users-select").append(`<option value='${user.email}'>${user.email}</option>`);
+        });
+    } catch (error) {
+        console.error("Error obteniendo los usuarios:", error);
+    }
+};
+
+
+function loadImage(event) {
+    const input = event.target;
+    const reader = new FileReader();
+  
+    reader.onloadend = async function () {
+      const base64String = reader.result;
+  
+      const img = $(input).siblings("img");
+      img.attr("src", base64String);
+      img.show();
+  
+    };
+  
+    reader.readAsDataURL(input.files[0]);
+};
