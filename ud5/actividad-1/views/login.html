@@ -123,8 +123,9 @@
             <label for="email">Correu<span class="mandatory">*</span></label>
             <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" placeholder="Email" required>
 
-            <label for="password">Contrasenya<span class="mandatory">*</span></label>
-            <input type="password" id="password" name="password" required aria-required="true" autocomplete="current-password" placeholder="Contrasenya" pattern=[A-Za-z0-9\s\.]{8,20} required>
+           <label for="password">Contraseña<span class="mandatory">*</span></label>
+<input type="password" id="password" name="password" required aria-required="true" autocomplete="current-password" placeholder="Contraseña" required>
+<div id="password-error" style="color: red; display: none;">La contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, una minúscula, un número y un carácter especial.</div>
 
             <small class="error" id="error">Incorrect username or password</small>
 
@@ -176,8 +177,8 @@
       <script src="../js/logout.js"></script>
       <script src="../js/img-profile-change.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-      <script src="../js/user-existence.js"></script>
-      <script src="../js/check-user.js"></script>
+      <script type="module" src="../js/user-existence.js"></script>
+      <script type="module" src="../js/check-user.js"></script>
       <script src="../js/desplegable.js"></script>
       <script src="../js/desplegable-accessibility.js"></script>
       <script src="../js/desplegable-profile.js"></script>

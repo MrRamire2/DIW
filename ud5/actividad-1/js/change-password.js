@@ -1,7 +1,14 @@
+import { getUsersDb, updateUserPassword } from "../firebase/firebase-connect.js";
+
 const password = document.getElementById("password");
 const newPassword = document.getElementById("new-password");
 const submit = document.getElementById("submit");
 const error = document.getElementById("error");
+
+function isValidPassword(password) {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&.]{8,}$/;
+    return passwordRegex.test(password);
+}
 
 submit.addEventListener("click", () => {
     comparePassword(password.value, newPassword.value);
@@ -10,43 +17,48 @@ submit.addEventListener("click", () => {
 visible(password);
 visible(newPassword);
 
-function comparePassword(password, newPassword) {
-    if (password === newPassword) {
-        // Obtener datos del usuario actual
-        let user_log = JSON.parse(localStorage.getItem("users_log")) || null;
-        let users = JSON.parse(localStorage.getItem("users")) || [];
+async function comparePassword(password, newPassword) {
+    if (!isValidPassword(newPassword)) {
+        error.textContent = "La nueva contraseña debe tener al menos 8 caracteres, incluir una letra mayúscula, una minúscula, un número y un carácter especial.";
+        error.classList.remove("invisible");
+        error.classList.add("visible");
+        return;
+    }
 
-        if (!user_log) {
+    if (password === newPassword) {
+        let email_user_log = JSON.parse(localStorage.getItem("users_log")) || null;
+        if (!email_user_log) {
             console.error("No hay un usuario logueado.");
             return;
         }
 
-        let user_id = user_log["id"];
-        const salt = user_log["password_salt"]; 
+        const userId = email_user_log;
+        try {
+            let users = await getUsersDb();
+            let userFound = false;
 
-        // Encriptar la nueva contraseña
-        const saltedPassword = password + salt;
-        const hash = CryptoJS.SHA256(saltedPassword).toString();
+            for (let user of users) {
+                if (user["id"] === userId) {
+                    const saltedPassword = password + user["password_salt"];
+                    const hash = CryptoJS.SHA256(saltedPassword).toString();
 
-        let userFound = false;
+                    user["password_hash"] = hash;
+                    user["is_first_login"] = 0;
+                    userFound = true;
 
-        users.forEach(user => {
-            if (user["id"] === user_id) {
-                user["password_hash"] = hash;
-                user["is_first_login"] = 0;
-                userFound = true;
+                    await updateUserPassword(user);
+                }
             }
-        });
 
-        if (userFound) {
-            // Guardar cambios en localStorage
-            localStorage.setItem('users', JSON.stringify(users));
-            window.location.href = "../index.html";
-        } else {
-            console.error("Usuario no encontrado en la lista.");
+            if (userFound) {
+                window.location.href = "../index.html";
+            } else {
+                console.error("Usuario no encontrado en la base de datos.");
+            }
+        } catch (err) {
+            console.error("Error al obtener los usuarios:", err);
         }
     } else {
-        // Mostrar error si las contraseñas no coinciden
         error.classList.remove("invisible");
         error.classList.add("visible");
     }

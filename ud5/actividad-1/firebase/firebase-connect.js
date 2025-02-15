@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, query, orderBy, setDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js"
+import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, query, orderBy, setDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -64,20 +64,24 @@ export const updateId = (newsId) => {
 export const saveUsers = async (newsJson, id) => {
   try {
     const users = await getUsersDb();
-
     const userExists = users.some(user => user.id === id);
-    if (userExists) {
+
+    if (userExists && $("#add-user").text() === "Editar usuario") {
+      if (confirm("¿Desea sobrescribir el usuario?")) {
+        await setDoc(doc(db, "users", id), newsJson);
+        return "Documento guardado exitosamente";
+      }
+    } else if (userExists) {
       return "Error: La ID ya está en uso (duplicada)";
     }
-
-
-    await setDoc(doc(db, "users", id), newsJson);
+    await setDoc(doc(db, "users", id), newsJson); 
     return "Documento guardado exitosamente";
   } catch (error) {
     console.error("Error al guardar los datos:", error);
     return "Error al guardar los datos";
   }
 };
+
 
 
 export const getUsersDb = async () => {
@@ -89,3 +93,30 @@ export const getUsersDb = async () => {
     ...doc.data(),
   }));
 };
+
+
+export async function deleteUserById(userId) {
+  try {
+      const userDocRef = doc(db, "users", userId);
+      
+      await deleteDoc(userDocRef);
+      console.log("Usuario eliminado correctamente.");
+  } catch (error) {
+      console.error("Error eliminando el usuario: ", error);
+  }
+}
+
+
+export async function updateUserPassword(user) {
+  try {
+      const userDocRef = doc(db, "users", user.id);
+      await updateDoc(userDocRef, {
+          password_hash: user.password_hash,
+          password_salt: user.password_salt,
+          is_first_login: 0
+      });
+      console.log("Contraseña actualizada exitosamente.");
+  } catch (err) {
+      console.error("Error actualizando la contraseña:", err);
+  }
+}
