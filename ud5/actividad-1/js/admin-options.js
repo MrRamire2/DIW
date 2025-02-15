@@ -33,10 +33,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     editNews.addEventListener("click", () => {
-        document.location.href = "../views/news-edit.html";
+        document.location.href = "./views/news-edit.html";
     });
 
     editUsers.addEventListener("click", () => {
-        document.location.href = "../views/users-edit.html";
+        document.location.href = "./views/users-edit.html";
     });
 });
