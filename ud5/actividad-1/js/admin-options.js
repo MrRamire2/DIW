@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", async function () {
                 if (user.id === email_user_log) {
                     userFound = true;
 
-                    editUsers.style.display = user.edit_users === true ? "flex" : "none";
-                    editNews.style.display = user.edit_news === true ? "flex" : "none";
-                    editBoneFiles.style.display = user.edit_bone_files === true ? "flex" : "none";
+                    editUsers.style.display = user.edit_users ? "flex" : "none";
+                    editNews.style.display = user.edit_news ? "flex" : "none";
+                    editBoneFiles.style.display = user.edit_bone_files ? "flex" : "none";
 
                     break;
                 }
@@ -32,23 +32,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
-        const currentPath = window.location.pathname;
+    const basePath = "/DIW/ud5/actividad-1/";
 
-    if (currentPath.includes('index.html')) {
-        editNews.addEventListener("click", () => {
-            document.location.href = "views/news-edit.html";
-        });
+    editNews.addEventListener("click", () => {
+        document.location.href = `${basePath}views/news-edit.html`;
+    });
 
-        editUsers.addEventListener("click", () => {
-            document.location.href = "views/users-edit.html";
-        });
-    } else {
-        editNews.addEventListener("click", () => {
-            document.location.href = "./news-edit.html";
-        });
-    
-        editUsers.addEventListener("click", () => {
-            document.location.href = "./users-edit.html";
-        });
-    }
+    editUsers.addEventListener("click", () => {
+        document.location.href = `${basePath}views/users-edit.html`;
+    });
 });
