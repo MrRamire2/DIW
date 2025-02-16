@@ -44,11 +44,11 @@ document.addEventListener("DOMContentLoaded", async function () {
         });
     } else {
         editNews.addEventListener("click", () => {
-            document.location.href = "news-edit.html";
+            document.location.href = "../news-edit.html"; // Subir un nivel
         });
     
         editUsers.addEventListener("click", () => {
-            document.location.href = "users-edit.html";
+            document.location.href = "../users-edit.html"; // Subir un nivel
         });
     }
 });
