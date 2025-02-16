@@ -35,22 +35,20 @@ document.addEventListener("DOMContentLoaded", async function () {
         const currentPath = window.location.pathname;
 
     if (currentPath.includes('index.html')) {
-        // Si estamos en index.html
         editNews.addEventListener("click", () => {
-            document.location.href = "views/news-edit.html"; // Correcta para index.html
+            document.location.href = "views/news-edit.html";
         });
 
         editUsers.addEventListener("click", () => {
-            document.location.href = "views/users-edit.html"; // Correcta para index.html
+            document.location.href = "views/users-edit.html";
         });
     } else {
-        // Si estamos en cualquier otra página (como portfolio.html)
         editNews.addEventListener("click", () => {
-            document.location.href = "../views/news-edit.html"; // Subir un nivel
+            document.location.href = "../news-edit.html";
         });
 
         editUsers.addEventListener("click", () => {
-            document.location.href = "../views/users-edit.html"; // Subir un nivel
+            document.location.href = "../users-edit.html";
         });
     }
 });
