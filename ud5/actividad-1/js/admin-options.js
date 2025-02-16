@@ -37,6 +37,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     editUsers.addEventListener("click", () => {
-        document.location.href = "./views/users-edit.html";
+        document.location.href = "../views/users-edit.html";
     });
 });
