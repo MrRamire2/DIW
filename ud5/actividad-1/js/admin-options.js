@@ -32,11 +32,21 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
-    editNews.addEventListener("click", () => {
-        document.location.href = "views/news-edit.html";
-    });
-
-    editUsers.addEventListener("click", () => {
-        document.location.href = "views/users-edit.html";
-    });
+    if (currentPath.includes('index.html')) {
+        editNews.addEventListener("click", () => {
+            document.location.href = "views/news-edit.html";
+        });
+    
+        editUsers.addEventListener("click", () => {
+            document.location.href = "views/users-edit.html";
+        });
+    } else {
+        editNews.addEventListener("click", () => {
+            document.location.href = "news-edit.html";
+        });
+    
+        editUsers.addEventListener("click", () => {
+            document.location.href = "users-edit.html";
+        });
+    }
 });
