@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, updateDoc, doc, query, orderBy, setDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js"
+import { getFirestore, getDoc, collection, addDoc, getDocs, updateDoc, doc, query, orderBy, setDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -118,5 +118,17 @@ export async function updateUserPassword(user) {
       console.log("Contraseña actualizada exitosamente.");
   } catch (err) {
       console.error("Error actualizando la contraseña:", err);
+  }
+}
+
+
+export async function getUserById(id) {
+  const snap = await getDoc(doc(db, "users", id));
+
+  if (snap.exists()) {
+    return snap;
+  }
+  else {
+    console.log("Usuario no encontrado.");
   }
 }
