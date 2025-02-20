@@ -10,11 +10,13 @@ $(async function () {
     let img_por_defecto = "";
 
     console.log(window.location.pathname);
-    if (["/index.html"].includes(window.location.pathname)) {
+
+    if (window.location.pathname === "/index.html") {
         img_por_defecto = "./images/users/default.png";
     } else {
         img_por_defecto = "../images/users/default.png";
     }
+    
 
     if (src_img == "") {
         $('#img-profile-logout').attr('src', img_por_defecto);
