@@ -7,7 +7,12 @@ $(async function () {
 
     const src_img = userData.data().profile_url;
 
-    const img_default = "../images/users/default.png";
+    if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
+        const img_default = "./images/users/default.png";
+    } else {
+        const img_default = "../images/users/default.png";
+    }
+    
 
     if (src_img == "") {
         $('#img-profile-logout').attr('src', img_default);
