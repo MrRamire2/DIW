@@ -113,7 +113,7 @@ export async function updateUserPassword(user) {
       await updateDoc(userDocRef, {
           password_hash: user.password_hash,
           password_salt: user.password_salt,
-          is_first_login: 0
+          is_first_login: 1
       });
       console.log("Contraseña actualizada exitosamente.");
   } catch (err) {
