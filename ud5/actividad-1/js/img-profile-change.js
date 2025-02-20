@@ -14,7 +14,7 @@ $(async function () {
 
     if (window.location.pathname.includes("/index.html")) {
         img_default = "./images/users/default.png";
-        img_user = src_img;
+        img_user = src_img.slice(1);
     } else {
         img_default = "../images/users/default.png";
         img_user = src_img;
