@@ -33,24 +33,24 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // PARA EL GITHUB
-    // const basePath = "/DIW/ud5/actividad-1/";
+    const basePath = "/DIW/ud5/actividad-1/";
 
-    // editNews.addEventListener("click", () => {
-    //     document.location.href = `${basePath}views/news-edit.html`;
-    // });
-
-    // editUsers.addEventListener("click", () => {
-    //     document.location.href = `${basePath}views/users-edit.html`;
-    // });
-
-
-    // PARA EL EDITAR EL CÓDIGO
     editNews.addEventListener("click", () => {
-        document.location.href = "../views/news-edit.html";
+        document.location.href = `${basePath}views/news-edit.html`;
     });
 
     editUsers.addEventListener("click", () => {
-        document.location.href = "../views/users-edit.html";
+        document.location.href = `${basePath}views/users-edit.html`;
     });
+
+
+    // PARA EL EDITAR EL CÓDIGO
+    // editNews.addEventListener("click", () => {
+    //     document.location.href = "../views/news-edit.html";
+    // });
+
+    // editUsers.addEventListener("click", () => {
+    //     document.location.href = "../views/users-edit.html";
+    // });
 
 });
