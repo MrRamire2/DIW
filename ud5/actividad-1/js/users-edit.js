@@ -64,8 +64,8 @@ $("#load-users").on("click", async () => {
             $("#edit_users").prop("checked", user.edit_users);
 
 
-            $("#add-user").text('Añadir usuario');
-            $("#delete-user").css("display", "none");
+            $("#add-user").text('Editar usuario');
+            $("#delete-user").css("display", "block");
         }
       });
 });
@@ -112,13 +112,15 @@ function clearInputs() {
     $("#edit_bone_files").prop("checked", false);
     $("#edit_news").prop("checked", false);
     $("#edit_users").prop("checked", false);
-
-    $("#add-user").text('Añadir usuario');
+            
+    $("#add-user").text('Editar usuario');
     $("#delete-user").css("display", "none");
+
 };
 
 
 async function getUsersSelect() {
+    clearInputs();
     try {
         let usersData = await getUsersDb();
         $("#load-users-select").find('option').not(':first').remove();
