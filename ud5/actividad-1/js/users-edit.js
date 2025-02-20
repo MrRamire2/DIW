@@ -64,8 +64,8 @@ $("#load-users").on("click", async () => {
             $("#edit_users").prop("checked", user.edit_users);
 
 
-            $("#add-user").text('Editar usuario');
-            $("#delete-user").css("display", "block");
+            $("#add-user").text('Añadir usuario');
+            $("#delete-user").css("display", "none");
         }
       });
 });
