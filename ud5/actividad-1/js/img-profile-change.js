@@ -10,7 +10,7 @@ $(async function () {
     let img_default = "";
     let img_user ="";
 
-    console.log(src_img);
+    console.log(src_img + "hola");
 
     if (window.location.pathname.includes("/index.html")) {
         img_default = "./images/users/default.png";
