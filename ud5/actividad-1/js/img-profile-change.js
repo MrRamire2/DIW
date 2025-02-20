@@ -16,7 +16,7 @@ $(async function () {
         img_default = "../images/users/default.png";
     }
 
-    if (!src_img) {  // Verifica si src_img es undefined, null o una cadena vacía
+    if (src_img == "") {
         $('#img-profile-logout').attr('src', img_default);
     } else {
         $('#img-profile-logout').attr('src', src_img);
