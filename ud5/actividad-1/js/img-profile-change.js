@@ -1,18 +1,17 @@
 import { getUserById } from "../firebase/firebase-connect.js";
 
-$(async function() {
+$(async function () {
     const user = localStorage.getItem('users_log');
 
-const userData = await getUserById(user.replaceAll('"', ''));
+    const userData = await getUserById(user.replaceAll('"', ''));
 
-console.log(userData.data().profile_url);
+    const src_img = userData.data().profile_url;
 
+    const img_default = "../images/users/default.png";
+
+    if (src_img == "") {
+        $('#img-profile-logout').attr('src', img_default);
+    } else {
+        $('#img-profile-logout').attr('src', src_img);
+    }
 });
-
-
-
-
-
-// if (userLog !== null) {
-//     imgProfile.src = userLog["profile_url"];
-// }
