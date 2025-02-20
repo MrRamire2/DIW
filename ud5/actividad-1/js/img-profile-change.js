@@ -7,7 +7,7 @@ $(async function () {
 
     const src_img = userData.data().profile_url;
 
-    const img_default = "";
+    let img_default = "";
 
     console.log(window.location.pathname);
     if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
