@@ -10,7 +10,7 @@ $(async function () {
     let img_por_defecto = "";
 
     console.log(window.location.pathname);
-    if (["/", "/index.html"].includes(window.location.pathname)) {
+    if (["/index.html"].includes(window.location.pathname)) {
         img_por_defecto = "./images/users/default.png";
     } else {
         img_por_defecto = "../images/users/default.png";
