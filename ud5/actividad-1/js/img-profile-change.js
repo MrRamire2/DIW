@@ -7,17 +7,17 @@ $(async function () {
 
     const src_img = userData.data().profile_url;
 
-    let img_default = "";
+    let img_por_defecto = "";
 
     console.log(window.location.pathname);
     if (["/", "/index.html"].includes(window.location.pathname)) {
-        img_default = "./images/users/default.png";
+        img_por_defecto = "./images/users/default.png";
     } else {
-        img_default = "../images/users/default.png";
+        img_por_defecto = "../images/users/default.png";
     }
 
     if (src_img == "") {
-        $('#img-profile-logout').attr('src', img_default);
+        $('#img-profile-logout').attr('src', img_por_defecto);
     } else {
         $('#img-profile-logout').attr('src', src_img);
     }
