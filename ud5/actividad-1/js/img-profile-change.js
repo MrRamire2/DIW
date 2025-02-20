@@ -9,6 +9,7 @@ $(async function () {
 
     const img_default = "";
 
+    console.log(window.location.pathname);
     if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
         img_default = "./images/users/default.png";
     } else {
