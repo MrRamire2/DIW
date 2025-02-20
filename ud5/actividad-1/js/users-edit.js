@@ -112,6 +112,9 @@ function clearInputs() {
     $("#edit_bone_files").prop("checked", false);
     $("#edit_news").prop("checked", false);
     $("#edit_users").prop("checked", false);
+
+    $("#add-user").text('Añadir usuario');
+    $("#delete-user").css("display", "none");
 };
 
 
