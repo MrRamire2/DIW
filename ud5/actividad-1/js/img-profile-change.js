@@ -10,14 +10,13 @@ $(async function () {
     let img_default = "";
 
     console.log(window.location.pathname);
-    if (window.location.pathname === "/" || window.location.pathname === "/index.html") {
+    if (["/", "/index.html"].includes(window.location.pathname)) {
         img_default = "./images/users/default.png";
     } else {
         img_default = "../images/users/default.png";
     }
-    
 
-    if (src_img == "") {
+    if (!src_img) {  // Verifica si src_img es undefined, null o una cadena vacía
         $('#img-profile-logout').attr('src', img_default);
     } else {
         $('#img-profile-logout').attr('src', src_img);
