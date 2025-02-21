@@ -1,0 +1,18 @@
+main > section{
+    display: flex;
+}
+
+main section > article{
+    display: flex;
+    flex-direction: row;
+}
+
+main section .completo{
+    min-width: 100%;
+}
+
+main section > article > .medio{
+    width: 50%;
+    margin: 10px;
+    min-width: auto !important;
+}

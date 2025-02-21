@@ -43,6 +43,18 @@ export const getNewsDb = async () => {
 };
 
 
+export async function getNewsById(id) {
+  const snap = await getDoc(doc(db, "news", id));
+
+  if (snap.exists()) {
+    return snap;
+  }
+  else {
+    console.log("Noticia no encontrada.");
+  }
+}
+
+
 export const updateNews = async (id, newsJson) => {
   try {
     const newsRef = doc(db, "news", id);

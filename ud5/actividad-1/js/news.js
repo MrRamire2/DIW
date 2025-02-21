@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       let titulo = news.title;
       let descripcion = "";
       let imagen = "";
+      let id = news.id;
 
       let imagenValidator = true;
       let descripcionValidator = true;
@@ -38,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       
     const newContent = `
-    <section onclick="window.location.href='./news-page.html';" class="card-container">
+    <section onclick="window.location.href='./news-page.html?q=${id}';" class="card-container">
       <section class="card-image-container">
         <img class="card-image" src="${imagen}" alt="POR AÑADIR">
       </section>
