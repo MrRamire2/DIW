@@ -1,0 +1,2 @@
+npx tailwindcss -i ./tailwind/input.css -o ./tailwind/output.css --watch
+tailwind da errores si la version es muy nueva, lo mejor es la 3.algo y el node en la 20.algo
