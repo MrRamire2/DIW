@@ -250,7 +250,6 @@ function getData() {
 
     newJson[index + 1] = rowData;
   });
-  console.log(newJson)
   return newJson;
 }
 
@@ -273,8 +272,9 @@ async function saveToDb(newJson) {
     state = 0;
   }
 
-  let newsStorage = createStandardizedJson(title, user_logged["name"], newJson, state);
+  let newsStorage = createStandardizedJson(title, user_logged, newJson, state);
 
+  console.log(newsStorage)
   const news = await saveNews(newsStorage);
   const newsId = news.id;
   //hacer update para añadir id al documento
