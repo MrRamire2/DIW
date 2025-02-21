@@ -45,12 +45,12 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
     // PARA EL EDITAR EL CÓDIGO
-    editNews.addEventListener("click", () => {
-        document.location.href = "../views/news-edit.html";
-    });
+    // editNews.addEventListener("click", () => {
+    //     document.location.href = "../views/news-edit.html";
+    // });
 
-    editUsers.addEventListener("click", () => {
-        document.location.href = "../views/users-edit.html";
-    });
+    // editUsers.addEventListener("click", () => {
+    //     document.location.href = "../views/users-edit.html";
+    // });
 
 });
