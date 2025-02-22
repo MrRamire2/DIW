@@ -7,8 +7,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     const news = await getNewsById(id);
 
     const title = news.data().title;
+    const author = news.data().author;
+    const date = news.data().date.substr(0, 10);
     const allContent = news.data().content;
-
 
     let article = "";
 
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     })
 
     $("#title").html(title);
+    $("#author").html(author + " | " + date);
     $("#container").html(article);
 
     $(".articulo").each(function() {

@@ -48,12 +48,12 @@ img.medio{
 
 img.left{
     float: left;
-    margin-right: 20px;
+    padding-right: 20px;
 }
 
 img.right{
     float: right;
-    margin-left: 20px;
+    padding-left: 20px;
 }
 
 main section > article > img{
@@ -61,6 +61,22 @@ main section > article > img{
     height: 100%;
     object-fit: cover;
     float: left;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px 20px;
+}
+
+.header #title{
+    margin: 0;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.header #author{
+    font-style: italic;
 }
 
 
@@ -81,11 +97,11 @@ main section > article > img{
 
     img.left{
         float: none;
-        margin-right: 0px;
+        padding-right: 0px;
     }
     
     img.right{
         float: right;
-        margin-left: 0px;
+        padding-left: 0px;
     }
 }
