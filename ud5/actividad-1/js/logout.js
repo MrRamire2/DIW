@@ -14,15 +14,11 @@ if (userLog === null) {
 }else {
     login.style.display = "none";
     logout.style.display = "block"; 
-    imgProfile.src = userLog.profile_url;
 }
 
 // Agregar el evento de logout
 logoutbtn.addEventListener("click", () => {
-    // Limpiar el 'users_log' de localStorage (cerrar sesión)
     localStorage.removeItem('users_log');
-    
-    // Cambiar la imagen de perfil y redirigir al login
     imgProfile.src = "./images/login.png";
 
     if (document.location.href.includes("index.html")) {
