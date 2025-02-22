@@ -58,7 +58,7 @@ $("#load-users").on("click", async () => {
             $("#name").val(user.name);
             $("#email").val(user.email);
             $("#password").val("");
-            $("#image").attr("src");
+            $("#image").attr("src", user.profile_url);
             $("#edit_bone_files").prop("checked", user.edit_bone_files);
             $("#edit_news").prop("checked", user.edit_news);
             $("#edit_users").prop("checked", user.edit_users);

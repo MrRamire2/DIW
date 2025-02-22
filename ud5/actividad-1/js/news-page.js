@@ -9,13 +9,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     const title = news.data().title;
     const allContent = news.data().content;
 
-    // let article = "";
-    // let classImg = "m-auto float-none w-11/12 md:float-left md:w-2/3 md:my-3 md:ml-3 md:mr-6";
-    // let classP = "m-3";
 
     let article = "";
-    let classImg = "completo";
-    let classP = "completo";
 
     $.each(allContent, (i, row) => {
         article += "<article class='articulo'>";
@@ -43,7 +38,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
         });
         article += "</article>";
-    
     })
 
     $("#title").html(title);
