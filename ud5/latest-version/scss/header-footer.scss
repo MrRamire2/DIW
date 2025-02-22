@@ -92,6 +92,7 @@ header > div{
 .login img, .logout img, .nav-mobile img {
   width: 50px;
   transition: all 100ms;
+  border-radius: 10px;
 }
 
 .login img:hover, .nav-mobile img:hover {
