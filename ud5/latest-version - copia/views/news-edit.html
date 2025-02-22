@@ -4,16 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post editor</title>
+
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="../scss/news-edit.css">
   <link rel="stylesheet" href="../tailwind/output.css">
   <link rel="stylesheet" href="../scss/header-footer.css">
-  <link rel="stylesheet" href="../scss/news-page.css">
-  <link rel="stylesheet" href="../scss/news.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&" />
   <title>News</title>
 </head>
 
-<body class="flex h-full">
+<body>
   <header>
     <!-- Logo del sitio -->
     <div class="header-logo">
@@ -24,38 +26,38 @@
 
     <!--Logueo -->
     <div id="login" class="login">
-      <a href="../views/login.html"><img id="img-profile" src="../images/login.png"/></a>
-  </div>
-  <div id="logout" class="logout">
-      <img id="img-profile-logout" src=""/>
+      <a href="../views/login.html"><img id="img-profile" src="../images/login.png" /></a>
+    </div>
+    <div id="logout" class="logout">
+      <img id="img-profile-logout" src="" />
       <ul id="profile-menu" class="profile-menu">
-          <li>
-              <button class="selected" id="profile-btn">
-                  <span class="nombre-button">Profile</span>
-              </button>
-          </li>
-          <li>
-              <button class="selected" id="logout-btn">
-                  <span class="nombre-button">Logout</span>
-              </button>
-          </li>
-          <li>
-            <button class="selected admin" id="edit-users">
-                <span class="nombre-button">Edit users</span>
-            </button>
+        <li>
+          <button class="selected" id="profile-btn">
+            <span class="nombre-button">Profile</span>
+          </button>
         </li>
         <li>
-            <button class="selected admin" id="edit-news">
-                <span class="nombre-button">Edit news</span>
-            </button>
+          <button class="selected" id="logout-btn">
+            <span class="nombre-button">Logout</span>
+          </button>
         </li>
         <li>
-            <button class="selected admin" id="edit-bone-files">
-                <span class="nombre-button">Edit bone files</span>
-            </button>
+          <button class="selected admin" id="edit-users">
+            <span class="nombre-button">Edit users</span>
+          </button>
         </li>
-    </ul>
-</div>
+        <li>
+          <button class="selected admin" id="edit-news">
+            <span class="nombre-button">Edit news</span>
+          </button>
+        </li>
+        <li>
+          <button class="selected admin" id="edit-bone-files">
+            <span class="nombre-button">Edit bone files</span>
+          </button>
+        </li>
+      </ul>
+    </div>
 
     <!-- Menú de navegación ordenador-->
     <nav class="nav-desktop">
@@ -151,34 +153,51 @@
     </section>
   </aside>
 
-  <main class="gap-4 p-4 flex-grow">
+  <main>
+    <div class="toolbox">
+      <h3>Editor de noticias</h3>
+      <div class="tool" data-type="paragraph">Párrafo</div>
+      <div class="tool" data-type="image">Imagen</div>
 
-    <article class="flex flex-wrap lg:max-w-5xl">
+      <div class="news-select">
+        <select id="load-news-select">
+          <option value="0" hidden selected>Seleccionar noticia</option>
+        </select>
+        <button id="load-news">Cargar Configuración</button>
+      </div>
+    </div>
 
-      <h2 id="title" class="text-4xl text-rich-black m-10 ml-3 mr-3">Les relíquies de l’institut Joan Ramis de Maó ‘conten’ com era la vida acadèmica de fa segle i mig</h2>
+    <div class="builder" id="builder">
+      <div class="row-container"></div>
+    </div>
 
-      <section id="container" class="content-center">
+    <div class="options">
 
-        <img class="completo" src="../images/noticias/1.jpg" alt="whale spine">
-
-        <p class="m-3">Un esquelet, un mico, una cria de vell marí, són algunes de les relíquies que es poden trobar a l’aula museu
-          de l’institut de secundària de Maó, Joan Ramis i Ramis. Avui s’ha obert a visites concertades el seu fons
-          cultural i històric del centre, amb 159 anys d’història, que es va decidir museïtzar per poder mostrar
-          objectes com els que hi havia a l’antiga Escola Nàutica, fundada el 1855, i que va ser el primer centre
-          oficial d’ensenyament de secundària a l’illa.</p>   
-
-        <p class="m-3">Els alumnes de l’assignatura de Cooperació i Serveis a la Comunitat i els de Patrimoni s’encarreguen de fer
-          la visita guiada. Es deté en elements com els ossos d’una balena que es va trobar el 1912 a l’illa de l’Aire.
-          L’esquelet espera l’arribada de diners i de temps millors perquè es pugui muntar. El centre reclama l’ajuda de
-          la Conselleria per poder donar continuïtat al projecte.</p>
-
-        <p class="m-3">Si arriben diners i recursos, el museu es podria obrir en el futur al públic en general al marge de l’horari
-          lectiu.</p>
-
-      </section>
-
-    </article>
-
+      <div class="options-form">
+        <div>
+          <label for="column-choice">Número de columnas por fila:</label>
+          <select class="column-choice" id="column-choice">
+            <option value="1">1 columna</option>
+            <option value="2">2 columnas</option>
+          </select>
+        </div>
+        <div>
+          <label for="title">Titulo:</label>
+          <input type="text" id="title" />
+        </div>
+      
+        <div>
+          <label for="state">Publicar:</label>
+          <input class="state-checkbox" type="checkbox" id="state">
+        </div>
+      </div>
+      
+      <div class="options-button">
+      <button id="add-row">Añadir Fila</button>
+      <button id="upload-news">Subir Configuración</button>
+      <button id="delete-news">Eliminar</button>
+    </div>
+    </div>
   </main>
 
   <footer>
@@ -238,14 +257,19 @@
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script type="module" src="../js/news-page.js"></script>
-  <script type="module" src="../js/img-profile-change.js"></script>
+    <script type="module" src="../js/img-profile-change.js"></script>
   <script type="module" src="../js/admin-options.js"></script>
   <script src="../js/logout.js"></script>
   <script src="../js/desplegable.js"></script>
   <script src="../js/desplegable-accessibility.js"></script>
   <script src="../js/desplegable-profile.js"></script>
 
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
+    integrity="sha384-SStJQoPipVtHHnIgUfDI+jTAbSyU+HMbhwt2XRRNpLIRFg9VguopT6Y4+cdOlkqg"
+    crossorigin="anonymous"></script>
+  <script type="module" src="../js/news-edit.js"></script>
 </body>
 
 </html>

@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../tailwind/output.css">
   <link rel="stylesheet" href="../scss/header-footer.css">
-  <link rel="stylesheet" href="../scss/news-page.css">
   <link rel="stylesheet" href="../scss/news.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&" />
@@ -151,33 +150,60 @@
     </section>
   </aside>
 
-  <main class="gap-4 p-4 flex-grow">
+  <main id="news-container" class="flex flex-wrap gap-4 justify-center content-center p-4 flex-grow h-full">
 
-    <article class="flex flex-wrap lg:max-w-5xl">
-
-      <h2 id="title" class="text-4xl text-rich-black m-10 ml-3 mr-3">Les relíquies de l’institut Joan Ramis de Maó ‘conten’ com era la vida acadèmica de fa segle i mig</h2>
-
-      <section id="container" class="content-center">
-
-        <img class="completo" src="../images/noticias/1.jpg" alt="whale spine">
-
-        <p class="m-3">Un esquelet, un mico, una cria de vell marí, són algunes de les relíquies que es poden trobar a l’aula museu
-          de l’institut de secundària de Maó, Joan Ramis i Ramis. Avui s’ha obert a visites concertades el seu fons
-          cultural i històric del centre, amb 159 anys d’història, que es va decidir museïtzar per poder mostrar
-          objectes com els que hi havia a l’antiga Escola Nàutica, fundada el 1855, i que va ser el primer centre
-          oficial d’ensenyament de secundària a l’illa.</p>   
-
-        <p class="m-3">Els alumnes de l’assignatura de Cooperació i Serveis a la Comunitat i els de Patrimoni s’encarreguen de fer
-          la visita guiada. Es deté en elements com els ossos d’una balena que es va trobar el 1912 a l’illa de l’Aire.
-          L’esquelet espera l’arribada de diners i de temps millors perquè es pugui muntar. El centre reclama l’ajuda de
-          la Conselleria per poder donar continuïtat al projecte.</p>
-
-        <p class="m-3">Si arriben diners i recursos, el museu es podria obrir en el futur al públic en general al marge de l’horari
-          lectiu.</p>
-
+    <section onclick="window.location.href='./news-page.html';" class="card-container">
+      <section class="card-image-container">
+        <img class="card-image" src="../images/noticias/1.jpg" alt="Museu de l'Educació">
       </section>
+      <article class="card-content">
+        <h2 class="card-title">Inaugurat es Museu de s’Educació</h2>
+        <p class="card-description">
+          Es nou Museu de s’Educació exposa materials històrics i recursos pedagògics que daten des segle XIX, un homenatge
+          al sistema educatiu.
+        </p>
+      </article>
+    </section>
+    
+    <section onclick="window.location.href='./news-page.html';" class="card-container">
+      <section class="card-image-container">
+        <img class="card-image" src="../images/noticias/2.jpg" alt="Esdeveniment històric de 1912">
+      </section>
+      <article class="card-content">
+        <h2 class="card-title">11 de desembre de l’any 1912</h2>
+        <p class="card-description">
+          Recordam s’esdeveniment històric de 1912 a Menorca: una sèrie de fets polítics i socials varen marcar sa vida
+          insular.
+        </p>
+      </article>
+    </section>
+    
+    <section onclick="window.location.href='./news-page.html';" class="card-container">
+      <section class="card-image-container">
+        <img class="card-image" src="../images/noticias/3.jpg" alt="Port de Maó">
+      </section>
+      <article class="card-content">
+        <h2 class="card-title">Problemes al port de Maó</h2>
+        <p class="card-description">
+          Es negocis des port de Maó han expressat sa seva preocupació per sa falta de manteniment a sa zona, que afecta
+          s’activitat econòmica.
+        </p>
+      </article>
+    </section>
+    
+    <section onclick="window.location.href='./news-page.html';" class="card-container">
+      <section class="card-image-container">
+        <img class="card-image" src="../images/noticias/4.jpg" alt="Balena històrica a Maó">
+      </section>
+      <article class="card-content">
+        <h2 class="card-title">Sa balena històrica de Maó</h2>
+        <p class="card-description">
+          L’any 1912, una balena va ser capturada i arrossegada fins al port de Maó, convertint-se en un fenomen històric de
+          gran interès local.
+        </p>
+      </article>
+    </section>
 
-    </article>
 
   </main>
 
@@ -238,13 +264,13 @@
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script type="module" src="../js/news-page.js"></script>
-  <script type="module" src="../js/img-profile-change.js"></script>
+    <script type="module" src="../js/img-profile-change.js"></script>
   <script type="module" src="../js/admin-options.js"></script>
   <script src="../js/logout.js"></script>
   <script src="../js/desplegable.js"></script>
   <script src="../js/desplegable-accessibility.js"></script>
   <script src="../js/desplegable-profile.js"></script>
+  <script  type="module" src="../js/news.js"></script>
 
 </body>
 

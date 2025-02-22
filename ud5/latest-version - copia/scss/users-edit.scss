@@ -1,0 +1,85 @@
+@import 'variables';
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  main {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .toolbox {
+    position: sticky;
+    top: 0;
+    padding: 10px;
+    min-width: 100%;
+    height: 100px;
+    background-color: rgba($color: $ecru, $alpha: 0.7);
+    z-index: 1;
+  }
+  .toolbox h3{
+    margin-bottom: 10px;
+  }
+  .toolbox select{
+    max-width: 300px;
+  }
+  .toolbox select, .form-edit input{
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: auto;
+    color: $rich-black;
+    background-color: $baby-powder;
+  }
+  input[type=checkbox] {
+    transform: scale(1.5);
+    margin: 5px;
+    width: 23px;
+    height: 23px; 
+    cursor: pointer;
+  }
+  .form-edit{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba($color: $ecru, $alpha: 0.7);
+    padding: 10px;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 5px;
+  }
+  .form-edit label{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+  }
+  .form-edit h2{
+    margin: 20px;
+    font-weight: bold;
+    font-size: large;
+    color: $rich-black;
+  }
+  .form-edit-checkbox{
+    flex-direction: row-reverse !important;
+    justify-content: left;
+  }
+  .form-edit-checkbox span{
+    margin-left: 10px;
+  }
+  .form-edit-button, .toolbox button{
+    margin: 5px 0;
+    padding: 10px;
+    color: $baby-powder;
+    background-color: $rich-black;
+    border-radius: 5px;
+    width: 150px;
+  }
+  .toolbox button{
+  padding: 5px 10px;
+  }
+  .form-edit-button-div{
+    display: flex;
+    justify-content: space-around;
+  }
+  .red{
+    background-color: rgb(113, 0, 0);
+  }

@@ -20,17 +20,25 @@ document.addEventListener("DOMContentLoaded", async function () {
     $.each(allContent, (i, row) => {
         article += "<article class='articulo'>";
         $.each(row, (j, content) => {
-            if (content.type === 'paragraph') {
-                if (j > 0) {
-                    article += `<p class="medio">${content.content}</p>`;
+            if (row.length > 1) {
+                if (content.type === 'paragraph') {
+                    if (j > 0) {
+                        article += `<p class="medio right">${content.content}</p>`;
+                    } else {
+                        article += `<p class="medio left">${content.content}</p>`;
+                    }
                 } else {
-                    article += `<p class="${classP}">${content.content}</p>`;
+                    if (j > 0) {
+                        article += `<img class="medio right" src="${content.src}" alt="Image">`;
+                    } else {
+                        article += `<img class="medio left" src="${content.src}" alt="Image">`;
+                    }
                 }
             } else {
-                if (j > 0) {
-                    article += `<img class="medio" src="${content.src}" alt="Image">`; 
+                if (content.type === 'paragraph') {
+                    article += `<p class="completo">${content.content}</p>`;
                 } else {
-                    article += `<img class="${classImg}" src="${content.src}" alt="Image">`; 
+                    article += `<img class="completo" src="${content.src}" alt="Image">`;
                 }
             }
         });
@@ -39,12 +47,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     })
 
     $("#title").html(title);
-
     $("#container").html(article);
 
     $(".articulo").each(function() {
-        if ($(this).find(".medio").length > 0) {
-            $(this).children().first().addClass("medio");
+        if ($(this).find("img.medio").length > 0) {
+            $(this).addClass("img");
         }
     });
 });
